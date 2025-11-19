@@ -51,7 +51,7 @@ export function ServicesOverview() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group bg-card-dark rounded-2xl p-6 sm:p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-lg hover:-translate-y-2 fade-in-card"
+              className="group bg-card-dark rounded-2xl p-6 sm:p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-xl hover:-translate-y-2 fade-in-card card-shine glow-intense"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Icon */}

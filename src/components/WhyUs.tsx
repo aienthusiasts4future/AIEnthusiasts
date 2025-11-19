@@ -44,7 +44,7 @@ export function WhyUs() {
           {pillars.map((pillar, index) => (
             <div
               key={index}
-              className="group bg-card-dark rounded-2xl p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-lg hover:-translate-y-1 fade-in-card"
+              className="group bg-card-dark rounded-2xl p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-xl hover:-translate-y-2 glow-intense card-shine fade-in-card"
               style={{ animationDelay: `${index * 150}ms` }}
             >
               {/* Icon */}

@@ -233,7 +233,7 @@ export function Header() {
               {/* Join Now Button */}
               <button
                 onClick={scrollToContact}
-                className="bg-accent hover:bg-accent-hover text-white font-semibold px-6 py-2 rounded-lg transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-accent/30 shadow-cyan-glow"
+                className="bg-accent hover:bg-accent-hover text-primary-light font-semibold px-6 py-2 rounded-lg transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-accent/30 shadow-cyan-glow-lg hover:shadow-cyan-glow-xl glow-intense"
               >
                 Join Now
               </button>
@@ -343,7 +343,7 @@ export function Header() {
           <div className="p-4 border-t border-accent/20">
             <button
               onClick={scrollToContact}
-              className="w-full bg-accent hover:bg-accent-hover text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-cyan-glow"
+              className="w-full bg-accent hover:bg-accent-hover text-primary-light font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-cyan-glow-lg hover:shadow-cyan-glow-xl glow-intense"
             >
               Join Now
             </button>

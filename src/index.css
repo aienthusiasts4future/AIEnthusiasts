@@ -11,6 +11,11 @@
 
   body {
     @apply text-text-light bg-primary;
+    background-image:
+      linear-gradient(rgba(0, 217, 163, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 217, 163, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: -1px -1px;
   }
 }
 
@@ -86,6 +91,64 @@
       opacity: 1;
     }
   }
+
+  .animated-gradient {
+    background: linear-gradient(
+      45deg,
+      #0a1f1f,
+      #0d2d2d,
+      #1a3838,
+      #0d2d2d
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .card-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 217, 163, 0.1),
+      transparent
+    );
+    transition: left 0.5s ease;
+  }
+
+  .card-shine:hover::before {
+    left: 100%;
+  }
+
+  .glow-intense {
+    transition: all 0.3s ease;
+  }
+
+  .glow-intense:hover {
+    filter: drop-shadow(0 0 20px rgba(0, 217, 163, 0.6));
+    transform: translateY(-2px);
+  }
 }
 
 /* Custom Slider Styles */
@@ -103,8 +166,8 @@ input[type='range'].slider::-webkit-slider-thumb {
 
 input[type='range'].slider::-webkit-slider-thumb:hover {
   background: #00f5b8;
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(0, 217, 163, 0.6), 0 0 20px rgba(0, 217, 163, 0.4);
+  transform: scale(1.15);
+  box-shadow: 0 4px 16px rgba(0, 217, 163, 0.8), 0 0 30px rgba(0, 217, 163, 0.6);
 }
 
 input[type='range'].slider::-moz-range-thumb {
@@ -120,8 +183,8 @@ input[type='range'].slider::-moz-range-thumb {
 
 input[type='range'].slider::-moz-range-thumb:hover {
   background: #00f5b8;
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(0, 217, 163, 0.6), 0 0 20px rgba(0, 217, 163, 0.4);
+  transform: scale(1.15);
+  box-shadow: 0 4px 16px rgba(0, 217, 163, 0.8), 0 0 30px rgba(0, 217, 163, 0.6);
 }
 
 input[type='range'].slider::-webkit-slider-runnable-track {

@@ -28,7 +28,7 @@ export function CTABand({ onCTAClick }: CTABandProps) {
           {/* CTA Button */}
           <button
             onClick={onCTAClick}
-            className="group inline-flex items-center justify-center gap-3 bg-white text-primary hover:bg-white/90 font-bold px-10 py-5 rounded-xl transition-all duration-300 hover:scale-105 shadow-cyan-glow-xl text-lg mb-6"
+            className="group inline-flex items-center justify-center gap-3 bg-white text-primary hover:bg-white/90 font-bold px-10 py-5 rounded-xl transition-all duration-300 hover:scale-110 shadow-cyan-glow-intense hover:shadow-[0_0_40px_rgba(255,255,255,0.5)] text-lg mb-6 glow-intense"
           >
             Schedule Your Discovery Call
             <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />

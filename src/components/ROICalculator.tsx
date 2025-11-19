@@ -45,7 +45,7 @@ export function ROICalculator() {
           </div>
 
           {/* Calculator Card */}
-          <div className="bg-card-dark rounded-2xl shadow-cyan-glow-lg p-6 sm:p-8 lg:p-12 border border-accent/20">
+          <div className="bg-card-dark rounded-2xl shadow-cyan-glow-xl p-6 sm:p-8 lg:p-12 border-2 border-accent/40 hover:border-accent hover:shadow-cyan-glow-intense transition-all duration-300 card-shine">
             {/* Input Controls */}
             <div className="space-y-8 mb-12">
               {/* Hours Per Week Slider */}

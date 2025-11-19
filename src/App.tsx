@@ -22,7 +22,7 @@ function App() {
       {/* Header */}
       <Header />
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-light to-card-dark min-h-screen flex items-center">
+      <section className="relative overflow-hidden animated-gradient min-h-screen flex items-center">
         {/* Geometric Pattern Background */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-64 h-64 border-2 border-white rounded-full"></div>
@@ -34,15 +34,15 @@ function App() {
           <div className="max-w-5xl mx-auto text-center fade-in">
             {/* Trust Badges */}
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-8 sm:mb-12">
-              <div className="flex items-center gap-2 bg-accent/10 backdrop-blur-sm px-4 py-2 rounded-full border border-accent/30">
+              <div className="flex items-center gap-2 bg-accent/20 backdrop-blur-sm px-4 py-2 rounded-full border-2 border-accent/50 shadow-cyan-glow glow-intense">
                 <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
                 <span className="text-white text-xs sm:text-sm font-medium">Security-First</span>
               </div>
-              <div className="flex items-center gap-2 bg-accent/10 backdrop-blur-sm px-4 py-2 rounded-full border border-accent/30">
+              <div className="flex items-center gap-2 bg-accent/20 backdrop-blur-sm px-4 py-2 rounded-full border-2 border-accent/50 shadow-cyan-glow glow-intense">
                 <Unlock className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
                 <span className="text-white text-xs sm:text-sm font-medium">Vendor-Agnostic</span>
               </div>
-              <div className="flex items-center gap-2 bg-accent/10 backdrop-blur-sm px-4 py-2 rounded-full border border-accent/30">
+              <div className="flex items-center gap-2 bg-accent/20 backdrop-blur-sm px-4 py-2 rounded-full border-2 border-accent/50 shadow-cyan-glow glow-intense">
                 <Users className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
                 <span className="text-white text-xs sm:text-sm font-medium">Full Enablement</span>
               </div>
@@ -63,7 +63,7 @@ function App() {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
               <button
                 onClick={scrollToForm}
-                className="group w-full sm:w-auto bg-accent hover:bg-accent-hover text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-cyan-glow-lg hover:shadow-cyan-glow-xl flex items-center justify-center gap-2"
+                className="group w-full sm:w-auto bg-accent hover:bg-accent-hover text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-cyan-glow-xl hover:shadow-cyan-glow-intense flex items-center justify-center gap-2 glow-intense"
               >
                 Book a Free Discovery Call
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -71,7 +71,7 @@ function App() {
 
               <button
                 onClick={scrollToForm}
-                className="group w-full sm:w-auto bg-transparent border-2 border-accent text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-accent/10 flex items-center justify-center gap-2"
+                className="group w-full sm:w-auto bg-transparent border-2 border-accent text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-accent/20 hover:shadow-cyan-glow-lg flex items-center justify-center gap-2 glow-intense"
               >
                 <Calculator className="w-5 h-5" />
                 Calculate Your ROI

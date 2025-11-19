@@ -20,9 +20,10 @@ export default {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
       boxShadow: {
-        'cyan-glow': '0 4px 20px rgba(0, 217, 163, 0.15)',
-        'cyan-glow-lg': '0 8px 30px rgba(0, 217, 163, 0.25)',
-        'cyan-glow-xl': '0 12px 40px rgba(0, 217, 163, 0.35)',
+        'cyan-glow': '0 4px 20px rgba(0, 217, 163, 0.2), 0 0 40px rgba(0, 217, 163, 0.1)',
+        'cyan-glow-lg': '0 8px 30px rgba(0, 217, 163, 0.35), 0 0 60px rgba(0, 217, 163, 0.15)',
+        'cyan-glow-xl': '0 12px 40px rgba(0, 217, 163, 0.5), 0 0 80px rgba(0, 217, 163, 0.2)',
+        'cyan-glow-intense': '0 0 30px rgba(0, 217, 163, 0.6), 0 0 60px rgba(0, 217, 163, 0.4), 0 0 90px rgba(0, 217, 163, 0.2)',
       },
     },
   },

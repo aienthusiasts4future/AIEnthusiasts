@@ -143,7 +143,7 @@ export function Footer() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-accent hover:bg-accent-hover disabled:bg-card-darker text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300 hover:scale-[1.02] disabled:hover:scale-100 flex items-center justify-center gap-2 shadow-cyan-glow"
+                  className="w-full bg-accent hover:bg-accent-hover disabled:bg-card-darker text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300 hover:scale-[1.02] disabled:hover:scale-100 flex items-center justify-center gap-2 shadow-cyan-glow-lg hover:shadow-cyan-glow-xl glow-intense"
                 >
                   {isSubmitting ? (
                     <>
