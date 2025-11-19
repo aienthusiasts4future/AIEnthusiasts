@@ -111,7 +111,7 @@ export function Header() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md' : 'bg-white'
+          isScrolled ? 'bg-primary/95 backdrop-blur-md shadow-cyan-glow' : 'bg-primary'
         }`}
       >
         <nav className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl">
@@ -120,7 +120,7 @@ export function Header() {
             <div className="flex-shrink-0">
               <button
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="text-xl font-bold text-primary hover:text-accent transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg px-2 py-1"
+                className="text-xl font-bold text-white hover:text-accent transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg px-2 py-1"
                 aria-label="AI Enthusiasts home"
               >
                 AI Enthusiasts
@@ -141,7 +141,7 @@ export function Header() {
                   }}
                   aria-expanded={aboutDropdownOpen}
                   aria-haspopup="true"
-                  className="flex items-center gap-1 text-gray-700 hover:text-primary font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg px-3 py-2"
+                  className="flex items-center gap-1 text-white hover:text-accent font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg px-3 py-2"
                 >
                   About
                   <ChevronDown
@@ -151,14 +151,14 @@ export function Header() {
 
                 {aboutDropdownOpen && (
                   <div
-                    className="absolute top-full mt-2 right-0 w-48 bg-white rounded-lg shadow-lg border border-gray-100 py-2 animate-dropdown"
+                    className="absolute top-full mt-2 right-0 w-48 bg-card-dark rounded-lg shadow-cyan-glow border border-accent/20 py-2 animate-dropdown"
                     role="menu"
                     aria-orientation="vertical"
                   >
                     <a
                       href="#services"
                       onClick={closeDropdowns}
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors focus:outline-none focus:bg-gray-50"
+                      className="block px-4 py-2 text-text-light hover:bg-card-darker hover:text-accent transition-colors focus:outline-none focus:bg-card-darker"
                       role="menuitem"
                     >
                       Services
@@ -166,14 +166,14 @@ export function Header() {
                     <a
                       href="#terms"
                       onClick={closeDropdowns}
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors focus:outline-none focus:bg-gray-50"
+                      className="block px-4 py-2 text-text-light hover:bg-card-darker hover:text-accent transition-colors focus:outline-none focus:bg-card-darker"
                       role="menuitem"
                     >
                       Legal Terms
                     </a>
                     <button
                       onClick={scrollToContact}
-                      className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors focus:outline-none focus:bg-gray-50"
+                      className="block w-full text-left px-4 py-2 text-text-light hover:bg-card-darker hover:text-accent transition-colors focus:outline-none focus:bg-card-darker"
                       role="menuitem"
                     >
                       Contact Us
@@ -194,7 +194,7 @@ export function Header() {
                   }}
                   aria-expanded={languageDropdownOpen}
                   aria-haspopup="true"
-                  className="flex items-center gap-2 text-gray-700 hover:text-primary font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg px-3 py-2"
+                  className="flex items-center gap-2 text-white hover:text-accent font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg px-3 py-2"
                 >
                   <Globe className="w-5 h-5" />
                   Languages
@@ -205,7 +205,7 @@ export function Header() {
 
                 {languageDropdownOpen && (
                   <div
-                    className="absolute top-full mt-2 right-0 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 max-h-96 overflow-y-auto animate-dropdown"
+                    className="absolute top-full mt-2 right-0 w-56 bg-card-dark rounded-lg shadow-cyan-glow border border-accent/20 py-2 max-h-96 overflow-y-auto animate-dropdown"
                     role="menu"
                     aria-orientation="vertical"
                   >
@@ -215,14 +215,14 @@ export function Header() {
                         onClick={() => handleLanguageSelect(language)}
                         className={`block w-full text-left px-4 py-2 transition-colors focus:outline-none ${
                           selectedLanguage.code === language.code
-                            ? 'bg-accent/10 text-accent font-semibold'
-                            : 'text-gray-700 hover:bg-gray-50 hover:text-primary'
+                            ? 'bg-accent/20 text-accent font-semibold'
+                            : 'text-text-light hover:bg-card-darker hover:text-accent'
                         }`}
                         role="menuitem"
                       >
                         <span className="flex items-center justify-between">
                           <span>{language.nativeName}</span>
-                          <span className="text-sm text-gray-500">({language.code})</span>
+                          <span className="text-sm text-text-light/60">({language.code})</span>
                         </span>
                       </button>
                     ))}
@@ -233,7 +233,7 @@ export function Header() {
               {/* Join Now Button */}
               <button
                 onClick={scrollToContact}
-                className="bg-accent hover:bg-cyan-600 text-white font-semibold px-6 py-2 rounded-lg transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-accent/30"
+                className="bg-accent hover:bg-accent-hover text-white font-semibold px-6 py-2 rounded-lg transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-accent/30 shadow-cyan-glow"
               >
                 Join Now
               </button>
@@ -242,7 +242,7 @@ export function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-gray-700 hover:text-primary focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg"
+              className="md:hidden p-2 text-white hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg"
               aria-label="Toggle mobile menu"
               aria-expanded={mobileMenuOpen}
             >
@@ -263,7 +263,7 @@ export function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-white z-50 md:hidden transform transition-transform duration-300 shadow-2xl ${
+        className={`fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-card-dark z-50 md:hidden transform transition-transform duration-300 shadow-cyan-glow-xl ${
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         role="dialog"
@@ -272,11 +272,11 @@ export function Header() {
       >
         <div className="flex flex-col h-full">
           {/* Mobile Menu Header */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-200">
-            <span className="text-lg font-bold text-primary">Menu</span>
+          <div className="flex items-center justify-between p-4 border-b border-accent/20">
+            <span className="text-lg font-bold text-white">Menu</span>
             <button
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2 text-gray-700 hover:text-primary focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg"
+              className="p-2 text-white hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg"
               aria-label="Close mobile menu"
             >
               <X className="w-6 h-6" />
@@ -288,32 +288,32 @@ export function Header() {
             <nav className="space-y-1">
               {/* About Section */}
               <div className="py-2">
-                <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">About</h3>
+                <h3 className="text-sm font-semibold text-accent uppercase mb-2">About</h3>
                 <a
                   href="#services"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors"
+                  className="block px-4 py-3 text-text-light hover:bg-card-darker hover:text-accent rounded-lg transition-colors"
                 >
                   Services
                 </a>
                 <a
                   href="#terms"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors"
+                  className="block px-4 py-3 text-text-light hover:bg-card-darker hover:text-accent rounded-lg transition-colors"
                 >
                   Legal Terms
                 </a>
                 <button
                   onClick={scrollToContact}
-                  className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors"
+                  className="block w-full text-left px-4 py-3 text-text-light hover:bg-card-darker hover:text-accent rounded-lg transition-colors"
                 >
                   Contact Us
                 </button>
               </div>
 
               {/* Languages Section */}
-              <div className="py-2 border-t border-gray-200">
-                <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">Languages</h3>
+              <div className="py-2 border-t border-accent/20">
+                <h3 className="text-sm font-semibold text-accent uppercase mb-2">Languages</h3>
                 <div className="space-y-1">
                   {languages.map((language) => (
                     <button
@@ -324,13 +324,13 @@ export function Header() {
                       }}
                       className={`block w-full text-left px-4 py-3 rounded-lg transition-colors ${
                         selectedLanguage.code === language.code
-                          ? 'bg-accent/10 text-accent font-semibold'
-                          : 'text-gray-700 hover:bg-gray-50 hover:text-primary'
+                          ? 'bg-accent/20 text-accent font-semibold'
+                          : 'text-text-light hover:bg-card-darker hover:text-accent'
                       }`}
                     >
                       <span className="flex items-center justify-between">
                         <span>{language.nativeName}</span>
-                        <span className="text-sm text-gray-500">({language.code})</span>
+                        <span className="text-sm text-text-light/60">({language.code})</span>
                       </span>
                     </button>
                   ))}
@@ -340,10 +340,10 @@ export function Header() {
           </div>
 
           {/* Mobile Menu Footer */}
-          <div className="p-4 border-t border-gray-200">
+          <div className="p-4 border-t border-accent/20">
             <button
               onClick={scrollToContact}
-              className="w-full bg-accent hover:bg-cyan-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300"
+              className="w-full bg-accent hover:bg-accent-hover text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-cyan-glow"
             >
               Join Now
             </button>

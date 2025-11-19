@@ -37,11 +37,11 @@ const services = [
 
 export function ServicesOverview() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-white">
+    <section className="py-16 sm:py-20 lg:py-24 bg-primary-light">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             How We Deliver Measurable Results
           </h2>
         </div>
@@ -51,36 +51,36 @@ export function ServicesOverview() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group bg-white rounded-2xl p-6 sm:p-8 border-2 border-gray-200 hover:border-accent transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 fade-in-card"
+              className="group bg-card-dark rounded-2xl p-6 sm:p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-lg hover:-translate-y-2 fade-in-card"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Icon */}
               <div className="mb-6">
-                <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-accent/20 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-cyan-glow">
                   <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-accent group-hover:animate-pulse" />
                 </div>
               </div>
 
               {/* Content */}
-              <h3 className="text-xl sm:text-2xl font-bold text-primary mb-2">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
                 {service.title}
               </h3>
               <p className="text-accent font-semibold mb-3 text-sm sm:text-base">
                 {service.tagline}
               </p>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-text-light mb-6 leading-relaxed">
                 {service.description}
               </p>
 
               {/* Details */}
-              <div className="space-y-3 mb-6 pb-6 border-b border-gray-200">
+              <div className="space-y-3 mb-6 pb-6 border-b border-accent/20">
                 <div className="flex items-start gap-2">
-                  <span className="text-gray-500 font-medium min-w-[90px] text-sm">Timeline:</span>
-                  <span className="text-gray-700 font-semibold text-sm">{service.timeline}</span>
+                  <span className="text-text-light/60 font-medium min-w-[90px] text-sm">Timeline:</span>
+                  <span className="text-accent font-semibold text-sm">{service.timeline}</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-gray-500 font-medium min-w-[90px] text-sm">Deliverable:</span>
-                  <span className="text-gray-700 text-sm">{service.deliverable}</span>
+                  <span className="text-text-light/60 font-medium min-w-[90px] text-sm">Deliverable:</span>
+                  <span className="text-white text-sm">{service.deliverable}</span>
                 </div>
               </div>
 

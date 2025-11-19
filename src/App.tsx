@@ -18,13 +18,13 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-primary">
       {/* Header */}
       <Header />
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary via-blue-800 to-accent min-h-screen flex items-center">
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-light to-card-dark min-h-screen flex items-center">
         {/* Geometric Pattern Background */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-64 h-64 border-2 border-white rounded-full"></div>
           <div className="absolute bottom-32 right-20 w-96 h-96 border-2 border-white rotate-45"></div>
           <div className="absolute top-1/2 left-1/3 w-48 h-48 border-2 border-white"></div>
@@ -34,16 +34,16 @@ function App() {
           <div className="max-w-5xl mx-auto text-center fade-in">
             {/* Trust Badges */}
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-8 sm:mb-12">
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-success" />
+              <div className="flex items-center gap-2 bg-accent/10 backdrop-blur-sm px-4 py-2 rounded-full border border-accent/30">
+                <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
                 <span className="text-white text-xs sm:text-sm font-medium">Security-First</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Unlock className="w-4 h-4 sm:w-5 sm:h-5 text-success" />
+              <div className="flex items-center gap-2 bg-accent/10 backdrop-blur-sm px-4 py-2 rounded-full border border-accent/30">
+                <Unlock className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
                 <span className="text-white text-xs sm:text-sm font-medium">Vendor-Agnostic</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Users className="w-4 h-4 sm:w-5 sm:h-5 text-success" />
+              <div className="flex items-center gap-2 bg-accent/10 backdrop-blur-sm px-4 py-2 rounded-full border border-accent/30">
+                <Users className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
                 <span className="text-white text-xs sm:text-sm font-medium">Full Enablement</span>
               </div>
             </div>
@@ -54,7 +54,7 @@ function App() {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-lg sm:text-xl md:text-2xl text-blue-100 mb-10 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
+            <p className="text-lg sm:text-xl md:text-2xl text-text-light mb-10 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
               Private, secure AI solutions built for Small and Medium Businesses.
               No vendor lock-in. No data sharing. Just measurable results.
             </p>
@@ -63,7 +63,7 @@ function App() {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
               <button
                 onClick={scrollToForm}
-                className="group w-full sm:w-auto bg-accent hover:bg-cyan-600 text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl flex items-center justify-center gap-2"
+                className="group w-full sm:w-auto bg-accent hover:bg-accent-hover text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-cyan-glow-lg hover:shadow-cyan-glow-xl flex items-center justify-center gap-2"
               >
                 Book a Free Discovery Call
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -71,7 +71,7 @@ function App() {
 
               <button
                 onClick={scrollToForm}
-                className="group w-full sm:w-auto bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-white/10 flex items-center justify-center gap-2"
+                className="group w-full sm:w-auto bg-transparent border-2 border-accent text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-accent/10 flex items-center justify-center gap-2"
               >
                 <Calculator className="w-5 h-5" />
                 Calculate Your ROI
@@ -84,7 +84,7 @@ function App() {
         {/* Bottom Wave */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-            <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#f3f4f6"/>
+            <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#0a1f1f"/>
           </svg>
         </div>
       </section>
