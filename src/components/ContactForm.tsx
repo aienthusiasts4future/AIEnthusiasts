@@ -165,7 +165,7 @@ export function ContactForm() {
   };
 
   return (
-    <section id="contact-form" className="py-16 sm:py-20 lg:py-24 bg-gray-50">
+    <section id="contact-form" className="py-16 sm:py-20 lg:py-24 bg-primary-light">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           {/* Header */}
@@ -173,7 +173,7 @@ export function ContactForm() {
             <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
               Get Started Today
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-text-light">
               Fill out the form below and we'll get back to you within 1 business day
             </p>
           </div>
@@ -185,7 +185,7 @@ export function ContactForm() {
                 <Check className="w-6 h-6 text-success flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="text-lg font-bold text-gray-800 mb-1">Success!</h3>
-                  <p className="text-gray-700">
+                  <p className="text-white">
                     Thanks! We'll reply within 1 business day to schedule your discovery call.
                   </p>
                 </div>
@@ -194,11 +194,11 @@ export function ContactForm() {
           )}
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 lg:p-10 border-2 border-gray-200">
+          <form onSubmit={handleSubmit} className="bg-card-dark rounded-2xl shadow-xl p-6 sm:p-8 lg:p-10 border-2 border-accent/20">
             <div className="space-y-6">
               {/* Full Name */}
               <div>
-                <label htmlFor="fullName" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="fullName" className="block text-sm font-semibold text-white mb-2">
                   Full Name <span className="text-error">*</span>
                 </label>
                 <div className="relative">
@@ -235,7 +235,7 @@ export function ContactForm() {
 
               {/* Work Email */}
               <div>
-                <label htmlFor="workEmail" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="workEmail" className="block text-sm font-semibold text-white mb-2">
                   Work Email <span className="text-error">*</span>
                 </label>
                 <div className="relative">
@@ -272,7 +272,7 @@ export function ContactForm() {
 
               {/* Company Name */}
               <div>
-                <label htmlFor="companyName" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="companyName" className="block text-sm font-semibold text-white mb-2">
                   Company Name <span className="text-error">*</span>
                 </label>
                 <div className="relative">
@@ -309,8 +309,8 @@ export function ContactForm() {
 
               {/* Goals */}
               <div>
-                <label htmlFor="goals" className="block text-sm font-semibold text-gray-700 mb-2">
-                  What are you hoping to achieve with AI? <span className="text-gray-500 font-normal">(Optional)</span>
+                <label htmlFor="goals" className="block text-sm font-semibold text-white mb-2">
+                  What are you hoping to achieve with AI? <span className="text-text-light/60 font-normal">(Optional)</span>
                 </label>
                 <textarea
                   id="goals"
@@ -325,7 +325,7 @@ export function ContactForm() {
 
               {/* Hear About Us */}
               <div>
-                <label htmlFor="hearAbout" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="hearAbout" className="block text-sm font-semibold text-white mb-2">
                   How did you hear about us?
                 </label>
                 <select
@@ -333,7 +333,7 @@ export function ContactForm() {
                   name="hearAbout"
                   value={formData.hearAbout}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-card-dark"
                 >
                   <option value="">Select an option</option>
                   <option value="google">Google Search</option>
@@ -359,7 +359,7 @@ export function ContactForm() {
                     aria-describedby={errors.consent ? 'consent-error' : undefined}
                     className="mt-1 w-5 h-5 text-accent border-2 border-gray-300 rounded focus:ring-2 focus:ring-accent/20 transition-all cursor-pointer"
                   />
-                  <label htmlFor="consent" className="text-sm text-gray-700 cursor-pointer">
+                  <label htmlFor="consent" className="text-sm text-white cursor-pointer">
                     I agree to the Privacy Policy and understand my data will be used only for initial consultation. <span className="text-error">*</span>
                   </label>
                 </div>
@@ -374,7 +374,7 @@ export function ContactForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-accent hover:bg-cyan-600 disabled:bg-gray-400 text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl disabled:hover:scale-100 disabled:hover:shadow-none flex items-center justify-center gap-2"
+                className="w-full bg-accent hover:bg-accent-hover disabled:bg-card-darker text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl disabled:hover:scale-100 disabled:hover:shadow-none flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>

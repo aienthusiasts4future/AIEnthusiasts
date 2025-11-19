@@ -64,14 +64,14 @@ export function ApproachTimeline() {
   };
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="py-16 sm:py-20 lg:py-24 bg-primary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             From Discovery to Production in 8-12 Weeks
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-text-light max-w-2xl mx-auto">
             A proven framework that delivers measurable results at every stage
           </p>
         </div>
@@ -80,7 +80,7 @@ export function ApproachTimeline() {
         <div className="hidden lg:block max-w-7xl mx-auto">
           <div className="relative">
             {/* Connecting Line */}
-            <div className="absolute top-[72px] left-0 right-0 h-1 bg-gray-300 z-0">
+            <div className="absolute top-[72px] left-0 right-0 h-1 bg-card-dark z-0">
               <div
                 className="h-full bg-gradient-to-r from-accent to-success timeline-progress"
                 style={{ width: '100%' }}
@@ -98,8 +98,8 @@ export function ApproachTimeline() {
                   >
                     <div className={`w-36 h-36 rounded-full flex items-center justify-center transition-all duration-300 ${
                       expandedPhase === phase.id
-                        ? 'bg-gradient-to-br from-accent to-cyan-600 shadow-2xl scale-110'
-                        : 'bg-white border-4 border-accent hover:scale-105 shadow-xl'
+                        ? 'bg-gradient-to-br from-accent to-accent-secondary shadow-cyan-glow-xl scale-110'
+                        : 'bg-card-dark border-4 border-accent hover:scale-105 shadow-cyan-glow'
                     }`}>
                       <phase.icon className={`w-16 h-16 transition-colors ${
                         expandedPhase === phase.id ? 'text-white' : 'text-accent'
@@ -114,18 +114,18 @@ export function ApproachTimeline() {
 
                   {/* Phase Info */}
                   <div className="text-center mb-4">
-                    <h3 className="text-2xl font-bold text-primary mb-2">{phase.title}</h3>
-                    <p className="text-sm text-gray-600 font-semibold">{phase.duration}</p>
+                    <h3 className="text-2xl font-bold text-white mb-2">{phase.title}</h3>
+                    <p className="text-sm text-text-light font-semibold">{phase.duration}</p>
                   </div>
 
                   {/* Expandable Details */}
                   <div className={`overflow-hidden transition-all duration-300 ${
                     expandedPhase === phase.id ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                   }`}>
-                    <div className="bg-white rounded-xl p-6 shadow-xl border-2 border-accent">
+                    <div className="bg-card-dark rounded-xl p-6 shadow-cyan-glow-lg border-2 border-accent">
                       <ul className="space-y-3">
                         {phase.details.map((detail, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+                          <li key={idx} className="flex items-start gap-2 text-sm text-white">
                             <span className="text-accent mt-1">•</span>
                             <span>{detail}</span>
                           </li>
@@ -137,7 +137,7 @@ export function ApproachTimeline() {
                   {/* Expand Indicator */}
                   <button
                     onClick={() => togglePhase(phase.id)}
-                    className="mt-4 text-accent hover:text-cyan-600 transition-colors"
+                    className="mt-4 text-accent hover:text-accent-hover transition-colors"
                   >
                     <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${
                       expandedPhase === phase.id ? 'rotate-180' : ''
@@ -153,7 +153,7 @@ export function ApproachTimeline() {
         <div className="lg:hidden max-w-2xl mx-auto">
           <div className="relative">
             {/* Connecting Line */}
-            <div className="absolute left-[67px] top-0 bottom-0 w-1 bg-gray-300">
+            <div className="absolute left-[67px] top-0 bottom-0 w-1 bg-card-dark">
               <div className="w-full h-full bg-gradient-to-b from-accent to-success timeline-progress" />
             </div>
 
@@ -168,8 +168,8 @@ export function ApproachTimeline() {
                   >
                     <div className={`w-32 h-32 rounded-full flex items-center justify-center transition-all duration-300 ${
                       expandedPhase === phase.id
-                        ? 'bg-gradient-to-br from-accent to-cyan-600 shadow-2xl scale-110'
-                        : 'bg-white border-4 border-accent shadow-xl'
+                        ? 'bg-gradient-to-br from-accent to-accent-secondary shadow-cyan-glow-xl scale-110'
+                        : 'bg-card-dark border-4 border-accent shadow-cyan-glow'
                     }`}>
                       <phase.icon className={`w-12 h-12 transition-colors ${
                         expandedPhase === phase.id ? 'text-white' : 'text-accent'
@@ -188,8 +188,8 @@ export function ApproachTimeline() {
                       onClick={() => togglePhase(phase.id)}
                       className="text-left w-full focus:outline-none mb-4"
                     >
-                      <h3 className="text-2xl font-bold text-primary mb-1">{phase.title}</h3>
-                      <p className="text-sm text-gray-600 font-semibold mb-2">{phase.duration}</p>
+                      <h3 className="text-2xl font-bold text-white mb-1">{phase.title}</h3>
+                      <p className="text-sm text-text-light font-semibold mb-2">{phase.duration}</p>
                       <ChevronDown className={`w-5 h-5 text-accent transition-transform duration-300 ${
                         expandedPhase === phase.id ? 'rotate-180' : ''
                       }`} />
@@ -199,10 +199,10 @@ export function ApproachTimeline() {
                     <div className={`overflow-hidden transition-all duration-300 ${
                       expandedPhase === phase.id ? 'max-h-96 opacity-100 mb-4' : 'max-h-0 opacity-0'
                     }`}>
-                      <div className="bg-white rounded-xl p-5 shadow-xl border-2 border-accent">
+                      <div className="bg-card-dark rounded-xl p-5 shadow-cyan-glow-lg border-2 border-accent">
                         <ul className="space-y-3">
                           {phase.details.map((detail, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+                            <li key={idx} className="flex items-start gap-2 text-sm text-white">
                               <span className="text-accent mt-1">•</span>
                               <span>{detail}</span>
                             </li>

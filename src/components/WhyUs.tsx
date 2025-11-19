@@ -23,7 +23,7 @@ const pillars = [
 
 export function WhyUs() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-primary-light relative overflow-hidden">
       {/* Background Texture */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-full h-full" style={{
@@ -34,7 +34,7 @@ export function WhyUs() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             What Makes Us Different
           </h2>
         </div>
@@ -44,31 +44,31 @@ export function WhyUs() {
           {pillars.map((pillar, index) => (
             <div
               key={index}
-              className="group bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-accent transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 fade-in-card"
+              className="group bg-card-dark rounded-2xl p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-lg hover:-translate-y-1 fade-in-card"
               style={{ animationDelay: `${index * 150}ms` }}
             >
               {/* Icon */}
               <div className="mb-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/20 rounded-2xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-cyan-glow">
                   <pillar.icon className="w-8 h-8 text-accent" />
                 </div>
               </div>
 
               {/* Title */}
-              <h3 className="text-xl sm:text-2xl font-bold text-primary mb-4 leading-tight">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 leading-tight">
                 {pillar.title}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-text-light mb-6 leading-relaxed">
                 {pillar.description}
               </p>
 
               {/* Proof Point Badge */}
-              <div className="pt-6 border-t border-gray-200">
+              <div className="pt-6 border-t border-accent/20">
                 <div className="inline-flex items-start gap-2 bg-gradient-to-br from-success/10 to-success/5 border-2 border-success/20 rounded-lg px-4 py-3 group-hover:border-success/40 transition-colors duration-300">
                   <div className="flex-shrink-0 w-2 h-2 rounded-full bg-success mt-1.5"></div>
-                  <p className="text-sm font-semibold text-gray-700 leading-snug">
+                  <p className="text-sm font-semibold text-white leading-snug">
                     {pillar.badge}
                   </p>
                 </div>

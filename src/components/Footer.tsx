@@ -28,7 +28,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-slate-800 text-gray-300">
+    <footer className="bg-dark-footer text-text-light">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
           {/* Company */}
@@ -138,12 +138,12 @@ export function Footer() {
                   placeholder="your@email.com"
                   required
                   aria-label="Email address for newsletter"
-                  className="w-full px-4 py-2 rounded-lg bg-slate-700 border-2 border-slate-600 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all text-white placeholder-gray-400"
+                  className="w-full px-4 py-2 rounded-lg bg-card-darker border-2 border-accent/20 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all text-white placeholder-text-light/50"
                 />
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-accent hover:bg-cyan-600 disabled:bg-gray-600 text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300 hover:scale-[1.02] disabled:hover:scale-100 flex items-center justify-center gap-2"
+                  className="w-full bg-accent hover:bg-accent-hover disabled:bg-card-darker text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300 hover:scale-[1.02] disabled:hover:scale-100 flex items-center justify-center gap-2 shadow-cyan-glow"
                 >
                   {isSubmitting ? (
                     <>
@@ -160,7 +160,7 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-slate-700 pt-8 text-center text-sm">
+        <div className="border-t border-accent/20 pt-8 text-center text-sm">
           <p>&copy; 2025 AI Enthusiasts. All rights reserved.</p>
         </div>
       </div>
