@@ -12,8 +12,8 @@
   body {
     @apply text-text-light bg-primary;
     background-image:
-      linear-gradient(rgba(0, 217, 163, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 217, 163, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(37, 227, 244, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37, 227, 244, 0.03) 1px, transparent 1px);
     background-size: 50px 50px;
     background-position: -1px -1px;
   }
@@ -95,10 +95,10 @@
   .animated-gradient {
     background: linear-gradient(
       45deg,
-      #0a1f1f,
-      #0d2d2d,
-      #1a3838,
-      #0d2d2d
+      #081011,
+      #102123,
+      #14292B,
+      #102123
     );
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
@@ -131,7 +131,7 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(0, 217, 163, 0.1),
+      rgba(37, 227, 244, 0.1),
       transparent
     );
     transition: left 0.5s ease;
@@ -146,7 +146,7 @@
   }
 
   .glow-intense:hover {
-    filter: drop-shadow(0 0 20px rgba(0, 217, 163, 0.6));
+    filter: drop-shadow(0 0 20px rgba(37, 227, 244, 0.6));
     transform: translateY(-2px);
   }
 }
@@ -157,34 +157,34 @@ input[type='range'].slider::-webkit-slider-thumb {
   appearance: none;
   width: 24px;
   height: 24px;
-  background: #00d9a3;
+  background: #25E3F4;
   cursor: pointer;
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 217, 163, 0.4), 0 0 15px rgba(0, 217, 163, 0.3);
+  box-shadow: 0 2px 8px rgba(37, 227, 244, 0.4), 0 0 15px rgba(37, 227, 244, 0.3);
   transition: all 0.2s ease;
 }
 
 input[type='range'].slider::-webkit-slider-thumb:hover {
-  background: #00f5b8;
+  background: #20C0CF;
   transform: scale(1.15);
-  box-shadow: 0 4px 16px rgba(0, 217, 163, 0.8), 0 0 30px rgba(0, 217, 163, 0.6);
+  box-shadow: 0 4px 16px rgba(37, 227, 244, 0.8), 0 0 30px rgba(37, 227, 244, 0.6);
 }
 
 input[type='range'].slider::-moz-range-thumb {
   width: 24px;
   height: 24px;
-  background: #00d9a3;
+  background: #25E3F4;
   cursor: pointer;
   border-radius: 50%;
   border: none;
-  box-shadow: 0 2px 8px rgba(0, 217, 163, 0.4), 0 0 15px rgba(0, 217, 163, 0.3);
+  box-shadow: 0 2px 8px rgba(37, 227, 244, 0.4), 0 0 15px rgba(37, 227, 244, 0.3);
   transition: all 0.2s ease;
 }
 
 input[type='range'].slider::-moz-range-thumb:hover {
-  background: #00f5b8;
+  background: #20C0CF;
   transform: scale(1.15);
-  box-shadow: 0 4px 16px rgba(0, 217, 163, 0.8), 0 0 30px rgba(0, 217, 163, 0.6);
+  box-shadow: 0 4px 16px rgba(37, 227, 244, 0.8), 0 0 30px rgba(37, 227, 244, 0.6);
 }
 
 input[type='range'].slider::-webkit-slider-runnable-track {
