@@ -32,21 +32,6 @@ function App() {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto text-center fade-in">
-            {/* Trust Badges */}
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-8 sm:mb-12">
-              <div className="flex items-center gap-2 bg-accent/20 backdrop-blur-sm px-4 py-2 rounded-full border-2 border-accent/50 shadow-cyan-glow glow-intense">
-                <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
-                <span className="text-white text-xs sm:text-sm font-medium">Security-First</span>
-              </div>
-              <div className="flex items-center gap-2 bg-accent/20 backdrop-blur-sm px-4 py-2 rounded-full border-2 border-accent/50 shadow-cyan-glow glow-intense">
-                <Unlock className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
-                <span className="text-white text-xs sm:text-sm font-medium">Vendor-Agnostic</span>
-              </div>
-              <div className="flex items-center gap-2 bg-accent/20 backdrop-blur-sm px-4 py-2 rounded-full border-2 border-accent/50 shadow-cyan-glow glow-intense">
-                <Users className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
-                <span className="text-white text-xs sm:text-sm font-medium">Full Enablement</span>
-              </div>
-            </div>
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 sm:mb-8 leading-tight">
