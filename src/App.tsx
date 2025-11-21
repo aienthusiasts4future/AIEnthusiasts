@@ -35,7 +35,7 @@ function App() {
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 sm:mb-8 leading-tight">
-              Guaranteed ROI in <span className="text-accent">90 Days</span>
+              Profitable AI in <span className="text-accent">Under 90 Days</span>
             </h1>
 
             {/* Subheadline */}
@@ -44,22 +44,14 @@ function App() {
               No vendor lock-in. No data sharing. Just measurable results.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
+            {/* CTA Button */}
+            <div className="flex justify-center">
               <button
                 onClick={scrollToForm}
-                className="group w-full sm:w-auto bg-accent hover:bg-accent-hover text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-cyan-glow-xl hover:shadow-cyan-glow-intense flex items-center justify-center gap-2 glow-intense"
+                className="group bg-accent hover:bg-accent-hover text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-cyan-glow-xl hover:shadow-cyan-glow-intense flex items-center justify-center gap-2 glow-intense"
               >
-                Book a Free Discovery Call
+                Book a Discovery Call
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-
-              <button
-                onClick={scrollToForm}
-                className="group w-full sm:w-auto bg-transparent border-2 border-accent text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-accent/20 hover:shadow-cyan-glow-lg flex items-center justify-center gap-2 glow-intense"
-              >
-                <Calculator className="w-5 h-5" />
-                Calculate Your ROI
               </button>
             </div>
 
