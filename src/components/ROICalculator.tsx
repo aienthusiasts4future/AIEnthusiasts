@@ -62,7 +62,7 @@ export function ROICalculator() {
                   max="40"
                   value={hoursPerWeek}
                   onChange={(e) => setHoursPerWeek(Number(e.target.value))}
-                  className="w-full h-3 bg-card-darker rounded-lg appearance-none cursor-pointer slider"
+                  className="w-full h-2 bg-card-darker rounded-lg appearance-none cursor-pointer slider"
                   style={{ minHeight: '44px' }}
                 />
                 <div className="flex justify-between text-sm text-text-light/60 mt-1">
@@ -86,7 +86,7 @@ export function ROICalculator() {
                   step="5"
                   value={hourlyCost}
                   onChange={(e) => setHourlyCost(Number(e.target.value))}
-                  className="w-full h-3 bg-card-darker rounded-lg appearance-none cursor-pointer slider"
+                  className="w-full h-2 bg-card-darker rounded-lg appearance-none cursor-pointer slider"
                   style={{ minHeight: '44px' }}
                 />
                 <div className="flex justify-between text-sm text-text-light/60 mt-1">
@@ -109,7 +109,7 @@ export function ROICalculator() {
                   max="80"
                   value={automationPercent}
                   onChange={(e) => setAutomationPercent(Number(e.target.value))}
-                  className="w-full h-3 bg-card-darker rounded-lg appearance-none cursor-pointer slider"
+                  className="w-full h-2 bg-card-darker rounded-lg appearance-none cursor-pointer slider"
                   style={{ minHeight: '44px' }}
                 />
                 <div className="flex justify-between text-sm text-text-light/60 mt-1">
@@ -181,15 +181,19 @@ export function ROICalculator() {
               </div>
             </div>
 
+            {/* Disclaimer */}
+            <div className="bg-accent/10 border border-accent/30 rounded-lg p-4 mb-8">
+              <p className="text-sm text-text-light/80 text-center leading-relaxed">
+                Results are estimates based on ideal conditions. Actual ROI depends on process complexity, data quality, and implementation approach.
+              </p>
+            </div>
+
             {/* CTA Button */}
             <div className="text-center">
               <button className="group bg-accent hover:bg-accent-hover text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-cyan-glow-lg hover:shadow-cyan-glow-xl inline-flex items-center gap-2">
-                Validate These Numbers With Us
+                Book a Call to Discuss Your ROI
                 <TrendingUp className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <p className="text-sm text-text-light/60 mt-4">
-                Based on typical implementation cost of ${implementationCost.toLocaleString('en-US')}
-              </p>
             </div>
           </div>
         </div>
