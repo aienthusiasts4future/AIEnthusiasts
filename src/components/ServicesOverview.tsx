@@ -1,37 +1,41 @@
-import { Search, Beaker, Rocket, Network, ArrowRight } from 'lucide-react';
+import { Zap, Activity, Rocket, ArrowRight } from 'lucide-react';
 
 const services = [
   {
-    icon: Search,
-    title: 'AI Readiness Sprint',
+    icon: Zap,
+    title: 'Intelligent Automation',
     tagline: 'Find your quick wins',
-    description: 'We audit your processes, score AI opportunities, and deliver a ranked roadmap with projected ROI.',
-    timeline: '1-2 weeks',
-    deliverable: 'Opportunity scorecard with 5 prioritized use cases',
+    description: 'Build intelligent systems that handle routine tasks like document processing, customer inquiries, scheduling, and workflows.',
+    capabilities: [
+      'Workflow automation',
+      'AI chatbots (support, internal, sales)',
+      'Voice agents (inbound, outbound)',
+      'System integrations',
+    ],
   },
   {
-    icon: Beaker,
-    title: 'Proof-of-Value Build',
-    tagline: 'See it work with your data',
-    description: 'We build a working prototype of your top opportunity using real company data. No risk, measurable results.',
-    timeline: '2-4 weeks',
-    deliverable: 'Functioning prototype + metrics dashboard',
+    icon: Activity,
+    title: 'Operational Intelligence',
+    tagline: 'Uncover bottlenecks, optimize operations',
+    description: 'Visualize how work actually flows. Identify delays, measure performance, and build real-time monitoring systems that keep your operations running smoothly.',
+    capabilities: [
+      'Process mining and visibility',
+      'Custom dashboards and portals',
+      'Real-time monitoring systems',
+      'Performance analytics',
+    ],
   },
   {
     icon: Rocket,
-    title: 'Production Pilot',
-    tagline: 'Deploy and enable your team',
-    description: 'Full deployment with training for 2-3 internal champions. You own the solution, we provide 90-day support.',
-    timeline: '4-8 weeks',
-    deliverable: 'Production system + runbooks + trained team',
-  },
-  {
-    icon: Network,
-    title: 'Process Mining & Discovery',
-    tagline: 'Uncover hidden opportunities',
-    description: 'Use process mining to visualize workflows and identify automation bottlenecks you didn\'t know existed.',
-    timeline: '1-2 weeks',
-    deliverable: 'Visual process maps + opportunity matrix',
+    title: 'Growth & Revenue Intelligence',
+    tagline: 'Connect marketing to revenue, scale intelligently',
+    description: 'Understand what drives growth. Build attribution systems, automate lead qualification, and create intelligent customer experiences that convert.',
+    capabilities: [
+      'Marketing attribution and analytics',
+      'Lead qualification automation',
+      'Customer journey analytics',
+      'Sales-focused websites and portals',
+    ],
   },
 ];
 
@@ -44,15 +48,19 @@ export function ServicesOverview() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             How We Deliver Measurable Results
           </h2>
+          <p className="text-lg sm:text-xl text-text-light max-w-3xl mx-auto">
+            Three strategic services that transform how you work, optimize operations, and drive growth.
+          </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <div
               key={index}
-              className="group bg-card-dark rounded-2xl p-6 sm:p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-xl hover:-translate-y-2 fade-in-card card-shine glow-intense"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="group bg-card-dark rounded-2xl p-6 sm:p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-xl hover:-translate-y-2 fade-in-card card-shine glow-intense focus-within:border-accent focus-within:shadow-cyan-glow-xl"
+              style={{ animationDelay: `${index * 150}ms` }}
+              tabIndex={0}
             >
               {/* Icon */}
               <div className="mb-6">
@@ -72,20 +80,21 @@ export function ServicesOverview() {
                 {service.description}
               </p>
 
-              {/* Details */}
-              <div className="space-y-3 mb-6 pb-6 border-b border-accent/20">
-                <div className="flex items-start gap-2">
-                  <span className="text-text-light/60 font-medium min-w-[90px] text-sm">Timeline:</span>
-                  <span className="text-accent font-semibold text-sm">{service.timeline}</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-text-light/60 font-medium min-w-[90px] text-sm">Deliverable:</span>
-                  <span className="text-white text-sm">{service.deliverable}</span>
-                </div>
+              {/* Capabilities */}
+              <div className="space-y-2 mb-6 pb-6 border-b border-accent/20">
+                {service.capabilities.map((capability, capIndex) => (
+                  <div key={capIndex} className="flex items-start gap-2">
+                    <span className="text-accent mt-1.5">•</span>
+                    <span className="text-text-light/90 text-sm">{capability}</span>
+                  </div>
+                ))}
               </div>
 
               {/* CTA */}
-              <button className="group/btn flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all duration-300">
+              <button
+                className="group/btn flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-card-dark rounded px-2 py-1 -mx-2"
+                aria-label={`Learn more about ${service.title}`}
+              >
                 Learn More
                 <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
               </button>
