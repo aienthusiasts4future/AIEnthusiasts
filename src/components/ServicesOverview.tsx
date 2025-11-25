@@ -4,7 +4,7 @@ const services = [
   {
     icon: Zap,
     title: 'Intelligent Automation',
-    tagline: 'Find your quick wins',
+    tagline: 'Automate repetitive work, free your team',
     description: 'Build intelligent systems that handle routine tasks like document processing, customer inquiries, scheduling, and workflows.',
     capabilities: [
       'Workflow automation',
