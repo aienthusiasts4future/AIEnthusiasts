@@ -103,7 +103,7 @@ export function Header() {
                 Trust & Compliance
               </Link>
               <Link
-                to="/faqs"
+                to="/FAQs"
                 className="text-white hover:text-accent font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg px-3 py-2"
               >
                 FAQs
@@ -178,7 +178,7 @@ export function Header() {
                 Trust & Compliance
               </Link>
               <Link
-                to="/faqs"
+                to="/FAQs"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block px-4 py-3 text-text-light hover:bg-card-darker hover:text-accent rounded-lg transition-colors"
               >
