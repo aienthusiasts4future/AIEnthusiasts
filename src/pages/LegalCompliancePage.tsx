@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
-import { Shield, Lock, CheckCircle, ChevronRight, Server, Boxes, Key, Search, Code, Info, Check } from 'lucide-react';
+import { Shield, Lock, CheckCircle, ChevronRight, Server, Boxes, Key, Search, Code, Info, Check, CheckSquare, Globe, Heart, Award, Scale, Building, ChevronDown } from 'lucide-react';
+import { useState } from 'react';
 
 export function LegalCompliancePage() {
+  const [isTradeoffsExpanded, setIsTradeoffsExpanded] = useState(false);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -265,10 +268,360 @@ export function LegalCompliancePage() {
         </div>
       </section>
 
+      {/* Compliance Frameworks Section */}
       <section id="compliance-frameworks" className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl">
-          <h2 className="text-3xl font-bold text-white mb-6">Compliance Frameworks</h2>
-          <p className="text-text-light">Content coming soon...</p>
+          {/* Section Header */}
+          <div className="text-center mb-12">
+            <div className="flex justify-center mb-6">
+              <div className="relative">
+                <CheckSquare className="w-16 h-16 text-accent" />
+                <div className="absolute inset-0 bg-accent/20 blur-2xl rounded-full" />
+              </div>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              Compliance & Industry Standards
+            </h2>
+            <p className="text-lg text-text-light max-w-3xl mx-auto">
+              We design AI solutions with compliance built-in. Depending on your industry and requirements,
+              we can ensure adherence to relevant regulatory frameworks.
+            </p>
+          </div>
+
+          {/* Compliance Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {/* CARD 1: GDPR */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg p-6 hover:border-accent/40 hover:-translate-y-1 transition-all duration-300 hover:shadow-cyan-glow relative">
+              <div className="absolute top-4 right-4">
+                <span className="px-3 py-1 bg-green-500/20 text-green-400 text-xs font-semibold rounded-full border border-green-500/30">
+                  Compliant
+                </span>
+              </div>
+              <Globe className="w-10 h-10 text-accent mb-4" />
+              <h3 className="text-xl font-bold text-white mb-3">
+                GDPR (General Data Protection Regulation)
+              </h3>
+              <p className="text-text-light text-sm leading-relaxed mb-3">
+                For clients with EU data subjects or operations, we implement GDPR-compliant AI systems including:
+              </p>
+              <ul className="text-text-light text-sm space-y-2">
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Right to explanation for AI decisions</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Data minimization and purpose limitation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Consent management and withdrawal</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Data portability and deletion (right to be forgotten)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Privacy by design and by default</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Data Protection Impact Assessments (DPIA) for high-risk AI</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* CARD 2: HIPAA */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg p-6 hover:border-accent/40 hover:-translate-y-1 transition-all duration-300 hover:shadow-cyan-glow relative">
+              <div className="absolute top-4 right-4">
+                <span className="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full border border-blue-500/30">
+                  Available
+                </span>
+              </div>
+              <Heart className="w-10 h-10 text-accent mb-4" />
+              <h3 className="text-xl font-bold text-white mb-3">
+                HIPAA (Health Insurance Portability and Accountability Act)
+              </h3>
+              <p className="text-text-light text-sm leading-relaxed mb-3">
+                For healthcare clients, we can implement HIPAA-compliant AI solutions:
+              </p>
+              <ul className="text-text-light text-sm space-y-2">
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Business Associate Agreements (BAA) signed before data access</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>PHI encryption at rest and in transit</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Audit logging of all PHI access</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>On-premise or HIPAA-certified cloud deployment</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>De-identification and anonymization options</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Minimum necessary access controls</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Regular risk assessments</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* CARD 3: SOC 2 Type II */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg p-6 hover:border-accent/40 hover:-translate-y-1 transition-all duration-300 hover:shadow-cyan-glow relative">
+              <div className="absolute top-4 right-4">
+                <span className="px-3 py-1 bg-yellow-500/20 text-yellow-400 text-xs font-semibold rounded-full border border-yellow-500/30">
+                  In Progress
+                </span>
+              </div>
+              <Award className="w-10 h-10 text-accent mb-4" />
+              <h3 className="text-xl font-bold text-white mb-3">
+                SOC 2 Type II
+              </h3>
+              <p className="text-text-light text-sm leading-relaxed mb-3">
+                We are working toward SOC 2 Type II certification covering:
+              </p>
+              <ul className="text-text-light text-sm space-y-2">
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Security:</strong> Protection against unauthorized access</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Availability:</strong> System uptime and disaster recovery</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Confidentiality:</strong> Protection of confidential information</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Processing Integrity:</strong> Complete, valid, accurate processing</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Privacy:</strong> Personal information handling per privacy notice</span>
+                </li>
+              </ul>
+              <p className="text-accent text-sm font-semibold mt-4">
+                Expected completion: Q3 2025
+              </p>
+            </div>
+
+            {/* CARD 4: ISO 27001 */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg p-6 hover:border-accent/40 hover:-translate-y-1 transition-all duration-300 hover:shadow-cyan-glow relative">
+              <div className="absolute top-4 right-4">
+                <span className="px-3 py-1 bg-accent/20 text-accent text-xs font-semibold rounded-full border border-accent/30">
+                  Aligned
+                </span>
+              </div>
+              <Shield className="w-10 h-10 text-accent mb-4" />
+              <h3 className="text-xl font-bold text-white mb-3">
+                ISO 27001 (Information Security Management)
+              </h3>
+              <p className="text-text-light text-sm leading-relaxed mb-3">
+                Our information security practices align with ISO 27001 standards:
+              </p>
+              <ul className="text-text-light text-sm space-y-2">
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Risk assessment and treatment methodology</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Asset management and classification</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Access control policies</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Cryptography controls</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Security incident management</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Business continuity planning</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Supplier security management</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* CARD 5: CCPA */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg p-6 hover:border-accent/40 hover:-translate-y-1 transition-all duration-300 hover:shadow-cyan-glow relative">
+              <div className="absolute top-4 right-4">
+                <span className="px-3 py-1 bg-green-500/20 text-green-400 text-xs font-semibold rounded-full border border-green-500/30">
+                  Compliant
+                </span>
+              </div>
+              <Scale className="w-10 h-10 text-accent mb-4" />
+              <h3 className="text-xl font-bold text-white mb-3">
+                CCPA (California Consumer Privacy Act)
+              </h3>
+              <p className="text-text-light text-sm leading-relaxed mb-3">
+                For clients serving California residents, we support CCPA requirements:
+              </p>
+              <ul className="text-text-light text-sm space-y-2">
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Consumer rights to know what data is collected</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Right to deletion of personal information</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Right to opt-out of data selling (we never sell data)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Non-discrimination for exercising privacy rights</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Clear privacy notices and disclosures</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Data inventory and mapping</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* CARD 6: Industry-Specific */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg p-6 hover:border-accent/40 hover:-translate-y-1 transition-all duration-300 hover:shadow-cyan-glow relative">
+              <div className="absolute top-4 right-4">
+                <span className="px-3 py-1 bg-gray-500/20 text-gray-400 text-xs font-semibold rounded-full border border-gray-500/30">
+                  Custom
+                </span>
+              </div>
+              <Building className="w-10 h-10 text-accent mb-4" />
+              <h3 className="text-xl font-bold text-white mb-3">
+                Industry-Specific Regulations
+              </h3>
+              <p className="text-text-light text-sm leading-relaxed mb-3">
+                We adapt to your industry's specific requirements:
+              </p>
+              <ul className="text-text-light text-sm space-y-2">
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Financial Services:</strong> SOX, PCI DSS, GLBA</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Manufacturing:</strong> ITAR, EAR (export control)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Government:</strong> FedRAMP, FISMA</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Education:</strong> FERPA, COPPA</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Retail:</strong> PCI DSS, state privacy laws</span>
+                </li>
+              </ul>
+              <p className="text-text-light text-sm mt-4">
+                Consultation available for sector-specific compliance.
+              </p>
+            </div>
+          </div>
+
+          {/* Expandable Section */}
+          <div className="bg-card-dark border border-accent/20 rounded-lg overflow-hidden">
+            <button
+              onClick={() => setIsTradeoffsExpanded(!isTradeoffsExpanded)}
+              className="w-full px-6 py-4 flex items-center justify-between hover:bg-accent/5 transition-colors"
+            >
+              <h3 className="text-xl font-bold text-white">Understanding Compliance Trade-offs</h3>
+              <ChevronDown
+                className={`w-6 h-6 text-accent transition-transform duration-300 ${
+                  isTradeoffsExpanded ? 'rotate-180' : ''
+                }`}
+              />
+            </button>
+
+            <div
+              className={`overflow-hidden transition-all duration-300 ${
+                isTradeoffsExpanded ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className="px-6 pb-6 space-y-4 text-text-light leading-relaxed">
+                <p>
+                  Compliance often requires balancing innovation with regulation. Some AI techniques
+                  (like certain deep learning approaches) may be challenging to explain under "right to
+                  explanation" requirements. We help you navigate these trade-offs:
+                </p>
+
+                <ul className="space-y-3 ml-4">
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-bold mt-1">•</span>
+                    <div>
+                      <strong className="text-white">Interpretable AI:</strong> We prioritize models that
+                      can explain their decisions when required by regulation
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-bold mt-1">•</span>
+                    <div>
+                      <strong className="text-white">Documentation:</strong> We maintain detailed documentation
+                      of data processing, model training, and decision logic
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-bold mt-1">•</span>
+                    <div>
+                      <strong className="text-white">Human-in-the-loop:</strong> We design systems with human
+                      review stages for high-stakes decisions
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-bold mt-1">•</span>
+                    <div>
+                      <strong className="text-white">Regular audits:</strong> We build in audit trails and
+                      logging for compliance verification
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-bold mt-1">•</span>
+                    <div>
+                      <strong className="text-white">Continuous monitoring:</strong> We track model performance
+                      and drift to ensure ongoing compliance
+                    </div>
+                  </li>
+                </ul>
+
+                <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4 mt-6">
+                  <p className="text-yellow-200 text-sm">
+                    <strong>Note:</strong> We are not lawyers. We implement technical controls to support
+                    compliance, but you should consult with legal counsel to ensure full regulatory adherence.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
