@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Search, ChevronDown } from 'lucide-react';
 
 interface FAQ {
@@ -104,6 +105,8 @@ const faqs: FAQ[] = [
 export function FAQs() {
   const [searchQuery, setSearchQuery] = useState('');
   const [openFAQId, setOpenFAQId] = useState<number | null>(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const filteredFAQs = faqs.filter((faq) => {
     const query = searchQuery.toLowerCase();
@@ -116,6 +119,24 @@ export function FAQs() {
 
   const toggleFAQ = (id: number) => {
     setOpenFAQId(openFAQId === id ? null : id);
+  };
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const formElement = document.getElementById('contact-form');
+        if (formElement) {
+          formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      const formElement = document.getElementById('contact-form');
+      if (formElement) {
+        formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
   };
 
   return (
@@ -215,12 +236,12 @@ export function FAQs() {
             <p className="text-text-light mb-4">
               Still have questions?
             </p>
-            <a
-              href="#contact-form"
+            <button
+              onClick={handleContactClick}
               className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-cyan-glow-lg hover:shadow-cyan-glow-xl"
             >
               Contact Us
-            </a>
+            </button>
           </div>
         </div>
       </div>

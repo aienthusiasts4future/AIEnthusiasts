@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,11 +44,28 @@ export function Header() {
   }, [mobileMenuOpen]);
 
   const scrollToContact = () => {
-    const formElement = document.getElementById('contact-form');
-    if (formElement) {
-      formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const formElement = document.getElementById('contact-form');
+        if (formElement) {
+          formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      const formElement = document.getElementById('contact-form');
+      if (formElement) {
+        formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
     setMobileMenuOpen(false);
+  };
+
+  const handleLogoClick = () => {
+    navigate('/');
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
   };
 
   return (
@@ -60,7 +80,7 @@ export function Header() {
             {/* Logo */}
             <div className="flex-shrink-0">
               <button
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                onClick={handleLogoClick}
                 className="text-xl font-bold text-white hover:text-accent transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg px-2 py-1"
                 aria-label="AI Enthusiasts home"
               >
@@ -82,12 +102,12 @@ export function Header() {
               >
                 Legal Compliance
               </a>
-              <a
-                href="#faqs"
+              <Link
+                to="/faqs"
                 className="text-white hover:text-accent font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg px-3 py-2"
               >
                 FAQs
-              </a>
+              </Link>
               <button
                 onClick={scrollToContact}
                 className="text-white hover:text-accent font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg px-3 py-2"
@@ -157,13 +177,13 @@ export function Header() {
               >
                 Legal Compliance
               </a>
-              <a
-                href="#faqs"
+              <Link
+                to="/faqs"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block px-4 py-3 text-text-light hover:bg-card-darker hover:text-accent rounded-lg transition-colors"
               >
                 FAQs
-              </a>
+              </Link>
               <button
                 onClick={scrollToContact}
                 className="block w-full text-left px-4 py-3 text-text-light hover:bg-card-darker hover:text-accent rounded-lg transition-colors"
