@@ -90,12 +90,12 @@ export function Header() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-6">
-              <a
-                href="#services"
+              <Link
+                to="/services"
                 className="text-white hover:text-accent font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg px-3 py-2"
               >
                 Services
-              </a>
+              </Link>
               <Link
                 to="/legal-compliance"
                 className="text-white hover:text-accent font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg px-3 py-2"
@@ -163,13 +163,13 @@ export function Header() {
           {/* Mobile Menu Content */}
           <div className="flex-1 overflow-y-auto p-4">
             <nav className="space-y-1">
-              <a
-                href="#services"
+              <Link
+                to="/services"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block px-4 py-3 text-text-light hover:bg-card-darker hover:text-accent rounded-lg transition-colors"
               >
                 Services
-              </a>
+              </Link>
               <Link
                 to="/legal-compliance"
                 onClick={() => setMobileMenuOpen(false)}
