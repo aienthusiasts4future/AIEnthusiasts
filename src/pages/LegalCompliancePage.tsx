@@ -4,6 +4,15 @@ import { useState } from 'react';
 
 export function LegalCompliancePage() {
   const [isTradeoffsExpanded, setIsTradeoffsExpanded] = useState(false);
+  const [expandedPrivacyItems, setExpandedPrivacyItems] = useState<number[]>([]);
+
+  const togglePrivacyItem = (index: number) => {
+    setExpandedPrivacyItems(prev =>
+      prev.includes(index)
+        ? prev.filter(i => i !== index)
+        : [...prev, index]
+    );
+  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -926,10 +935,473 @@ export function LegalCompliancePage() {
         </div>
       </section>
 
+      {/* Privacy Policy Section */}
       <section id="privacy-policy" className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl">
-          <h2 className="text-3xl font-bold text-white mb-6">Privacy Policy</h2>
-          <p className="text-text-light">Content coming soon...</p>
+          {/* Section Header */}
+          <div className="mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
+              Privacy Policy Summary
+            </h2>
+            <p className="text-sm text-text-light mb-6">
+              Last Updated: January 2025 | Full policy available at /privacy
+            </p>
+            <p className="text-lg text-text-light max-w-4xl">
+              Here's a plain-English summary of how we handle your information. For legal details, see our full Privacy Policy.
+            </p>
+          </div>
+
+          {/* Accordion Items */}
+          <div className="space-y-4 mb-12">
+            {/* ITEM 1: What Information We Collect */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg overflow-hidden">
+              <button
+                onClick={() => togglePrivacyItem(1)}
+                className="w-full px-6 py-4 flex items-center justify-between hover:bg-accent/5 transition-colors"
+              >
+                <h3 className="text-xl font-bold text-white text-left">1. What Information We Collect</h3>
+                <ChevronDown
+                  className={`w-6 h-6 text-accent flex-shrink-0 transition-transform duration-300 ${
+                    expandedPrivacyItems.includes(1) ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  expandedPrivacyItems.includes(1) ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="px-6 pb-6 space-y-4 text-text-light leading-relaxed">
+                  <div>
+                    <h4 className="text-white font-semibold mb-2">Website Visitors:</h4>
+                    <ul className="space-y-2 ml-4">
+                      <li className="flex items-start gap-2">
+                        <span className="text-accent mt-1">•</span>
+                        <span>Analytics data (pages visited, time on site, device type) - via privacy-friendly analytics</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-accent mt-1">•</span>
+                        <span>Form submissions (name, email, company, message) - only when you contact us</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-accent mt-1">•</span>
+                        <span>Cookies for essential functionality only (no tracking cookies)</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-semibold mb-2">Consulting Clients:</h4>
+                    <ul className="space-y-2 ml-4">
+                      <li className="flex items-start gap-2">
+                        <span className="text-accent mt-1">•</span>
+                        <span>Business contact information (name, email, phone, company)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-accent mt-1">•</span>
+                        <span>Project-specific data you share for AI implementations</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-accent mt-1">•</span>
+                        <span>Usage data from deployed AI systems (for monitoring and improvement)</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <p>
+                    We never collect sensitive personal data unless absolutely necessary for your specific AI project (e.g., building a healthcare AI requires sample medical data).
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* ITEM 2: How We Use Your Information */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg overflow-hidden">
+              <button
+                onClick={() => togglePrivacyItem(2)}
+                className="w-full px-6 py-4 flex items-center justify-between hover:bg-accent/5 transition-colors"
+              >
+                <h3 className="text-xl font-bold text-white text-left">2. How We Use Your Information</h3>
+                <ChevronDown
+                  className={`w-6 h-6 text-accent flex-shrink-0 transition-transform duration-300 ${
+                    expandedPrivacyItems.includes(2) ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  expandedPrivacyItems.includes(2) ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="px-6 pb-6 space-y-4 text-text-light leading-relaxed">
+                  <ul className="space-y-2 ml-4">
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>To respond to inquiries and provide consulting services</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>To deliver and improve AI solutions you've contracted</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>To send project updates and relevant service information</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>To analyze website performance (aggregate, anonymous data only)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>To comply with legal obligations</span>
+                    </li>
+                  </ul>
+                  <div>
+                    <h4 className="text-white font-semibold mb-2">We do not:</h4>
+                    <ul className="space-y-2 ml-4">
+                      <li className="flex items-start gap-2">
+                        <span className="text-red-400 mt-1">✗</span>
+                        <span>Sell your information to third parties</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-red-400 mt-1">✗</span>
+                        <span>Use your data to train public AI models</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-red-400 mt-1">✗</span>
+                        <span>Share client data between different clients</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-red-400 mt-1">✗</span>
+                        <span>Send unsolicited marketing emails</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ITEM 3: How We Protect Your Information */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg overflow-hidden">
+              <button
+                onClick={() => togglePrivacyItem(3)}
+                className="w-full px-6 py-4 flex items-center justify-between hover:bg-accent/5 transition-colors"
+              >
+                <h3 className="text-xl font-bold text-white text-left">3. How We Protect Your Information</h3>
+                <ChevronDown
+                  className={`w-6 h-6 text-accent flex-shrink-0 transition-transform duration-300 ${
+                    expandedPrivacyItems.includes(3) ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  expandedPrivacyItems.includes(3) ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="px-6 pb-6 space-y-4 text-text-light leading-relaxed">
+                  <ul className="space-y-2 ml-4">
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>Encryption in transit (TLS 1.3) and at rest (AES-256)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>Access controls and authentication (MFA for team members)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>Regular security audits and penetration testing</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>Secure development practices and code reviews</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>Employee training on data protection</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>Incident response procedures</span>
+                    </li>
+                  </ul>
+                  <p className="bg-accent/10 border-l-4 border-accent rounded p-4">
+                    In the event of a data breach affecting your information, we will notify you within 72 hours per GDPR requirements.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* ITEM 4: Your Data Rights */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg overflow-hidden">
+              <button
+                onClick={() => togglePrivacyItem(4)}
+                className="w-full px-6 py-4 flex items-center justify-between hover:bg-accent/5 transition-colors"
+              >
+                <h3 className="text-xl font-bold text-white text-left">4. Your Data Rights</h3>
+                <ChevronDown
+                  className={`w-6 h-6 text-accent flex-shrink-0 transition-transform duration-300 ${
+                    expandedPrivacyItems.includes(4) ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  expandedPrivacyItems.includes(4) ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="px-6 pb-6 space-y-4 text-text-light leading-relaxed">
+                  <p>You have the right to:</p>
+                  <ul className="space-y-2 ml-4">
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span><strong className="text-white">Access:</strong> Request a copy of data we hold about you</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span><strong className="text-white">Correction:</strong> Request correction of inaccurate data</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span><strong className="text-white">Deletion:</strong> Request deletion of your data (subject to legal retention requirements)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span><strong className="text-white">Portability:</strong> Receive your data in a machine-readable format</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span><strong className="text-white">Objection:</strong> Object to certain types of processing</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span><strong className="text-white">Restriction:</strong> Request limitation of how we use your data</span>
+                    </li>
+                  </ul>
+                  <p className="text-accent">
+                    To exercise these rights, email privacy@[yourdomain].com. We respond within 30 days.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* ITEM 5: Data Retention */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg overflow-hidden">
+              <button
+                onClick={() => togglePrivacyItem(5)}
+                className="w-full px-6 py-4 flex items-center justify-between hover:bg-accent/5 transition-colors"
+              >
+                <h3 className="text-xl font-bold text-white text-left">5. Data Retention</h3>
+                <ChevronDown
+                  className={`w-6 h-6 text-accent flex-shrink-0 transition-transform duration-300 ${
+                    expandedPrivacyItems.includes(5) ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  expandedPrivacyItems.includes(5) ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="px-6 pb-6 space-y-4 text-text-light leading-relaxed">
+                  <ul className="space-y-2 ml-4">
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span><strong className="text-white">Website inquiries:</strong> Retained for 2 years, then deleted</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span><strong className="text-white">Client project data:</strong> Retained for duration of engagement + 90 days (for support), then deleted unless otherwise agreed</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span><strong className="text-white">Legal/accounting records:</strong> Retained for 7 years per legal requirements</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span><strong className="text-white">Anonymous analytics:</strong> Retained indefinitely (no personal data)</span>
+                    </li>
+                  </ul>
+                  <p className="text-accent">
+                    You can request early deletion at any time.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* ITEM 6: Third-Party Services */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg overflow-hidden">
+              <button
+                onClick={() => togglePrivacyItem(6)}
+                className="w-full px-6 py-4 flex items-center justify-between hover:bg-accent/5 transition-colors"
+              >
+                <h3 className="text-xl font-bold text-white text-left">6. Third-Party Services</h3>
+                <ChevronDown
+                  className={`w-6 h-6 text-accent flex-shrink-0 transition-transform duration-300 ${
+                    expandedPrivacyItems.includes(6) ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  expandedPrivacyItems.includes(6) ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="px-6 pb-6 space-y-4 text-text-light leading-relaxed">
+                  <p>We use minimal third-party services:</p>
+                  <ul className="space-y-2 ml-4">
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span><strong className="text-white">Website hosting:</strong> [Your hosting provider] - SOC 2 certified</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span><strong className="text-white">Email:</strong> [Your email provider] - GDPR compliant</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span><strong className="text-white">Analytics:</strong> Self-hosted or privacy-friendly alternative (no Google Analytics)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span><strong className="text-white">Payment processing:</strong> [If applicable] - PCI DSS compliant</span>
+                    </li>
+                  </ul>
+                  <p>
+                    We vet all third parties for security and privacy practices. We sign Data Processing Agreements (DPAs) with all vendors handling personal data.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* ITEM 7: International Data Transfers */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg overflow-hidden">
+              <button
+                onClick={() => togglePrivacyItem(7)}
+                className="w-full px-6 py-4 flex items-center justify-between hover:bg-accent/5 transition-colors"
+              >
+                <h3 className="text-xl font-bold text-white text-left">7. International Data Transfers</h3>
+                <ChevronDown
+                  className={`w-6 h-6 text-accent flex-shrink-0 transition-transform duration-300 ${
+                    expandedPrivacyItems.includes(7) ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  expandedPrivacyItems.includes(7) ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="px-6 pb-6 space-y-4 text-text-light leading-relaxed">
+                  <p>Our team is based in [Your location]. If you're outside this jurisdiction:</p>
+                  <ul className="space-y-2 ml-4">
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>We use Standard Contractual Clauses (SCCs) for international transfers</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>We offer on-premise deployment to keep data in your country</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>We comply with cross-border data transfer regulations (GDPR Article 46)</span>
+                    </li>
+                  </ul>
+                  <p className="text-accent">
+                    For EU clients, we can process data entirely within the EU upon request.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* ITEM 8: Children's Privacy */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg overflow-hidden">
+              <button
+                onClick={() => togglePrivacyItem(8)}
+                className="w-full px-6 py-4 flex items-center justify-between hover:bg-accent/5 transition-colors"
+              >
+                <h3 className="text-xl font-bold text-white text-left">8. Children's Privacy</h3>
+                <ChevronDown
+                  className={`w-6 h-6 text-accent flex-shrink-0 transition-transform duration-300 ${
+                    expandedPrivacyItems.includes(8) ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  expandedPrivacyItems.includes(8) ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="px-6 pb-6 text-text-light leading-relaxed">
+                  <p>
+                    Our services are designed for businesses, not children. We do not knowingly collect information from anyone under 18. If we discover we've collected such data, we delete it immediately.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* ITEM 9: Changes to This Policy */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg overflow-hidden">
+              <button
+                onClick={() => togglePrivacyItem(9)}
+                className="w-full px-6 py-4 flex items-center justify-between hover:bg-accent/5 transition-colors"
+              >
+                <h3 className="text-xl font-bold text-white text-left">9. Changes to This Policy</h3>
+                <ChevronDown
+                  className={`w-6 h-6 text-accent flex-shrink-0 transition-transform duration-300 ${
+                    expandedPrivacyItems.includes(9) ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  expandedPrivacyItems.includes(9) ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="px-6 pb-6 text-text-light leading-relaxed">
+                  <p>
+                    We update this policy occasionally to reflect new practices or legal requirements. Material changes will be announced on our website and via email to active clients. Continued use of our services after changes constitutes acceptance.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Commitment Callout Box */}
+          <div className="bg-card-dark border-l-4 border-accent rounded-lg p-8">
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Our Commitment to Responsible AI
+            </h3>
+            <p className="text-text-light leading-relaxed mb-4">
+              We refuse to build AI systems for:
+            </p>
+            <ul className="text-text-light space-y-2 mb-6">
+              <li className="flex items-start gap-2">
+                <span className="text-red-400 mt-1">✗</span>
+                <span>Surveillance or mass monitoring without consent</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-red-400 mt-1">✗</span>
+                <span>Deceptive or manipulative purposes</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-red-400 mt-1">✗</span>
+                <span>Autonomous weapons or harm</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-red-400 mt-1">✗</span>
+                <span>Discrimination or bias amplification</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-red-400 mt-1">✗</span>
+                <span>Privacy violation or unauthorized data collection</span>
+              </li>
+            </ul>
+            <p className="text-accent leading-relaxed">
+              If we identify ethical concerns during a project, we will raise them with you immediately
+              and work together to find appropriate solutions.
+            </p>
+          </div>
         </div>
       </section>
     </div>
