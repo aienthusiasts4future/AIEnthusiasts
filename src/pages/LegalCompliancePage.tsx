@@ -91,12 +91,6 @@ export function LegalCompliancePage() {
               >
                 Privacy Policy
               </button>
-              <button
-                onClick={() => scrollToSection('faqs')}
-                className="px-5 py-2.5 border-2 border-accent text-white rounded-full font-medium transition-all duration-300 hover:bg-accent hover:scale-105"
-              >
-                FAQs
-              </button>
             </div>
           </div>
         </div>
@@ -288,13 +282,6 @@ export function LegalCompliancePage() {
       <section id="privacy-policy" className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl">
           <h2 className="text-3xl font-bold text-white mb-6">Privacy Policy</h2>
-          <p className="text-text-light">Content coming soon...</p>
-        </div>
-      </section>
-
-      <section id="faqs" className="py-20 bg-card-dark/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl">
-          <h2 className="text-3xl font-bold text-white mb-6">Frequently Asked Questions</h2>
           <p className="text-text-light">Content coming soon...</p>
         </div>
       </section>
