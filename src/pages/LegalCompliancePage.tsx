@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Shield, Lock, CheckCircle, ChevronRight, Server, Boxes, Key, Search, Code, Info, Check, CheckSquare, Globe, Heart, Award, Scale, Building, ChevronDown } from 'lucide-react';
+import { Shield, Lock, CheckCircle, ChevronRight, Server, Boxes, Key, Search, Code, Info, Check, CheckSquare, Globe, Heart, Award, Scale, Building, ChevronDown, Users, Eye, ShieldCheck, UserCheck, Clipboard } from 'lucide-react';
 import { useState } from 'react';
 
 export function LegalCompliancePage() {
@@ -625,10 +625,304 @@ export function LegalCompliancePage() {
         </div>
       </section>
 
+      {/* Ethical AI Section */}
       <section id="ethical-ai" className="py-20 bg-card-dark/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl">
-          <h2 className="text-3xl font-bold text-white mb-6">Ethical AI</h2>
-          <p className="text-text-light">Content coming soon...</p>
+          {/* Section Header */}
+          <div className="text-center mb-12">
+            <div className="flex justify-center mb-6">
+              <div className="relative">
+                <Scale className="w-16 h-16 text-accent" />
+                <div className="absolute inset-0 bg-accent/20 blur-2xl rounded-full" />
+              </div>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              Ethical AI Practices
+            </h2>
+            <p className="text-lg text-text-light max-w-3xl mx-auto">
+              AI is powerful, but it must be used responsibly. We follow ethical guidelines to ensure
+              our AI solutions are fair, transparent, and beneficial.
+            </p>
+          </div>
+
+          {/* Principles Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            {/* PRINCIPLE 1: Fairness & Non-Discrimination */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg p-8 hover:border-accent/40 transition-all duration-300 hover:shadow-cyan-glow">
+              <div className="flex items-start gap-4 mb-4">
+                <Users className="w-12 h-12 text-accent flex-shrink-0" />
+                <h3 className="text-2xl font-bold text-white">
+                  Fairness & Non-Discrimination
+                </h3>
+              </div>
+              <p className="text-text-light leading-relaxed mb-4">
+                We actively work to prevent bias and discrimination in AI systems:
+              </p>
+              <ul className="text-text-light space-y-2 mb-4">
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Bias Assessment:</strong> We audit training data and model outputs for demographic biases</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Fairness Metrics:</strong> We measure disparate impact across protected groups</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Diverse Data:</strong> We ensure training data represents diverse populations when applicable</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Regular Testing:</strong> We test deployed models for fairness drift over time</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Human Review:</strong> High-stakes decisions include human oversight</span>
+                </li>
+              </ul>
+              <div className="bg-accent/10 border-l-4 border-accent rounded p-4">
+                <p className="text-text-light text-sm italic">
+                  <strong className="text-white">Example:</strong> For hiring automation, we test that the AI doesn't systematically disadvantage candidates based on gender, race, age, or other protected characteristics.
+                </p>
+              </div>
+            </div>
+
+            {/* PRINCIPLE 2: Transparency & Explainability */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg p-8 hover:border-accent/40 transition-all duration-300 hover:shadow-cyan-glow">
+              <div className="flex items-start gap-4 mb-4">
+                <Eye className="w-12 h-12 text-accent flex-shrink-0" />
+                <h3 className="text-2xl font-bold text-white">
+                  Transparency & Explainability
+                </h3>
+              </div>
+              <p className="text-text-light leading-relaxed mb-4">
+                We believe clients should understand how AI makes decisions:
+              </p>
+              <ul className="text-text-light space-y-2 mb-4">
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Model Documentation:</strong> We document all AI models, their purpose, and limitations</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Decision Explanations:</strong> We provide explanations for AI recommendations when needed</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Confidence Scores:</strong> We show AI confidence levels so users know when to be cautious</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">No Black Boxes:</strong> We avoid unexplainable models for high-stakes decisions</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Client Education:</strong> We train your team to understand and question AI outputs</span>
+                </li>
+              </ul>
+              <div className="bg-accent/10 border-l-4 border-accent rounded p-4">
+                <p className="text-text-light text-sm italic">
+                  <strong className="text-white">Example:</strong> For loan approval AI, we can explain which factors (credit score, income, debt ratio) most influenced the decision.
+                </p>
+              </div>
+            </div>
+
+            {/* PRINCIPLE 3: Privacy & Data Minimization */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg p-8 hover:border-accent/40 transition-all duration-300 hover:shadow-cyan-glow">
+              <div className="flex items-start gap-4 mb-4">
+                <ShieldCheck className="w-12 h-12 text-accent flex-shrink-0" />
+                <h3 className="text-2xl font-bold text-white">
+                  Privacy & Data Minimization
+                </h3>
+              </div>
+              <p className="text-text-light leading-relaxed mb-4">
+                We collect only what's necessary and protect it rigorously:
+              </p>
+              <ul className="text-text-light space-y-2 mb-4">
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Minimal Data Collection:</strong> We use only the data required for the specific AI task</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Anonymization:</strong> We anonymize data whenever possible without degrading performance</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Retention Limits:</strong> We delete data when no longer needed</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Purpose Limitation:</strong> We don't repurpose data beyond the original consent</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">User Control:</strong> We build in mechanisms for users to control their data</span>
+                </li>
+              </ul>
+              <div className="bg-accent/10 border-l-4 border-accent rounded p-4">
+                <p className="text-text-light text-sm italic">
+                  <strong className="text-white">Example:</strong> For customer support chatbots, we don't store conversation histories unless necessary for improvement, and we offer users the option to delete their chat logs.
+                </p>
+              </div>
+            </div>
+
+            {/* PRINCIPLE 4: Safety & Reliability */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg p-8 hover:border-accent/40 transition-all duration-300 hover:shadow-cyan-glow">
+              <div className="flex items-start gap-4 mb-4">
+                <Shield className="w-12 h-12 text-accent flex-shrink-0" />
+                <h3 className="text-2xl font-bold text-white">
+                  Safety & Reliability
+                </h3>
+              </div>
+              <p className="text-text-light leading-relaxed mb-4">
+                We build AI systems that fail safely and perform reliably:
+              </p>
+              <ul className="text-text-light space-y-2 mb-4">
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Robust Testing:</strong> We test AI systems extensively before production deployment</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Error Handling:</strong> We design graceful failure modes (human escalation when AI is uncertain)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Monitoring:</strong> We continuously monitor AI performance and accuracy</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Rollback Plans:</strong> We maintain previous versions and can quickly revert if needed</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Incident Response:</strong> We have documented procedures for handling AI failures</span>
+                </li>
+              </ul>
+              <div className="bg-accent/10 border-l-4 border-accent rounded p-4">
+                <p className="text-text-light text-sm italic">
+                  <strong className="text-white">Example:</strong> For medical AI assistants, if the system detects ambiguous symptoms, it escalates to a human clinician rather than making a potentially incorrect recommendation.
+                </p>
+              </div>
+            </div>
+
+            {/* PRINCIPLE 5: Human Agency & Oversight */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg p-8 hover:border-accent/40 transition-all duration-300 hover:shadow-cyan-glow">
+              <div className="flex items-start gap-4 mb-4">
+                <UserCheck className="w-12 h-12 text-accent flex-shrink-0" />
+                <h3 className="text-2xl font-bold text-white">
+                  Human Agency & Oversight
+                </h3>
+              </div>
+              <p className="text-text-light leading-relaxed mb-4">
+                AI should augment humans, not replace judgment:
+              </p>
+              <ul className="text-text-light space-y-2 mb-4">
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Human-in-the-Loop:</strong> Critical decisions always involve human review</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Override Mechanisms:</strong> Users can override AI recommendations when appropriate</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Opt-Out Options:</strong> We provide ways to request human handling instead of AI</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Skill Preservation:</strong> We design AI to enhance human expertise, not deskill workers</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Meaningful Control:</strong> Humans maintain meaningful control over AI systems</span>
+                </li>
+              </ul>
+              <div className="bg-accent/10 border-l-4 border-accent rounded p-4">
+                <p className="text-text-light text-sm italic">
+                  <strong className="text-white">Example:</strong> For document review AI, lawyers make final approval decisions—AI flags potential issues but humans have the final say.
+                </p>
+              </div>
+            </div>
+
+            {/* PRINCIPLE 6: Accountability & Governance */}
+            <div className="bg-card-dark border border-accent/20 rounded-lg p-8 hover:border-accent/40 transition-all duration-300 hover:shadow-cyan-glow">
+              <div className="flex items-start gap-4 mb-4">
+                <Clipboard className="w-12 h-12 text-accent flex-shrink-0" />
+                <h3 className="text-2xl font-bold text-white">
+                  Accountability & Governance
+                </h3>
+              </div>
+              <p className="text-text-light leading-relaxed mb-4">
+                We take responsibility for the AI systems we build:
+              </p>
+              <ul className="text-text-light space-y-2 mb-4">
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Clear Ownership:</strong> We document who is responsible for AI system behavior</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Audit Trails:</strong> We maintain logs of AI decisions for review and accountability</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Feedback Loops:</strong> We build in mechanisms for users to report problems</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Regular Reviews:</strong> We conduct periodic ethics reviews of deployed AI</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span><strong className="text-white">Stakeholder Input:</strong> We involve diverse stakeholders in AI design decisions</span>
+                </li>
+              </ul>
+              <div className="bg-accent/10 border-l-4 border-accent rounded p-4">
+                <p className="text-text-light text-sm italic">
+                  <strong className="text-white">Example:</strong> For automated hiring systems, we maintain records of all AI screening decisions, allow candidates to appeal, and regularly audit for adverse impact.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Commitment Callout Box */}
+          <div className="bg-card-dark border-l-4 border-accent rounded-lg p-8">
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Our Commitment to Responsible AI
+            </h3>
+            <p className="text-text-light leading-relaxed mb-4">
+              We refuse to build AI systems for:
+            </p>
+            <ul className="text-text-light space-y-2 mb-6">
+              <li className="flex items-start gap-2">
+                <span className="text-red-400 mt-1">✗</span>
+                <span>Surveillance or mass monitoring without consent</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-red-400 mt-1">✗</span>
+                <span>Deceptive or manipulative purposes</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-red-400 mt-1">✗</span>
+                <span>Autonomous weapons or harm</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-red-400 mt-1">✗</span>
+                <span>Discrimination or bias amplification</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-red-400 mt-1">✗</span>
+                <span>Privacy violation or unauthorized data collection</span>
+              </li>
+            </ul>
+            <p className="text-accent leading-relaxed">
+              If we identify ethical concerns during a project, we will raise them with you immediately
+              and work together to find appropriate solutions.
+            </p>
+          </div>
         </div>
       </section>
 
