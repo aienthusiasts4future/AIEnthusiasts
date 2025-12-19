@@ -5,6 +5,7 @@ import { ServicesOverview } from './components/ServicesOverview';
 import { ApproachTimeline } from './components/ApproachTimeline';
 import { WhyUs } from './components/WhyUs';
 import { CTABand } from './components/CTABand';
+import { FAQs } from './components/FAQs';
 import { ContactForm } from './components/ContactForm';
 import { Footer } from './components/Footer';
 import { BackToTop } from './components/BackToTop';
@@ -80,6 +81,9 @@ function App() {
 
       {/* CTA Band */}
       <CTABand onCTAClick={scrollToForm} />
+
+      {/* FAQs Section */}
+      <FAQs />
 
       {/* Contact Form */}
       <ContactForm />
