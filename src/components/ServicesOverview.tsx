@@ -1,4 +1,5 @@
 import { Zap, Activity, Rocket, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const services = [
   {
@@ -91,13 +92,14 @@ export function ServicesOverview() {
               </div>
 
               {/* CTA */}
-              <button
+              <Link
+                to="/services"
                 className="group/btn flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-card-dark rounded px-2 py-1 -mx-2"
                 aria-label={`Learn more about ${service.title}`}
               >
                 Learn More
                 <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-              </button>
+              </Link>
             </div>
           ))}
         </div>
