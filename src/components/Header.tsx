@@ -96,12 +96,12 @@ export function Header() {
               >
                 Services
               </a>
-              <a
-                href="#terms"
+              <Link
+                to="/legal-compliance"
                 className="text-white hover:text-accent font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg px-3 py-2"
               >
-                Legal Compliance
-              </a>
+                Trust & Compliance
+              </Link>
               <Link
                 to="/faqs"
                 className="text-white hover:text-accent font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg px-3 py-2"
@@ -170,13 +170,13 @@ export function Header() {
               >
                 Services
               </a>
-              <a
-                href="#terms"
+              <Link
+                to="/legal-compliance"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block px-4 py-3 text-text-light hover:bg-card-darker hover:text-accent rounded-lg transition-colors"
               >
-                Legal Compliance
-              </a>
+                Trust & Compliance
+              </Link>
               <Link
                 to="/faqs"
                 onClick={() => setMobileMenuOpen(false)}

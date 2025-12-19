@@ -4,6 +4,7 @@ import { Footer } from './components/Footer';
 import { BackToTop } from './components/BackToTop';
 import { HomePage } from './pages/HomePage';
 import { FAQsPage } from './pages/FAQsPage';
+import { LegalCompliancePage } from './pages/LegalCompliancePage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/faqs" element={<FAQsPage />} />
+          <Route path="/legal-compliance" element={<LegalCompliancePage />} />
         </Routes>
         <Footer />
         <BackToTop />
