@@ -1,12 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const aboutDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,24 +15,15 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (aboutDropdownRef.current && !aboutDropdownRef.current.contains(event.target as Node)) {
-        setAboutDropdownOpen(false);
-      }
-    };
-
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setAboutDropdownOpen(false);
         setMobileMenuOpen(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('keydown', handleEscape);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleEscape);
     };
   }, []);
@@ -60,14 +48,6 @@ export function Header() {
     setMobileMenuOpen(false);
   };
 
-  const toggleAboutDropdown = () => {
-    setAboutDropdownOpen(!aboutDropdownOpen);
-  };
-
-  const closeDropdowns = () => {
-    setAboutDropdownOpen(false);
-  };
-
   return (
     <>
       <header
@@ -90,60 +70,24 @@ export function Header() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-6">
-              {/* About Dropdown */}
-              <div ref={aboutDropdownRef} className="relative">
-                <button
-                  onClick={toggleAboutDropdown}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      toggleAboutDropdown();
-                    }
-                  }}
-                  aria-expanded={aboutDropdownOpen}
-                  aria-haspopup="true"
-                  className="flex items-center gap-1 text-white hover:text-accent font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg px-3 py-2"
-                >
-                  About
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform ${aboutDropdownOpen ? 'rotate-180' : ''}`}
-                  />
-                </button>
-
-                {aboutDropdownOpen && (
-                  <div
-                    className="absolute top-full mt-2 right-0 w-48 bg-card-dark rounded-lg shadow-cyan-glow border border-accent/20 py-2 animate-dropdown"
-                    role="menu"
-                    aria-orientation="vertical"
-                  >
-                    <a
-                      href="#services"
-                      onClick={closeDropdowns}
-                      className="block px-4 py-2 text-text-light hover:bg-card-darker hover:text-accent transition-colors focus:outline-none focus:bg-card-darker"
-                      role="menuitem"
-                    >
-                      Services
-                    </a>
-                    <a
-                      href="#terms"
-                      onClick={closeDropdowns}
-                      className="block px-4 py-2 text-text-light hover:bg-card-darker hover:text-accent transition-colors focus:outline-none focus:bg-card-darker"
-                      role="menuitem"
-                    >
-                      Legal Terms
-                    </a>
-                    <button
-                      onClick={scrollToContact}
-                      className="block w-full text-left px-4 py-2 text-text-light hover:bg-card-darker hover:text-accent transition-colors focus:outline-none focus:bg-card-darker"
-                      role="menuitem"
-                    >
-                      Contact Us
-                    </button>
-                  </div>
-                )}
-              </div>
-
-              {/* Contact Us Link */}
+              <a
+                href="#services"
+                className="text-white hover:text-accent font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg px-3 py-2"
+              >
+                Services
+              </a>
+              <a
+                href="#terms"
+                className="text-white hover:text-accent font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg px-3 py-2"
+              >
+                Legal Compliance
+              </a>
+              <a
+                href="#faqs"
+                className="text-white hover:text-accent font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg px-3 py-2"
+              >
+                FAQs
+              </a>
               <button
                 onClick={scrollToContact}
                 className="text-white hover:text-accent font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 rounded-lg px-3 py-2"
@@ -199,31 +143,33 @@ export function Header() {
           {/* Mobile Menu Content */}
           <div className="flex-1 overflow-y-auto p-4">
             <nav className="space-y-1">
-              {/* About Section */}
-              <div className="py-2">
-                <h3 className="text-sm font-semibold text-accent uppercase mb-2">About</h3>
-                <a
-                  href="#services"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-3 text-text-light hover:bg-card-darker hover:text-accent rounded-lg transition-colors"
-                >
-                  Services
-                </a>
-                <a
-                  href="#terms"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-3 text-text-light hover:bg-card-darker hover:text-accent rounded-lg transition-colors"
-                >
-                  Legal Terms
-                </a>
-                <button
-                  onClick={scrollToContact}
-                  className="block w-full text-left px-4 py-3 text-text-light hover:bg-card-darker hover:text-accent rounded-lg transition-colors"
-                >
-                  Contact Us
-                </button>
-              </div>
-
+              <a
+                href="#services"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-4 py-3 text-text-light hover:bg-card-darker hover:text-accent rounded-lg transition-colors"
+              >
+                Services
+              </a>
+              <a
+                href="#terms"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-4 py-3 text-text-light hover:bg-card-darker hover:text-accent rounded-lg transition-colors"
+              >
+                Legal Compliance
+              </a>
+              <a
+                href="#faqs"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-4 py-3 text-text-light hover:bg-card-darker hover:text-accent rounded-lg transition-colors"
+              >
+                FAQs
+              </a>
+              <button
+                onClick={scrollToContact}
+                className="block w-full text-left px-4 py-3 text-text-light hover:bg-card-darker hover:text-accent rounded-lg transition-colors"
+              >
+                Contact Us
+              </button>
             </nav>
           </div>
 
