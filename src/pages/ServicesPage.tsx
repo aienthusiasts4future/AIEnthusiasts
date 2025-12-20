@@ -495,12 +495,14 @@ export function ServicesPage() {
                 </div>
               </div>
 
-              {/* Detailed Use Case Example - Healthcare Only */}
+              {/* Detailed Use Case Examples - Healthcare Only */}
               {selectedIndustry === 'healthcare' && (
-                <div className="mb-12">
+                <div className="mb-12 space-y-8">
                   <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
-                    Real-World Implementation Example
+                    Real-World Implementation Examples
                   </h4>
+
+                  {/* Use Case 1: Intelligent Automation */}
                   <DetailedUseCaseCard
                     industryTag="Healthcare"
                     serviceTag="Intelligent Automation"
@@ -556,6 +558,64 @@ export function ServicesPage() {
                       },
                     ]}
                     technology="Deep learning + Medical knowledge base + Pattern recognition + Clinical guidelines"
+                  />
+
+                  {/* Use Case 2: Operational Intelligence */}
+                  <DetailedUseCaseCard
+                    industryTag="Healthcare"
+                    serviceTag="Operational Intelligence"
+                    title="Predictive Analytics for Hospital Readmissions"
+                    problemStatement="20-25% readmission rate. 50-70% preventable. Manual tracking. $2.5M-$8.75M annual waste for 2,000-bed hospital."
+                    beforeIcon="📊"
+                    beforeTitle="Before: Reactive Approach"
+                    beforeItems={[
+                      '20-25% hospital readmission rate',
+                      '50-70% preventable readmissions',
+                      '$2.5M-$8.75M annual waste',
+                      'Churn identified 2 weeks before',
+                    ]}
+                    beforeTimeMetric="⏱️ Reactive care after readmission"
+                    afterIcon="🤖"
+                    afterTitle="After: AI Intelligence"
+                    afterSuccessMessage="✓ Alert: High-risk patient identified. 82% readmission probability. Recommendation: Immediate intervention."
+                    afterAlerts={[
+                      'Flag: 6 weeks earlier detection',
+                      'Alert: 80-90% prediction accuracy',
+                    ]}
+                    afterItems={[
+                      'At-risk accounts flagged proactively',
+                      '15-18% readmission rate achieved',
+                      'Proactive intervention for high-risk patients',
+                    ]}
+                    afterTimeMetric="⏱️ Real-time health monitoring"
+                    performanceBadge="→ 25% readmission reduction"
+                    metrics={[
+                      {
+                        icon: '📉',
+                        label: 'Readmission Rate',
+                        value: '15-18%',
+                        comparison: 'vs 20-25%',
+                      },
+                      {
+                        icon: '💰',
+                        label: 'Annual Savings',
+                        value: '$1.5M-$4.6M',
+                        comparison: 'Cost reduction',
+                      },
+                      {
+                        icon: '🎯',
+                        label: 'Prediction Accuracy',
+                        value: '80-90%',
+                        comparison: 'High accuracy',
+                      },
+                      {
+                        icon: '⚡',
+                        label: 'Detection Speed',
+                        value: '6 weeks earlier',
+                        comparison: 'vs 2 weeks',
+                      },
+                    ]}
+                    technology="Predictive analytics + Patient monitoring + Risk scoring + Intervention protocols"
                   />
                 </div>
               )}
