@@ -617,6 +617,64 @@ export function ServicesPage() {
                     ]}
                     technology="Predictive analytics + Patient monitoring + Risk scoring + Intervention protocols"
                   />
+
+                  {/* Use Case 3: Growth & Revenue Intelligence */}
+                  <DetailedUseCaseCard
+                    industryTag="Healthcare"
+                    serviceTag="Growth & Revenue Intelligence"
+                    title="Virtual Health Assistants & Patient Engagement"
+                    problemStatement="20-30% appointment no-shows. 50-60% medication non-adherence. 800 inquiries/day. Manual responses took 3.5 hours. After-hours queries unanswered."
+                    beforeIcon="💬"
+                    beforeTitle="Before: Manual Support"
+                    beforeItems={[
+                      '20-30% appointment no-show rate',
+                      '50-60% medication non-adherence',
+                      'Limited after-hours support',
+                      '3.5 hours average response time',
+                    ]}
+                    beforeTimeMetric="⏱️ 3.5 hours average response"
+                    afterIcon="🤖"
+                    afterTitle="After: AI Engagement"
+                    afterSuccessMessage="✓ Appointment scheduled! Medication reminder set. Patient question resolved instantly."
+                    afterAlerts={[
+                      'Flag: 40% call deflection achieved',
+                      'Alert: 24/7 availability enabled',
+                    ]}
+                    afterItems={[
+                      'Questions resolved instantly (81% of inquiries)',
+                      '10-15% no-show rate (50% reduction)',
+                      '30-40% adherence improvement',
+                    ]}
+                    afterTimeMetric="⏱️ Instant 24/7 response"
+                    performanceBadge="→ 92% faster response time"
+                    metrics={[
+                      {
+                        icon: '📅',
+                        label: 'No-Show Rate',
+                        value: '10-15%',
+                        comparison: 'vs 20-30%',
+                      },
+                      {
+                        icon: '💊',
+                        label: 'Adherence',
+                        value: '30-40% improvement',
+                        comparison: 'Better compliance',
+                      },
+                      {
+                        icon: '⚡',
+                        label: 'Response Time',
+                        value: 'Instant',
+                        comparison: 'vs 3.5 hrs',
+                      },
+                      {
+                        icon: '💰',
+                        label: 'Annual Benefit',
+                        value: '$1.1M-$4.6M',
+                        comparison: 'Value created',
+                      },
+                    ]}
+                    technology="NLP chatbot + Scheduling automation + Reminder system + Patient portal integration"
+                  />
                 </div>
               )}
             </div>
