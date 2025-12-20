@@ -210,56 +210,98 @@ export function ServicesPage() {
         </div>
       </section>
 
-      {/* Detailed Service Sections */}
+      {/* Solutions by Industry Section */}
       <section className="py-16 sm:py-20 lg:py-24 bg-primary">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-          <div className="space-y-16 sm:space-y-20 lg:space-y-24">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                id={service.id}
-                className="scroll-mt-24 bg-card-dark rounded-2xl p-6 sm:p-8 lg:p-10 border-2 border-accent/20 fade-in"
-              >
-                {/* Service Header */}
-                <div className="flex items-start gap-4 sm:gap-6 mb-6">
-                  <div className="flex-shrink-0">
-                    <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-accent/20 rounded-xl shadow-cyan-glow">
-                      <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-accent" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">
-                      {service.title}
-                    </h2>
-                    <p className="text-accent font-semibold text-base sm:text-lg">
-                      {service.tagline}
-                    </p>
-                  </div>
-                </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+              Solutions by Industry
+            </h2>
+            <p className="text-lg sm:text-xl text-text-light leading-relaxed">
+              See how our services solve real problems in your industry
+            </p>
+          </div>
 
-                {/* Service Description */}
-                <p className="text-text-light text-base sm:text-lg leading-relaxed mb-6">
-                  {service.description}
-                </p>
+          {/* Industry Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+            {/* Healthcare */}
+            <button
+              className="group bg-card-dark rounded-xl p-6 sm:p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-xl hover:scale-105 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
+            >
+              <div className="text-5xl mb-4">🏥</div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
+                Healthcare
+              </h3>
+              <p className="text-text-light leading-relaxed">
+                AI solutions for patient care and hospital operations
+              </p>
+            </button>
 
-                {/* Capabilities List */}
-                <div className="bg-primary-light rounded-xl p-6 border border-accent/10">
-                  <h3 className="text-lg sm:text-xl font-bold text-white mb-4">
-                    Key Capabilities
-                  </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {service.capabilities.map((capability, capIndex) => (
-                      <div key={capIndex} className="flex items-start gap-3">
-                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center mt-0.5">
-                          <span className="text-accent text-sm font-bold">✓</span>
-                        </div>
-                        <span className="text-text-light text-sm sm:text-base">{capability}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
+            {/* Legal */}
+            <button
+              className="group bg-card-dark rounded-xl p-6 sm:p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-xl hover:scale-105 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
+            >
+              <div className="text-5xl mb-4">⚖️</div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
+                Legal
+              </h3>
+              <p className="text-text-light leading-relaxed">
+                Transform legal operations with intelligent automation
+              </p>
+            </button>
+
+            {/* IT & SaaS */}
+            <button
+              className="group bg-card-dark rounded-xl p-6 sm:p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-xl hover:scale-105 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
+            >
+              <div className="text-5xl mb-4">💻</div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
+                IT & SaaS
+              </h3>
+              <p className="text-text-light leading-relaxed">
+                Optimize development, support, and customer success
+              </p>
+            </button>
+
+            {/* Real Estate & Property Management */}
+            <button
+              className="group bg-card-dark rounded-xl p-6 sm:p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-xl hover:scale-105 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
+            >
+              <div className="text-5xl mb-4">🏢</div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
+                Real Estate & Property Management
+              </h3>
+              <p className="text-text-light leading-relaxed">
+                Automate property operations and tenant management
+              </p>
+            </button>
+
+            {/* Retail */}
+            <button
+              className="group bg-card-dark rounded-xl p-6 sm:p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-xl hover:scale-105 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
+            >
+              <div className="text-5xl mb-4">🛒</div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
+                Retail
+              </h3>
+              <p className="text-text-light leading-relaxed">
+                Drive sales with inventory, pricing, and personalization
+              </p>
+            </button>
+
+            {/* Finance & Insurance */}
+            <button
+              className="group bg-card-dark rounded-xl p-6 sm:p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-xl hover:scale-105 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
+            >
+              <div className="text-5xl mb-4">💰</div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
+                Finance & Insurance
+              </h3>
+              <p className="text-text-light leading-relaxed">
+                Accelerate claims, detect fraud, assess risk
+              </p>
+            </button>
           </div>
         </div>
       </section>
