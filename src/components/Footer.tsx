@@ -1,4 +1,5 @@
 import { useState, FormEvent } from 'react';
+import { Link } from 'react-router-dom';
 import { Mail, Linkedin, Check, Loader2 } from 'lucide-react';
 
 export function Footer() {
@@ -68,12 +69,12 @@ export function Footer() {
             <h3 className="text-white font-bold text-lg mb-4">Resources</h3>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="#privacy"
+                <Link
+                  to="/legal-compliance"
                   className="hover:text-white transition-colors inline-block relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent after:transition-all hover:after:w-full"
                 >
-                  Privacy Policy
-                </a>
+                  Trust & Compliance
+                </Link>
               </li>
               <li>
                 <a

@@ -170,7 +170,7 @@ export function ContactForm() {
         <div className="max-w-3xl mx-auto">
           {/* Header */}
           <div className="text-center mb-10 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
               Get Started Today
             </h2>
             <p className="text-lg text-text-light">
