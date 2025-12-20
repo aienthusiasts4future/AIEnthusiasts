@@ -9,6 +9,21 @@
     scroll-behavior: smooth;
   }
 
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
   body {
     @apply text-text-light bg-primary;
     background-image:
@@ -22,6 +37,10 @@
 @layer utilities {
   .fade-in {
     animation: fadeIn 1s ease-in;
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
   }
 
   @keyframes fadeIn {
@@ -148,6 +167,15 @@
   .glow-intense:hover {
     filter: drop-shadow(0 0 20px rgba(37, 227, 244, 0.6));
     transform: translateY(-2px);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
 
