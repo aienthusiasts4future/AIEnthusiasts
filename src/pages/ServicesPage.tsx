@@ -133,8 +133,10 @@ const industries = {
 };
 
 export function ServicesPage() {
-  const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null);
+  const [selectedIndustry, setSelectedIndustry] = useState<string | null>('healthcare');
   const [expandedService, setExpandedService] = useState<string | null>(null);
+  const [expandedDetailCards, setExpandedDetailCards] = useState<Set<number>>(new Set());
+
   useEffect(() => {
     document.title = 'AI Consulting Services | Automation, Analytics & Intelligence | AI Enthusiasts';
 
@@ -158,6 +160,38 @@ export function ServicesPage() {
       }
     };
   }, []);
+
+  const toggleDetailCard = (index: number) => {
+    setExpandedDetailCards(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(index)) {
+        newSet.delete(index);
+      } else {
+        newSet.add(index);
+      }
+      return newSet;
+    });
+  };
+
+  const handleIndustryClick = (key: string) => {
+    setSelectedIndustry(key);
+    setExpandedService(null);
+    setExpandedDetailCards(new Set());
+
+    setTimeout(() => {
+      const element = document.getElementById('industry-details');
+      if (element) {
+        const headerOffset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      }
+    }, 100);
+  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -318,24 +352,20 @@ export function ServicesPage() {
             {Object.entries(industries).map(([key, industry]) => (
               <button
                 key={key}
-                onClick={() => {
-                  setSelectedIndustry(key);
-                  setExpandedService(null);
-                  setTimeout(() => {
-                    document.getElementById('industry-details')?.scrollIntoView({
-                      behavior: 'smooth',
-                      block: 'start'
-                    });
-                  }, 100);
-                }}
-                className={`group bg-card-dark rounded-xl p-6 sm:p-8 border-2 transition-all duration-300 hover:shadow-cyan-glow-xl hover:scale-105 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary ${
+                onClick={() => handleIndustryClick(key)}
+                className={`group bg-card-dark rounded-xl p-6 sm:p-8 border-2 transition-all duration-500 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary ${
                   selectedIndustry === key
-                    ? 'border-accent shadow-cyan-glow-xl'
-                    : 'border-accent/20 hover:border-accent'
+                    ? 'border-accent shadow-cyan-glow-xl scale-105 selected'
+                    : 'border-accent/20 hover:border-accent hover:shadow-cyan-glow-xl hover:scale-105'
                 }`}
+                style={{
+                  transition: 'all 0.3s ease-in-out',
+                }}
               >
                 <div className="text-5xl mb-4">{industry.icon}</div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
+                <h3 className={`text-xl sm:text-2xl font-bold mb-3 transition-colors duration-300 ${
+                  selectedIndustry === key ? 'text-accent' : 'text-white group-hover:text-accent'
+                }`}>
                   {industry.name}
                 </h3>
                 <p className="text-text-light leading-relaxed">
@@ -497,13 +527,15 @@ export function ServicesPage() {
 
               {/* Detailed Use Case Examples - Healthcare Only */}
               {selectedIndustry === 'healthcare' && (
-                <div className="mb-12 space-y-8">
+                <div className="mb-12 space-y-6">
                   <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
                     Real-World Implementation Examples
                   </h4>
 
                   {/* Use Case 1: Intelligent Automation */}
                   <DetailedUseCaseCard
+                    isExpanded={expandedDetailCards.has(0)}
+                    onToggle={() => toggleDetailCard(0)}
                     industryTag="Healthcare"
                     serviceTag="Intelligent Automation"
                     title="Medical Diagnosis & Treatment Planning"
@@ -562,6 +594,8 @@ export function ServicesPage() {
 
                   {/* Use Case 2: Operational Intelligence */}
                   <DetailedUseCaseCard
+                    isExpanded={expandedDetailCards.has(1)}
+                    onToggle={() => toggleDetailCard(1)}
                     industryTag="Healthcare"
                     serviceTag="Operational Intelligence"
                     title="Predictive Analytics for Hospital Readmissions"
@@ -620,6 +654,8 @@ export function ServicesPage() {
 
                   {/* Use Case 3: Growth & Revenue Intelligence */}
                   <DetailedUseCaseCard
+                    isExpanded={expandedDetailCards.has(2)}
+                    onToggle={() => toggleDetailCard(2)}
                     industryTag="Healthcare"
                     serviceTag="Growth & Revenue Intelligence"
                     title="Virtual Health Assistants & Patient Engagement"

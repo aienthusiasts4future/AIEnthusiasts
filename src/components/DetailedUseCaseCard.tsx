@@ -1,4 +1,4 @@
-import { Clock } from 'lucide-react';
+import { Clock, ChevronDown } from 'lucide-react';
 
 interface Metric {
   icon: string;
@@ -25,6 +25,8 @@ interface DetailedUseCaseCardProps {
   performanceBadge: string;
   metrics: Metric[];
   technology: string;
+  isExpanded?: boolean;
+  onToggle?: () => void;
 }
 
 export function DetailedUseCaseCard({
@@ -45,46 +47,70 @@ export function DetailedUseCaseCard({
   performanceBadge,
   metrics,
   technology,
+  isExpanded = false,
+  onToggle,
 }: DetailedUseCaseCardProps) {
   return (
     <div
-      className="rounded-xl overflow-hidden shadow-2xl"
+      className="rounded-xl overflow-hidden shadow-2xl transition-all duration-300"
       style={{
         background: '#1a2332',
         border: '1px solid rgba(37, 227, 244, 0.2)',
       }}
     >
-      {/* Header */}
-      <div className="p-8 border-b border-white/10">
+      {/* Header - Always Visible */}
+      <div className="p-6 sm:p-8">
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-4">
           <span
             className="px-3 py-1 rounded-full text-sm font-medium text-white"
             style={{ background: 'rgba(0, 217, 255, 0.2)', border: '1px solid rgba(0, 217, 255, 0.4)' }}
           >
-            {industryTag}
-          </span>
-          <span
-            className="px-3 py-1 rounded-full text-sm font-medium text-gray-300"
-            style={{ background: 'rgba(255, 255, 255, 0.1)', border: '1px solid rgba(255, 255, 255, 0.2)' }}
-          >
             {serviceTag}
           </span>
         </div>
 
         {/* Title */}
-        <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+        <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
           {title}
         </h3>
 
-        {/* Problem Statement */}
-        <p className="text-text-light leading-relaxed">
-          <span className="font-semibold text-white">Problem:</span> {problemStatement}
+        {/* One-line Description */}
+        <p className="text-text-light text-sm sm:text-base leading-relaxed mb-4">
+          {problemStatement.split('.')[0]}.
         </p>
+
+        {/* View Details Button */}
+        {onToggle && (
+          <button
+            onClick={onToggle}
+            className="flex items-center gap-2 text-accent font-semibold hover:text-accent-hover transition-all duration-300 group"
+          >
+            <span>{isExpanded ? 'Hide Details' : 'View Details'}</span>
+            <ChevronDown
+              className={`w-5 h-5 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+            />
+          </button>
+        )}
       </div>
 
-      {/* Two Column Layout */}
-      <div className="grid md:grid-cols-2 gap-0">
+      {/* Expanded Content */}
+      {isExpanded && (
+        <div
+          className="animate-fadeIn"
+          style={{
+            animation: 'fadeIn 0.3s ease-in-out',
+          }}
+        >
+          {/* Full Problem Statement */}
+          <div className="px-6 sm:px-8 pb-6 border-b border-white/10">
+            <p className="text-text-light leading-relaxed">
+              <span className="font-semibold text-white">Problem:</span> {problemStatement}
+            </p>
+          </div>
+
+          {/* Two Column Layout */}
+          <div className="grid md:grid-cols-2 gap-0">
         {/* LEFT - Before */}
         <div
           className="p-8 border-r border-white/10"
@@ -225,7 +251,9 @@ export function DetailedUseCaseCard({
             <span className="font-semibold text-white">Technology:</span> {technology}
           </p>
         </div>
-      </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
