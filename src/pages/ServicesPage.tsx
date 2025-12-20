@@ -1,6 +1,6 @@
-import { Zap, Activity, TrendingUp, ChevronRight, ArrowDown } from 'lucide-react';
+import { Zap, Activity, TrendingUp, ChevronRight, ArrowDown, ChevronDown, ChevronUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const services = [
   {
@@ -44,7 +44,96 @@ const services = [
   },
 ];
 
+const industries = {
+  healthcare: {
+    id: 'healthcare',
+    name: 'Healthcare',
+    icon: '🏥',
+    description: 'AI solutions for patient care and hospital operations',
+    useCases: [
+      { name: 'Patient Scheduling', icon: '📅' },
+      { name: 'Medical Records', icon: '📋' },
+      { name: 'Billing Automation', icon: '💳' },
+      { name: 'Patient Support', icon: '💬' },
+      { name: 'Appointment Reminders', icon: '🔔' },
+      { name: 'Intake Processing', icon: '📝' },
+    ],
+  },
+  legal: {
+    id: 'legal',
+    name: 'Legal',
+    icon: '⚖️',
+    description: 'Transform legal operations with intelligent automation',
+    useCases: [
+      { name: 'Document Review', icon: '📄' },
+      { name: 'Contract Analysis', icon: '📑' },
+      { name: 'Case Management', icon: '💼' },
+      { name: 'Client Intake', icon: '👥' },
+      { name: 'Legal Research', icon: '🔍' },
+      { name: 'Billing & Time Tracking', icon: '⏱️' },
+    ],
+  },
+  it: {
+    id: 'it',
+    name: 'IT & SaaS',
+    icon: '💻',
+    description: 'Optimize development, support, and customer success',
+    useCases: [
+      { name: 'Ticket Routing', icon: '🎫' },
+      { name: 'Code Documentation', icon: '📚' },
+      { name: 'Customer Onboarding', icon: '🚀' },
+      { name: 'Usage Analytics', icon: '📊' },
+      { name: 'Support Chatbots', icon: '🤖' },
+      { name: 'Incident Response', icon: '🚨' },
+    ],
+  },
+  realestate: {
+    id: 'realestate',
+    name: 'Real Estate & Property Management',
+    icon: '🏢',
+    description: 'Automate property operations and tenant management',
+    useCases: [
+      { name: 'Tenant Screening', icon: '🔍' },
+      { name: 'Lease Management', icon: '📄' },
+      { name: 'Maintenance Requests', icon: '🔧' },
+      { name: 'Rent Collection', icon: '💰' },
+      { name: 'Property Tours', icon: '🏠' },
+      { name: 'Vacancy Management', icon: '📋' },
+    ],
+  },
+  retail: {
+    id: 'retail',
+    name: 'Retail',
+    icon: '🛒',
+    description: 'Drive sales with inventory, pricing, and personalization',
+    useCases: [
+      { name: 'Inventory Tracking', icon: '📦' },
+      { name: 'Dynamic Pricing', icon: '💵' },
+      { name: 'Customer Support', icon: '💬' },
+      { name: 'Order Management', icon: '📋' },
+      { name: 'Product Recommendations', icon: '🎯' },
+      { name: 'Sales Analytics', icon: '📈' },
+    ],
+  },
+  finance: {
+    id: 'finance',
+    name: 'Finance & Insurance',
+    icon: '💰',
+    description: 'Accelerate claims, detect fraud, assess risk',
+    useCases: [
+      { name: 'Claims Processing', icon: '📋' },
+      { name: 'Fraud Detection', icon: '🔒' },
+      { name: 'Risk Assessment', icon: '⚠️' },
+      { name: 'Customer Verification', icon: '✓' },
+      { name: 'Policy Management', icon: '📄' },
+      { name: 'Compliance Monitoring', icon: '📊' },
+    ],
+  },
+};
+
 export function ServicesPage() {
+  const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null);
+  const [expandedService, setExpandedService] = useState<string | null>(null);
   useEffect(() => {
     document.title = 'AI Consulting Services | Automation, Analytics & Intelligence | AI Enthusiasts';
 
@@ -225,85 +314,174 @@ export function ServicesPage() {
 
           {/* Industry Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
-            {/* Healthcare */}
-            <button
-              className="group bg-card-dark rounded-xl p-6 sm:p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-xl hover:scale-105 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
-            >
-              <div className="text-5xl mb-4">🏥</div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
-                Healthcare
-              </h3>
-              <p className="text-text-light leading-relaxed">
-                AI solutions for patient care and hospital operations
-              </p>
-            </button>
-
-            {/* Legal */}
-            <button
-              className="group bg-card-dark rounded-xl p-6 sm:p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-xl hover:scale-105 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
-            >
-              <div className="text-5xl mb-4">⚖️</div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
-                Legal
-              </h3>
-              <p className="text-text-light leading-relaxed">
-                Transform legal operations with intelligent automation
-              </p>
-            </button>
-
-            {/* IT & SaaS */}
-            <button
-              className="group bg-card-dark rounded-xl p-6 sm:p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-xl hover:scale-105 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
-            >
-              <div className="text-5xl mb-4">💻</div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
-                IT & SaaS
-              </h3>
-              <p className="text-text-light leading-relaxed">
-                Optimize development, support, and customer success
-              </p>
-            </button>
-
-            {/* Real Estate & Property Management */}
-            <button
-              className="group bg-card-dark rounded-xl p-6 sm:p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-xl hover:scale-105 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
-            >
-              <div className="text-5xl mb-4">🏢</div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
-                Real Estate & Property Management
-              </h3>
-              <p className="text-text-light leading-relaxed">
-                Automate property operations and tenant management
-              </p>
-            </button>
-
-            {/* Retail */}
-            <button
-              className="group bg-card-dark rounded-xl p-6 sm:p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-xl hover:scale-105 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
-            >
-              <div className="text-5xl mb-4">🛒</div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
-                Retail
-              </h3>
-              <p className="text-text-light leading-relaxed">
-                Drive sales with inventory, pricing, and personalization
-              </p>
-            </button>
-
-            {/* Finance & Insurance */}
-            <button
-              className="group bg-card-dark rounded-xl p-6 sm:p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-xl hover:scale-105 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
-            >
-              <div className="text-5xl mb-4">💰</div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
-                Finance & Insurance
-              </h3>
-              <p className="text-text-light leading-relaxed">
-                Accelerate claims, detect fraud, assess risk
-              </p>
-            </button>
+            {Object.entries(industries).map(([key, industry]) => (
+              <button
+                key={key}
+                onClick={() => {
+                  setSelectedIndustry(key);
+                  setExpandedService(null);
+                  setTimeout(() => {
+                    document.getElementById('industry-details')?.scrollIntoView({
+                      behavior: 'smooth',
+                      block: 'start'
+                    });
+                  }, 100);
+                }}
+                className={`group bg-card-dark rounded-xl p-6 sm:p-8 border-2 transition-all duration-300 hover:shadow-cyan-glow-xl hover:scale-105 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary ${
+                  selectedIndustry === key
+                    ? 'border-accent shadow-cyan-glow-xl'
+                    : 'border-accent/20 hover:border-accent'
+                }`}
+              >
+                <div className="text-5xl mb-4">{industry.icon}</div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
+                  {industry.name}
+                </h3>
+                <p className="text-text-light leading-relaxed">
+                  {industry.description}
+                </p>
+              </button>
+            ))}
           </div>
         </div>
+
+        {/* Industry Details Section */}
+        {selectedIndustry && industries[selectedIndustry as keyof typeof industries] && (
+          <div
+            id="industry-details"
+            className="mt-16 animate-fadeIn scroll-mt-20"
+            style={{
+              animation: 'fadeIn 0.5s ease-in-out',
+            }}
+          >
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              {/* Industry Header Bar */}
+              <div className="bg-card-dark border-l-4 border-accent rounded-lg p-6 mb-8 sticky top-20 z-10 shadow-lg">
+                <div className="flex items-center gap-4">
+                  <span className="text-4xl">{industries[selectedIndustry as keyof typeof industries].icon}</span>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                    {industries[selectedIndustry as keyof typeof industries].name} Solutions
+                  </h3>
+                </div>
+              </div>
+
+              {/* Common Use Cases */}
+              <div className="mb-12">
+                <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
+                  Common Use Cases
+                </h4>
+                <div className="flex flex-wrap gap-3">
+                  {industries[selectedIndustry as keyof typeof industries].useCases.map((useCase, index) => (
+                    <div
+                      key={index}
+                      className="inline-flex items-center gap-2 bg-card-dark border border-accent/20 rounded-lg px-4 py-3 hover:bg-accent/10 hover:border-accent transition-all duration-300 cursor-pointer"
+                    >
+                      <span className="text-2xl">{useCase.icon}</span>
+                      <span className="text-text-light font-medium">{useCase.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Detailed Solutions by Service Category */}
+              <div className="mb-12">
+                <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
+                  Detailed Solutions by Service Category
+                </h4>
+                <div className="space-y-4">
+                  {services.map((service) => (
+                    <div
+                      key={service.id}
+                      className="bg-card-dark border-2 border-accent/20 rounded-lg overflow-hidden"
+                    >
+                      {/* Service Header - Always Visible */}
+                      <button
+                        onClick={() => setExpandedService(expandedService === service.id ? null : service.id)}
+                        className="w-full flex items-center justify-between p-6 hover:bg-accent/5 transition-colors text-left"
+                      >
+                        <div className="flex items-center gap-4">
+                          <div className="flex-shrink-0 w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center">
+                            <service.icon className="w-6 h-6 text-accent" />
+                          </div>
+                          <div>
+                            <h5 className="text-lg sm:text-xl font-bold text-white">
+                              {service.title}
+                            </h5>
+                            <p className="text-sm text-accent">{service.tagline}</p>
+                          </div>
+                        </div>
+                        <div className="flex-shrink-0">
+                          {expandedService === service.id ? (
+                            <ChevronUp className="w-6 h-6 text-accent" />
+                          ) : (
+                            <ChevronDown className="w-6 h-6 text-accent" />
+                          )}
+                        </div>
+                      </button>
+
+                      {/* Expanded Content */}
+                      {expandedService === service.id && (
+                        <div className="px-6 pb-6 border-t border-accent/20 pt-6 animate-fadeIn">
+                          <div className="grid md:grid-cols-2 gap-6">
+                            {/* Before */}
+                            <div className="bg-primary-light rounded-lg p-5">
+                              <h6 className="text-sm font-bold text-accent mb-3 flex items-center gap-2">
+                                <span className="text-lg">❌</span> Before
+                              </h6>
+                              <ul className="space-y-2 text-text-light text-sm">
+                                <li className="flex gap-2">
+                                  <span>•</span>
+                                  <span>Manual, time-consuming processes</span>
+                                </li>
+                                <li className="flex gap-2">
+                                  <span>•</span>
+                                  <span>High error rates and inconsistency</span>
+                                </li>
+                                <li className="flex gap-2">
+                                  <span>•</span>
+                                  <span>Limited visibility into operations</span>
+                                </li>
+                                <li className="flex gap-2">
+                                  <span>•</span>
+                                  <span>Reactive rather than proactive</span>
+                                </li>
+                              </ul>
+                            </div>
+
+                            {/* After */}
+                            <div className="bg-primary-light rounded-lg p-5">
+                              <h6 className="text-sm font-bold text-accent mb-3 flex items-center gap-2">
+                                <span className="text-lg">✅</span> After
+                              </h6>
+                              <ul className="space-y-2 text-text-light text-sm">
+                                <li className="flex gap-2">
+                                  <span>•</span>
+                                  <span>Automated workflows save hours daily</span>
+                                </li>
+                                <li className="flex gap-2">
+                                  <span>•</span>
+                                  <span>Consistent, accurate results</span>
+                                </li>
+                                <li className="flex gap-2">
+                                  <span>•</span>
+                                  <span>Real-time insights and monitoring</span>
+                                </li>
+                                <li className="flex gap-2">
+                                  <span>•</span>
+                                  <span>Proactive problem detection</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* CTA Section */}
