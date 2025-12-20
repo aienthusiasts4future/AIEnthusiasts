@@ -66,12 +66,12 @@ const industries = {
     icon: '⚖️',
     description: 'Transform legal operations with intelligent automation',
     useCases: [
-      { name: 'Document Review', icon: '📄' },
-      { name: 'Contract Analysis', icon: '📑' },
-      { name: 'Case Management', icon: '💼' },
-      { name: 'Client Intake', icon: '👥' },
-      { name: 'Legal Research', icon: '🔍' },
-      { name: 'Billing & Time Tracking', icon: '⏱️' },
+      { name: 'Contract Review & Analysis', icon: '⚖️' },
+      { name: 'Legal Research Automation', icon: '📚' },
+      { name: 'Document Drafting', icon: '📝' },
+      { name: 'Predictive Case Analytics', icon: '🎯' },
+      { name: 'Compliance Monitoring', icon: '📋' },
+      { name: 'Legal Writing Assistance', icon: '🤝' },
     ],
   },
   it: {
@@ -525,7 +525,7 @@ export function ServicesPage() {
                 </div>
               </div>
 
-              {/* Detailed Use Case Examples - Healthcare Only */}
+              {/* Detailed Use Case Examples - Healthcare */}
               {selectedIndustry === 'healthcare' && (
                 <div className="mb-12 space-y-6">
                   <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
@@ -710,6 +710,198 @@ export function ServicesPage() {
                       },
                     ]}
                     technology="NLP chatbot + Scheduling automation + Reminder system + Patient portal integration"
+                  />
+                </div>
+              )}
+
+              {/* Detailed Use Case Examples - Legal */}
+              {selectedIndustry === 'legal' && (
+                <div className="mb-12 space-y-6">
+                  <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
+                    Real-World Implementation Examples
+                  </h4>
+
+                  {/* Use Case 1: Intelligent Automation */}
+                  <DetailedUseCaseCard
+                    isExpanded={expandedDetailCards.has(3)}
+                    onToggle={() => toggleDetailCard(3)}
+                    industryTag="Legal"
+                    serviceTag="Intelligent Automation"
+                    title="Contract Review & Approval Automation"
+                    problemStatement="Associates spent 6-8 hours/week reviewing contracts. Legal review took 3-5 days. 31% required multiple revision rounds. Manual review cost $2,400-$10,000 per contract with 10-15% error rate."
+                    beforeIcon="📄"
+                    beforeTitle="Before: Manual Review"
+                    beforeItems={[
+                      '3-5 days per contract review',
+                      '$2,400-$10,000 per contract cost',
+                      '10-15% error rate',
+                      'Multiple revision rounds (31% of contracts)',
+                    ]}
+                    beforeTimeMetric="⏱️ 3-5 days per contract"
+                    afterIcon="🤖"
+                    afterTitle="After: AI Automation"
+                    afterSuccessMessage="✓ Contract analysis complete: 92% of issues caught automatically. Ready for review in 2-4 hours."
+                    afterAlerts={[
+                      'Flag: 90% time reduction achieved',
+                      'Alert: 95%+ first-pass approval rate',
+                    ]}
+                    afterItems={[
+                      '2-4 hours per contract (90% reduction)',
+                      '$100-300 per contract cost',
+                      '<1% error rate',
+                      '95%+ first-pass approval',
+                    ]}
+                    afterTimeMetric="⏱️ 2-4 hours per contract"
+                    performanceBadge="→ 90% time reduction"
+                    metrics={[
+                      {
+                        icon: '⏱️',
+                        label: 'Review Time',
+                        value: '2-4 hrs',
+                        comparison: 'vs 3-5 days',
+                      },
+                      {
+                        icon: '💰',
+                        label: 'Cost per Contract',
+                        value: '$100-300',
+                        comparison: 'vs $2.4K-$10K',
+                      },
+                      {
+                        icon: '🎯',
+                        label: 'Error Rate',
+                        value: '<1%',
+                        comparison: 'vs 10-15%',
+                      },
+                      {
+                        icon: '💵',
+                        label: 'Annual Savings',
+                        value: '$115K-$495K',
+                        comparison: '50 contracts/year',
+                      },
+                    ]}
+                    technology="NLP + Contract analysis AI + Clause extraction + Risk scoring + Legal knowledge base"
+                  />
+
+                  {/* Use Case 2: Operational Intelligence */}
+                  <DetailedUseCaseCard
+                    isExpanded={expandedDetailCards.has(4)}
+                    onToggle={() => toggleDetailCard(4)}
+                    industryTag="Legal"
+                    serviceTag="Operational Intelligence"
+                    title="Legal Research Automation"
+                    problemStatement="Attorneys spent 8-12 hours per week on legal research. Manual case law review cost $300-500/hour. 40% of research was redundant. Limited access to comprehensive precedent analysis."
+                    beforeIcon="📚"
+                    beforeTitle="Before: Manual Research"
+                    beforeItems={[
+                      '8-12 hours per week per attorney',
+                      '$300-500/hour research cost',
+                      '40% redundant research',
+                      'Limited precedent analysis',
+                    ]}
+                    beforeTimeMetric="⏱️ 8-12 hours weekly"
+                    afterIcon="🤖"
+                    afterTitle="After: AI Intelligence"
+                    afterSuccessMessage="✓ Research complete: 500+ relevant cases analyzed. Key precedents identified in 1-2 hours."
+                    afterAlerts={[
+                      'Flag: 85% research time saved',
+                      'Alert: Comprehensive precedent mapping enabled',
+                    ]}
+                    afterItems={[
+                      '1-2 hours per research task',
+                      'Automated case law analysis',
+                      'Zero redundant research',
+                      'Real-time precedent updates',
+                    ]}
+                    afterTimeMetric="⏱️ 1-2 hours per task"
+                    performanceBadge="→ 85% time reduction"
+                    metrics={[
+                      {
+                        icon: '⏱️',
+                        label: 'Research Time',
+                        value: '1-2 hrs',
+                        comparison: 'vs 8-12 hrs',
+                      },
+                      {
+                        icon: '💰',
+                        label: 'Annual Savings',
+                        value: '$125K-$250K',
+                        comparison: 'Per attorney',
+                      },
+                      {
+                        icon: '📊',
+                        label: 'Research Quality',
+                        value: '500+ cases',
+                        comparison: 'vs 20-50 manual',
+                      },
+                      {
+                        icon: '🎯',
+                        label: 'Relevance Score',
+                        value: '95%+',
+                        comparison: 'High precision',
+                      },
+                    ]}
+                    technology="Legal AI + Case law database + Citation analysis + Precedent mapping + Natural language search"
+                  />
+
+                  {/* Use Case 3: Growth & Revenue Intelligence */}
+                  <DetailedUseCaseCard
+                    isExpanded={expandedDetailCards.has(5)}
+                    onToggle={() => toggleDetailCard(5)}
+                    industryTag="Legal"
+                    serviceTag="Growth & Revenue Intelligence"
+                    title="Predictive Case Analytics"
+                    problemStatement="Case outcome prediction was based on intuition. No data-driven settlement recommendations. 65% of cases went to trial unnecessarily. Settlement timing was suboptimal, costing clients $50K-$200K per case."
+                    beforeIcon="⚖️"
+                    beforeTitle="Before: Intuition-Based"
+                    beforeItems={[
+                      '65% unnecessary trials',
+                      'No predictive analytics',
+                      '$50K-$200K excess costs per case',
+                      'Suboptimal settlement timing',
+                    ]}
+                    beforeTimeMetric="⏱️ Manual case assessment"
+                    afterIcon="🤖"
+                    afterTitle="After: AI Analytics"
+                    afterSuccessMessage="✓ Case analysis complete: 82% win probability. Optimal settlement window: 45-60 days. Recommended strategy provided."
+                    afterAlerts={[
+                      'Flag: 78% settlement accuracy',
+                      'Alert: $75K-$150K average savings per case',
+                    ]}
+                    afterItems={[
+                      '35% reduction in unnecessary trials',
+                      '78% accurate outcome prediction',
+                      'Data-driven settlement timing',
+                      'Real-time case value assessment',
+                    ]}
+                    afterTimeMetric="⏱️ Instant analytics"
+                    performanceBadge="→ $75K-$150K saved per case"
+                    metrics={[
+                      {
+                        icon: '🎯',
+                        label: 'Prediction Accuracy',
+                        value: '78%',
+                        comparison: 'Case outcomes',
+                      },
+                      {
+                        icon: '💰',
+                        label: 'Savings per Case',
+                        value: '$75K-$150K',
+                        comparison: 'Client benefit',
+                      },
+                      {
+                        icon: '📉',
+                        label: 'Trial Reduction',
+                        value: '35%',
+                        comparison: 'Fewer trials',
+                      },
+                      {
+                        icon: '⚡',
+                        label: 'Settlement Rate',
+                        value: '+45%',
+                        comparison: 'Better outcomes',
+                      },
+                    ]}
+                    technology="Predictive analytics + Case law analysis + Settlement modeling + Judge/venue analysis + Historical data mining"
                   />
                 </div>
               )}
