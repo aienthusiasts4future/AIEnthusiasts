@@ -153,6 +153,15 @@
     filter: drop-shadow(0 0 20px rgba(37, 227, 244, 0.6));
     transform: translateY(-2px);
   }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* Custom Slider Styles */

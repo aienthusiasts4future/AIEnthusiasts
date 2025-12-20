@@ -348,12 +348,12 @@ export function ServicesPage() {
           </div>
 
           {/* Industry Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
             {Object.entries(industries).map(([key, industry]) => (
               <button
                 key={key}
                 onClick={() => handleIndustryClick(key)}
-                className={`group bg-card-dark rounded-xl p-6 sm:p-8 border-2 transition-all duration-500 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary ${
+                className={`group bg-card-dark rounded-xl p-5 sm:p-6 md:p-8 border-2 transition-all duration-500 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary ${
                   selectedIndustry === key
                     ? 'border-accent shadow-cyan-glow-xl scale-105 selected'
                     : 'border-accent/20 hover:border-accent hover:shadow-cyan-glow-xl hover:scale-105'
@@ -362,13 +362,13 @@ export function ServicesPage() {
                   transition: 'all 0.3s ease-in-out',
                 }}
               >
-                <div className="text-5xl mb-4">{industry.icon}</div>
-                <h3 className={`text-xl sm:text-2xl font-bold mb-3 transition-colors duration-300 ${
+                <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{industry.icon}</div>
+                <h3 className={`text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 transition-colors duration-300 ${
                   selectedIndustry === key ? 'text-accent' : 'text-white group-hover:text-accent'
                 }`}>
                   {industry.name}
                 </h3>
-                <p className="text-text-light leading-relaxed">
+                <p className="text-sm sm:text-base text-text-light leading-relaxed">
                   {industry.description}
                 </p>
               </button>
@@ -387,25 +387,25 @@ export function ServicesPage() {
           >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               {/* Industry Header Bar */}
-              <div className="bg-card-dark border-l-4 border-accent rounded-lg p-6 mb-8 sticky top-20 z-10 shadow-lg">
-                <div className="flex items-center gap-4">
-                  <span className="text-4xl">{industries[selectedIndustry as keyof typeof industries].icon}</span>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white">
+              <div className="bg-card-dark border-l-4 border-accent rounded-lg p-4 sm:p-6 mb-6 sm:mb-8 sticky top-16 sm:top-20 z-10 shadow-lg">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <span className="text-3xl sm:text-4xl">{industries[selectedIndustry as keyof typeof industries].icon}</span>
+                  <h3 className="text-lg sm:text-2xl md:text-3xl font-bold text-white">
                     {industries[selectedIndustry as keyof typeof industries].name} Solutions
                   </h3>
                 </div>
               </div>
 
               {/* Common Use Cases */}
-              <div className="mb-12">
-                <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
+              <div className="mb-8 sm:mb-12">
+                <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4 sm:mb-6">
                   Common Use Cases
                 </h4>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex sm:flex-wrap gap-3 overflow-x-auto snap-x snap-mandatory pb-2 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide">
                   {industries[selectedIndustry as keyof typeof industries].useCases.map((useCase, index) => (
                     <div
                       key={index}
-                      className="inline-flex items-center transition-all duration-300"
+                      className="inline-flex items-center transition-all duration-300 flex-shrink-0 snap-start"
                       style={{
                         gap: '8px',
                         background: 'rgba(0, 217, 255, 0.1)',
@@ -421,16 +421,16 @@ export function ServicesPage() {
                         e.currentTarget.style.background = 'rgba(0, 217, 255, 0.1)';
                       }}
                     >
-                      <span className="text-xl">{useCase.icon}</span>
-                      <span className="text-white font-medium">{useCase.name}</span>
+                      <span className="text-lg sm:text-xl">{useCase.icon}</span>
+                      <span className="text-white font-medium text-sm sm:text-base whitespace-nowrap">{useCase.name}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Detailed Solutions by Service Category */}
-              <div className="mb-12">
-                <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
+              <div className="mb-8 sm:mb-12">
+                <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4 sm:mb-6">
                   Detailed Solutions by Service Category
                 </h4>
                 <div className="space-y-4">
