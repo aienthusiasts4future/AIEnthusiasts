@@ -80,12 +80,12 @@ const industries = {
     icon: '💻',
     description: 'Optimize development, support, and customer success',
     useCases: [
-      { name: 'Ticket Routing', icon: '🎫' },
-      { name: 'Code Documentation', icon: '📚' },
-      { name: 'Customer Onboarding', icon: '🚀' },
-      { name: 'Usage Analytics', icon: '📊' },
-      { name: 'Support Chatbots', icon: '🤖' },
-      { name: 'Incident Response', icon: '🚨' },
+      { name: 'Code Review Automation', icon: '💻' },
+      { name: 'QA & Testing Automation', icon: '🧪' },
+      { name: 'Customer Success Intelligence', icon: '📊' },
+      { name: 'Bug Detection & Resolution', icon: '🔍' },
+      { name: 'Usage Analytics', icon: '📈' },
+      { name: 'Development Acceleration', icon: '🚀' },
     ],
   },
   realestate: {
@@ -902,6 +902,198 @@ export function ServicesPage() {
                       },
                     ]}
                     technology="Predictive analytics + Case law analysis + Settlement modeling + Judge/venue analysis + Historical data mining"
+                  />
+                </div>
+              )}
+
+              {/* Detailed Use Case Examples - IT & SaaS */}
+              {selectedIndustry === 'it' && (
+                <div className="mb-12 space-y-6">
+                  <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
+                    Real-World Implementation Examples
+                  </h4>
+
+                  {/* Use Case 1: Intelligent Automation */}
+                  <DetailedUseCaseCard
+                    isExpanded={expandedDetailCards.has(6)}
+                    onToggle={() => toggleDetailCard(6)}
+                    industryTag="IT & SaaS"
+                    serviceTag="Intelligent Automation"
+                    title="Automated Code Review & Security Scanning"
+                    problemStatement="15+ PRs waiting for review. Senior devs spent 10 hours/week reviewing. Security vulnerabilities caught in production. 8 hours wait + 45 min manual review per PR. Inconsistent code quality standards."
+                    beforeIcon="👨‍💻"
+                    beforeTitle="Before: Manual Review"
+                    beforeItems={[
+                      '8 hours wait + 45 min manual review',
+                      '15+ PRs waiting for review',
+                      'Inconsistent code quality',
+                      'Security vulnerabilities in production',
+                    ]}
+                    beforeTimeMetric="⏱️ 8 hours wait + 45 min review"
+                    afterIcon="🤖"
+                    afterTitle="After: AI Automation"
+                    afterSuccessMessage="✓ Code scan complete: 0 security issues. 3 code quality improvements suggested. Ready for focused senior review."
+                    afterAlerts={[
+                      'Flag: 90% faster initial review',
+                      'Alert: Security issues caught instantly',
+                    ]}
+                    afterItems={[
+                      '5-minute AI scan + focused human review',
+                      'Security issues caught instantly',
+                      'Suggested fixes provided',
+                      'Critical logic gets senior review with AI pre-analysis',
+                    ]}
+                    afterTimeMetric="⏱️ 5-minute AI scan"
+                    performanceBadge="→ 90% faster initial review"
+                    metrics={[
+                      {
+                        icon: '⏱️',
+                        label: 'Review Time',
+                        value: '5 min',
+                        comparison: 'vs 8+ hrs',
+                      },
+                      {
+                        icon: '🔒',
+                        label: 'Security',
+                        value: 'Instant catch',
+                        comparison: 'Before production',
+                      },
+                      {
+                        icon: '📈',
+                        label: 'PR Queue',
+                        value: '0 backlog',
+                        comparison: 'vs 15+ waiting',
+                      },
+                      {
+                        icon: '🎯',
+                        label: 'Quality',
+                        value: 'Consistent',
+                        comparison: 'Standards enforced',
+                      },
+                    ]}
+                    technology="Static analysis + Security scanning + Pattern detection + Code quality rules + AI-powered suggestions"
+                  />
+
+                  {/* Use Case 2: Operational Intelligence */}
+                  <DetailedUseCaseCard
+                    isExpanded={expandedDetailCards.has(7)}
+                    onToggle={() => toggleDetailCard(7)}
+                    industryTag="IT & SaaS"
+                    serviceTag="Operational Intelligence"
+                    title="Intelligent QA & Testing Automation"
+                    problemStatement="QA team spent 20 hours/sprint on regression testing. 30% of bugs found in production. Test coverage at 45%. Manual testing delayed releases by 3-5 days per sprint."
+                    beforeIcon="🐛"
+                    beforeTitle="Before: Manual Testing"
+                    beforeItems={[
+                      '20 hours/sprint on regression testing',
+                      '30% of bugs found in production',
+                      '45% test coverage',
+                      '3-5 days release delay per sprint',
+                    ]}
+                    beforeTimeMetric="⏱️ 20 hours per sprint"
+                    afterIcon="🤖"
+                    afterTitle="After: AI Intelligence"
+                    afterSuccessMessage="✓ Test suite complete: 85% coverage achieved. 127 tests passed. 0 critical issues detected. Ready for deployment."
+                    afterAlerts={[
+                      'Flag: 85% reduction in testing time',
+                      'Alert: 90% fewer production bugs',
+                    ]}
+                    afterItems={[
+                      '3 hours/sprint automated testing',
+                      '10% bugs found in production (90% reduction)',
+                      '85% test coverage',
+                      'Same-day deployment readiness',
+                    ]}
+                    afterTimeMetric="⏱️ 3 hours per sprint"
+                    performanceBadge="→ 85% time reduction"
+                    metrics={[
+                      {
+                        icon: '⏱️',
+                        label: 'Testing Time',
+                        value: '3 hrs',
+                        comparison: 'vs 20 hrs',
+                      },
+                      {
+                        icon: '🐛',
+                        label: 'Production Bugs',
+                        value: '10%',
+                        comparison: 'vs 30%',
+                      },
+                      {
+                        icon: '📊',
+                        label: 'Test Coverage',
+                        value: '85%',
+                        comparison: 'vs 45%',
+                      },
+                      {
+                        icon: '🚀',
+                        label: 'Release Speed',
+                        value: 'Same day',
+                        comparison: 'vs 3-5 days',
+                      },
+                    ]}
+                    technology="Automated testing + AI test generation + Visual regression + Performance monitoring + Intelligent test prioritization"
+                  />
+
+                  {/* Use Case 3: Growth & Revenue Intelligence */}
+                  <DetailedUseCaseCard
+                    isExpanded={expandedDetailCards.has(8)}
+                    onToggle={() => toggleDetailCard(8)}
+                    industryTag="IT & SaaS"
+                    serviceTag="Growth & Revenue Intelligence"
+                    title="Customer Success Intelligence & Churn Prevention"
+                    problemStatement="22% annual churn rate. Churn detected only 2 weeks before cancellation. No visibility into usage patterns. Customer success team reactive rather than proactive. $450K annual revenue lost to preventable churn."
+                    beforeIcon="📉"
+                    beforeTitle="Before: Reactive Approach"
+                    beforeItems={[
+                      '22% annual churn rate',
+                      'Churn detected 2 weeks before',
+                      'No usage pattern visibility',
+                      '$450K annual revenue lost',
+                    ]}
+                    beforeTimeMetric="⏱️ Reactive after cancellation notice"
+                    afterIcon="🤖"
+                    afterTitle="After: AI Intelligence"
+                    afterSuccessMessage="✓ Alert: High churn risk detected. Usage dropped 40% in 30 days. Recommended: Immediate outreach + feature adoption campaign."
+                    afterAlerts={[
+                      'Flag: 8 weeks earlier detection',
+                      'Alert: 82% prediction accuracy',
+                    ]}
+                    afterItems={[
+                      '13% annual churn rate (41% reduction)',
+                      'At-risk accounts flagged 8 weeks early',
+                      'Real-time usage analytics',
+                      'Proactive intervention playbooks',
+                    ]}
+                    afterTimeMetric="⏱️ Real-time monitoring"
+                    performanceBadge="→ 41% churn reduction"
+                    metrics={[
+                      {
+                        icon: '📉',
+                        label: 'Churn Rate',
+                        value: '13%',
+                        comparison: 'vs 22%',
+                      },
+                      {
+                        icon: '💰',
+                        label: 'Revenue Saved',
+                        value: '$185K',
+                        comparison: 'Annual retention',
+                      },
+                      {
+                        icon: '🎯',
+                        label: 'Prediction',
+                        value: '82%',
+                        comparison: 'Accuracy rate',
+                      },
+                      {
+                        icon: '⚡',
+                        label: 'Detection',
+                        value: '8 weeks earlier',
+                        comparison: 'vs 2 weeks',
+                      },
+                    ]}
+                    technology="Usage analytics + Behavioral scoring + Churn prediction ML + Customer health monitoring + Automated alerts"
                   />
                 </div>
               )}
