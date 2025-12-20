@@ -94,12 +94,12 @@ const industries = {
     icon: '🏢',
     description: 'Automate property operations and tenant management',
     useCases: [
-      { name: 'Tenant Screening', icon: '🔍' },
-      { name: 'Lease Management', icon: '📄' },
-      { name: 'Maintenance Requests', icon: '🔧' },
-      { name: 'Rent Collection', icon: '💰' },
-      { name: 'Property Tours', icon: '🏠' },
-      { name: 'Vacancy Management', icon: '📋' },
+      { name: 'Document Processing', icon: '📄' },
+      { name: 'Predictive Maintenance', icon: '🔧' },
+      { name: 'Tenant Screening', icon: '👥' },
+      { name: 'Lease Management', icon: '📋' },
+      { name: 'Rent Optimization', icon: '💰' },
+      { name: 'Tenant Communication', icon: '📞' },
     ],
   },
   retail: {
@@ -1094,6 +1094,198 @@ export function ServicesPage() {
                       },
                     ]}
                     technology="Usage analytics + Behavioral scoring + Churn prediction ML + Customer health monitoring + Automated alerts"
+                  />
+                </div>
+              )}
+
+              {/* Detailed Use Case Examples - Real Estate */}
+              {selectedIndustry === 'realestate' && (
+                <div className="mb-12 space-y-6">
+                  <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
+                    Real-World Implementation Examples
+                  </h4>
+
+                  {/* Use Case 1: Intelligent Automation */}
+                  <DetailedUseCaseCard
+                    isExpanded={expandedDetailCards.has(9)}
+                    onToggle={() => toggleDetailCard(9)}
+                    industryTag="Real Estate"
+                    serviceTag="Intelligent Automation"
+                    title="Lease & Contract Document Processing"
+                    problemStatement="500+ documents/month. 15 hours/week manual review. 12% compliance errors. Contract renewal deadlines missed. Manual extraction of key dates from leases, addendums, and amendments."
+                    beforeIcon="📄"
+                    beforeTitle="Before: Manual Processing"
+                    beforeItems={[
+                      '15 hours/week processing time',
+                      '12% compliance errors',
+                      'Contract renewal deadlines missed',
+                      'Manual extraction of key dates',
+                    ]}
+                    beforeTimeMetric="⏱️ 15 hours/week processing"
+                    afterIcon="🤖"
+                    afterTitle="After: AI Automation"
+                    afterSuccessMessage="✓ Document analysis complete: All key dates extracted. 89% auto-flagged for approval. Critical legal issues flagged for attorney review."
+                    afterAlerts={[
+                      'Flag: 95% faster processing',
+                      'Alert: Zero missed deadlines',
+                    ]}
+                    afterItems={[
+                      'Instant extraction (95% faster)',
+                      'Critical dates flagged automatically (89%)',
+                      'Zero missed deadlines',
+                      'Complex legal issues → attorney review (11%)',
+                    ]}
+                    afterTimeMetric="⏱️ Instant extraction"
+                    performanceBadge="→ 95% faster processing"
+                    metrics={[
+                      {
+                        icon: '⏱️',
+                        label: 'Processing Time',
+                        value: 'Instant',
+                        comparison: 'vs 15 hrs/week',
+                      },
+                      {
+                        icon: '🎯',
+                        label: 'Accuracy',
+                        value: '89% auto-flagged',
+                        comparison: 'High precision',
+                      },
+                      {
+                        icon: '✅',
+                        label: 'Compliance',
+                        value: '0 missed deadlines',
+                        comparison: 'vs frequent misses',
+                      },
+                      {
+                        icon: '💰',
+                        label: 'Time Saved',
+                        value: '15 hrs/week',
+                        comparison: 'Labor reduction',
+                      },
+                    ]}
+                    technology="OCR + NLP + Document classification + Key date extraction + Compliance checking"
+                  />
+
+                  {/* Use Case 2: Operational Intelligence */}
+                  <DetailedUseCaseCard
+                    isExpanded={expandedDetailCards.has(10)}
+                    onToggle={() => toggleDetailCard(10)}
+                    industryTag="Real Estate"
+                    serviceTag="Operational Intelligence"
+                    title="Predictive Maintenance for Properties"
+                    problemStatement="Reactive maintenance cost 35% more than preventive. 48-hour average response time. 250+ maintenance requests/month. No visibility into equipment health. Tenant satisfaction at 68%."
+                    beforeIcon="🔧"
+                    beforeTitle="Before: Reactive Maintenance"
+                    beforeItems={[
+                      '35% higher reactive maintenance costs',
+                      '48-hour average response time',
+                      '250+ monthly maintenance requests',
+                      '68% tenant satisfaction',
+                    ]}
+                    beforeTimeMetric="⏱️ 48-hour response time"
+                    afterIcon="🤖"
+                    afterTitle="After: AI Intelligence"
+                    afterSuccessMessage="✓ Alert: HVAC system in Unit 204 showing early failure signs. Schedule maintenance within 7 days to prevent emergency repair."
+                    afterAlerts={[
+                      'Flag: 40% reduction in emergency repairs',
+                      'Alert: 85% tenant satisfaction achieved',
+                    ]}
+                    afterItems={[
+                      '40% reduction in emergency repairs',
+                      '12-hour average response time (75% faster)',
+                      'Proactive maintenance scheduling',
+                      '85% tenant satisfaction',
+                    ]}
+                    afterTimeMetric="⏱️ 12-hour response time"
+                    performanceBadge="→ 40% cost reduction"
+                    metrics={[
+                      {
+                        icon: '💰',
+                        label: 'Maintenance Costs',
+                        value: '40% lower',
+                        comparison: 'Annual savings',
+                      },
+                      {
+                        icon: '⏱️',
+                        label: 'Response Time',
+                        value: '12 hrs',
+                        comparison: 'vs 48 hrs',
+                      },
+                      {
+                        icon: '🔧',
+                        label: 'Emergency Repairs',
+                        value: '40% reduction',
+                        comparison: 'Fewer emergencies',
+                      },
+                      {
+                        icon: '😊',
+                        label: 'Tenant Satisfaction',
+                        value: '85%',
+                        comparison: 'vs 68%',
+                      },
+                    ]}
+                    technology="IoT sensors + Predictive analytics + Maintenance scheduling + Equipment monitoring + Work order automation"
+                  />
+
+                  {/* Use Case 3: Growth & Revenue Intelligence */}
+                  <DetailedUseCaseCard
+                    isExpanded={expandedDetailCards.has(11)}
+                    onToggle={() => toggleDetailCard(11)}
+                    industryTag="Real Estate"
+                    serviceTag="Growth & Revenue Intelligence"
+                    title="Dynamic Rent Optimization & Vacancy Management"
+                    problemStatement="Average vacancy: 45 days. 8% vacancy rate. Rent pricing based on annual market surveys. Lost revenue: $280K annually. No competitive intelligence. Average time-to-lease: 6 weeks."
+                    beforeIcon="📉"
+                    beforeTitle="Before: Static Pricing"
+                    beforeItems={[
+                      '45-day average vacancy',
+                      '8% vacancy rate',
+                      '$280K annual lost revenue',
+                      '6-week average time-to-lease',
+                    ]}
+                    beforeTimeMetric="⏱️ 45-day vacancy period"
+                    afterIcon="🤖"
+                    afterTitle="After: AI Intelligence"
+                    afterSuccessMessage="✓ Market analysis complete: Recommended rent for Unit 305: $2,850 (3% increase). Optimal listing time: Now. Expected lease date: 18 days."
+                    afterAlerts={[
+                      'Flag: 60% vacancy reduction',
+                      'Alert: $168K additional annual revenue',
+                    ]}
+                    afterItems={[
+                      '18-day average vacancy (60% reduction)',
+                      '3.2% vacancy rate (60% improvement)',
+                      '$168K additional annual revenue',
+                      'Real-time competitive pricing',
+                    ]}
+                    afterTimeMetric="⏱️ 18-day vacancy period"
+                    performanceBadge="→ $168K additional revenue"
+                    metrics={[
+                      {
+                        icon: '⏱️',
+                        label: 'Vacancy Period',
+                        value: '18 days',
+                        comparison: 'vs 45 days',
+                      },
+                      {
+                        icon: '📉',
+                        label: 'Vacancy Rate',
+                        value: '3.2%',
+                        comparison: 'vs 8%',
+                      },
+                      {
+                        icon: '💰',
+                        label: 'Additional Revenue',
+                        value: '$168K',
+                        comparison: 'Annual increase',
+                      },
+                      {
+                        icon: '📈',
+                        label: 'Pricing Accuracy',
+                        value: '95%',
+                        comparison: 'Market-optimized',
+                      },
+                    ]}
+                    technology="Market analysis + Competitor pricing + Demand forecasting + Dynamic pricing algorithms + Listing optimization"
                   />
                 </div>
               )}
