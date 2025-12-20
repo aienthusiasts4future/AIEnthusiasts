@@ -1,7 +1,28 @@
-import { Zap, Activity, TrendingUp, ChevronRight, ArrowDown, ChevronDown, ChevronUp } from 'lucide-react';
+import { Zap, Activity, TrendingUp, ChevronRight, ArrowDown, ChevronDown, ChevronUp, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { DetailedUseCaseCard } from '../components/DetailedUseCaseCard';
+import { BackToTop } from '../components/BackToTop';
+
+/**
+ * ServicesPage Component
+ *
+ * Main services page showcasing three core AI consulting services:
+ * 1. Intelligent Automation - Automate repetitive work
+ * 2. Operational Intelligence - Uncover bottlenecks and optimize operations
+ * 3. Growth & Revenue Intelligence - Drive growth with predictive analytics
+ *
+ * Features:
+ * - Industry-specific solutions (Healthcare, Professional Services, Manufacturing)
+ * - Expandable service categories with detailed use cases
+ * - Before/After comparisons for each use case
+ * - Real-world metrics and ROI data
+ * - Mobile-optimized with responsive design
+ * - Loading states for smooth industry transitions
+ * - Breadcrumb navigation for context
+ * - Back-to-top button for easy navigation
+ * - WCAG AA compliant contrast ratios
+ */
 
 const services = [
   {
@@ -133,9 +154,12 @@ const industries = {
 };
 
 export function ServicesPage() {
+  // State management
   const [selectedIndustry, setSelectedIndustry] = useState<string | null>('healthcare');
   const [expandedService, setExpandedService] = useState<string | null>(null);
   const [expandedDetailCards, setExpandedDetailCards] = useState<Set<number>>(new Set());
+  const [isLoadingIndustry, setIsLoadingIndustry] = useState(false);
+  const [expandedUseCaseTitle, setExpandedUseCaseTitle] = useState<string | null>(null);
 
   useEffect(() => {
     document.title = 'AI Consulting Services | Automation, Analytics & Intelligence | AI Enthusiasts';
@@ -161,56 +185,82 @@ export function ServicesPage() {
     };
   }, []);
 
-  const toggleDetailCard = (index: number) => {
+  /**
+   * Toggle detail card expansion and update breadcrumb
+   */
+  const toggleDetailCard = (index: number, title?: string) => {
     setExpandedDetailCards(prev => {
       const newSet = new Set(prev);
       if (newSet.has(index)) {
         newSet.delete(index);
+        // If closing the last expanded card, clear the breadcrumb
+        if (newSet.size === 0) {
+          setExpandedUseCaseTitle(null);
+        }
       } else {
         newSet.add(index);
+        // Update breadcrumb with use case title
+        if (title) {
+          setExpandedUseCaseTitle(title);
+        }
       }
       return newSet;
     });
   };
 
+  /**
+   * Handle industry selection with loading state
+   * Respects prefers-reduced-motion for accessibility
+   */
   const handleIndustryClick = (key: string) => {
+    setIsLoadingIndustry(true);
     setSelectedIndustry(key);
     setExpandedService(null);
     setExpandedDetailCards(new Set());
+    setExpandedUseCaseTitle(null);
 
+    // Simulate brief loading for smooth transition
     setTimeout(() => {
+      setIsLoadingIndustry(false);
+
       const element = document.getElementById('industry-details');
       if (element) {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const headerOffset = 80;
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
         window.scrollTo({
           top: offsetPosition,
-          behavior: 'smooth',
+          behavior: prefersReducedMotion ? 'auto' : 'smooth',
         });
       }
-    }, 100);
+    }, 300);
   };
 
+  /**
+   * Scroll to a specific section with smooth behavior
+   * Respects prefers-reduced-motion for accessibility
+   */
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const headerOffset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth',
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
       });
     }
   };
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative overflow-hidden animated-gradient pt-24 pb-20 sm:pt-28 sm:pb-24 lg:pt-32 lg:pb-28">
+      {/* Hero Section - Consistent padding: 80px desktop, 40px mobile */}
+      <section className="relative overflow-hidden animated-gradient pt-24 pb-10 sm:pt-28 sm:pb-12 lg:pt-32 lg:pb-20">
         {/* Geometric Pattern Background */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-64 h-64 border-2 border-white rounded-full"></div>
@@ -257,8 +307,8 @@ export function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Overview Section */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-primary-light">
+      {/* Services Overview Section - Consistent padding: 80px desktop, 40px mobile */}
+      <section className="py-10 sm:py-16 lg:py-20 bg-primary-light">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto">
@@ -270,8 +320,8 @@ export function ServicesPage() {
             </p>
           </div>
 
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+          {/* Services Grid - Card gaps: 24px */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -334,8 +384,8 @@ export function ServicesPage() {
         </div>
       </section>
 
-      {/* Solutions by Industry Section */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-primary">
+      {/* Solutions by Industry Section - Consistent padding: 80px desktop, 40px mobile */}
+      <section id="solutions-by-industry" className="py-10 sm:py-16 lg:py-20 bg-primary">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto">
@@ -376,28 +426,66 @@ export function ServicesPage() {
           </div>
         </div>
 
-        {/* Industry Details Section */}
+        {/* Dynamic Industry Details Section - Background pattern for visual distinction */}
         {selectedIndustry && industries[selectedIndustry as keyof typeof industries] && (
           <div
             id="industry-details"
-            className="mt-16 animate-fadeIn scroll-mt-20"
+            className="mt-16 animate-fadeIn scroll-mt-20 relative"
             style={{
               animation: 'fadeIn 0.5s ease-in-out',
+              background: 'linear-gradient(135deg, rgba(8, 16, 17, 0.95) 0%, rgba(16, 33, 35, 0.95) 100%)',
+              backgroundImage: `
+                linear-gradient(135deg, rgba(8, 16, 17, 0.95) 0%, rgba(16, 33, 35, 0.95) 100%),
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(37, 227, 244, 0.03) 35px, rgba(37, 227, 244, 0.03) 70px)
+              `,
             }}
           >
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              {/* Industry Header Bar */}
-              <div className="bg-card-dark border-l-4 border-accent rounded-lg p-4 sm:p-6 mb-6 sm:mb-8 sticky top-16 sm:top-20 z-10 shadow-lg">
-                <div className="flex items-center gap-3 sm:gap-4">
-                  <span className="text-3xl sm:text-4xl">{industries[selectedIndustry as keyof typeof industries].icon}</span>
-                  <h3 className="text-lg sm:text-2xl md:text-3xl font-bold text-white">
-                    {industries[selectedIndustry as keyof typeof industries].name} Solutions
-                  </h3>
-                </div>
-              </div>
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16">
+              {/* Breadcrumb Navigation - Shows current context */}
+              <nav aria-label="Breadcrumb" className="mb-6">
+                <ol className="flex flex-wrap items-center gap-2 text-sm sm:text-base">
+                  <li>
+                    <Link to="/services" className="text-accent hover:text-accent-hover transition-colors">
+                      Services
+                    </Link>
+                  </li>
+                  <ChevronRight className="w-4 h-4 text-text-light/50" />
+                  <li className="text-white font-medium">
+                    {industries[selectedIndustry as keyof typeof industries].name}
+                  </li>
+                  {expandedUseCaseTitle && (
+                    <>
+                      <ChevronRight className="w-4 h-4 text-text-light/50" />
+                      <li className="text-text-light truncate max-w-[200px] sm:max-w-none">
+                        {expandedUseCaseTitle}
+                      </li>
+                    </>
+                  )}
+                </ol>
+              </nav>
 
-              {/* Common Use Cases */}
-              <div className="mb-8 sm:mb-12">
+              {/* Loading Indicator */}
+              {isLoadingIndustry && (
+                <div className="flex items-center justify-center py-12">
+                  <Loader2 className="w-8 h-8 text-accent animate-spin" />
+                  <span className="ml-3 text-accent font-medium">Loading solutions...</span>
+                </div>
+              )}
+
+              {/* Industry Header Bar */}
+              {!isLoadingIndustry && (
+                <div className="bg-card-dark border-l-4 border-accent rounded-lg p-4 sm:p-6 mb-6 sm:mb-8 sticky top-16 sm:top-20 z-10 shadow-lg">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <span className="text-3xl sm:text-4xl">{industries[selectedIndustry as keyof typeof industries].icon}</span>
+                    <h3 className="text-lg sm:text-2xl md:text-3xl font-bold text-white">
+                      {industries[selectedIndustry as keyof typeof industries].name} Solutions
+                    </h3>
+                  </div>
+                </div>
+              )}
+
+              {/* Common Use Cases - Only show when not loading */}
+              {!isLoadingIndustry && (<div className="mb-8 sm:mb-12">
                 <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4 sm:mb-6">
                   Common Use Cases
                 </h4>
@@ -427,8 +515,10 @@ export function ServicesPage() {
                   ))}
                 </div>
               </div>
+              )}
 
               {/* Detailed Solutions by Service Category */}
+              {!isLoadingIndustry && (
               <div className="mb-8 sm:mb-12">
                 <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4 sm:mb-6">
                   Detailed Solutions by Service Category
@@ -524,9 +614,10 @@ export function ServicesPage() {
                   ))}
                 </div>
               </div>
+              )}
 
               {/* Detailed Use Case Examples - Healthcare */}
-              {selectedIndustry === 'healthcare' && (
+              {!isLoadingIndustry && selectedIndustry === 'healthcare' && (
                 <div className="mb-12 space-y-6">
                   <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
                     Real-World Implementation Examples
@@ -715,7 +806,7 @@ export function ServicesPage() {
               )}
 
               {/* Detailed Use Case Examples - Legal */}
-              {selectedIndustry === 'legal' && (
+              {!isLoadingIndustry && selectedIndustry === 'legal' && (
                 <div className="mb-12 space-y-6">
                   <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
                     Real-World Implementation Examples
@@ -907,7 +998,7 @@ export function ServicesPage() {
               )}
 
               {/* Detailed Use Case Examples - IT & SaaS */}
-              {selectedIndustry === 'it' && (
+              {!isLoadingIndustry && selectedIndustry === 'it' && (
                 <div className="mb-12 space-y-6">
                   <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
                     Real-World Implementation Examples
@@ -1099,7 +1190,7 @@ export function ServicesPage() {
               )}
 
               {/* Detailed Use Case Examples - Real Estate */}
-              {selectedIndustry === 'realestate' && (
+              {!isLoadingIndustry && selectedIndustry === 'realestate' && (
                 <div className="mb-12 space-y-6">
                   <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
                     Real-World Implementation Examples
@@ -1291,7 +1382,7 @@ export function ServicesPage() {
               )}
 
               {/* Detailed Use Case Examples - Retail */}
-              {selectedIndustry === 'retail' && (
+              {!isLoadingIndustry && selectedIndustry === 'retail' && (
                 <div className="mb-12 space-y-6">
                   <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
                     Real-World Implementation Examples
@@ -1483,7 +1574,7 @@ export function ServicesPage() {
               )}
 
               {/* Detailed Use Case Examples - Finance & Insurance */}
-              {selectedIndustry === 'finance' && (
+              {!isLoadingIndustry && selectedIndustry === 'finance' && (
                 <div className="mb-12 space-y-6">
                   <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
                     Real-World Implementation Examples
@@ -1678,8 +1769,8 @@ export function ServicesPage() {
         )}
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 sm:py-20 bg-gradient-to-br from-accent/10 to-accent/5 border-y-2 border-accent/20">
+      {/* CTA Section - Consistent padding: 80px desktop, 40px mobile */}
+      <section className="py-10 sm:py-16 lg:py-20 bg-gradient-to-br from-accent/10 to-accent/5 border-y-2 border-accent/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
             Ready to Transform Your Business?
@@ -1704,6 +1795,9 @@ export function ServicesPage() {
           </Link>
         </div>
       </section>
+
+      {/* Back to Top Button - Appears after scrolling */}
+      <BackToTop />
     </>
   );
 }
