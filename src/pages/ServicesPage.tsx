@@ -108,12 +108,12 @@ const industries = {
     icon: '🛒',
     description: 'Drive sales with inventory, pricing, and personalization',
     useCases: [
-      { name: 'Inventory Tracking', icon: '📦' },
-      { name: 'Dynamic Pricing', icon: '💵' },
-      { name: 'Customer Support', icon: '💬' },
-      { name: 'Order Management', icon: '📋' },
-      { name: 'Product Recommendations', icon: '🎯' },
-      { name: 'Sales Analytics', icon: '📈' },
+      { name: 'Inventory Management', icon: '📦' },
+      { name: 'Dynamic Pricing', icon: '💰' },
+      { name: 'Personalized Marketing', icon: '📧' },
+      { name: 'Supply Chain Optimization', icon: '🚚' },
+      { name: 'Customer Analytics', icon: '🛍️' },
+      { name: 'Demand Forecasting', icon: '🎯' },
     ],
   },
   finance: {
@@ -1286,6 +1286,198 @@ export function ServicesPage() {
                       },
                     ]}
                     technology="Market analysis + Competitor pricing + Demand forecasting + Dynamic pricing algorithms + Listing optimization"
+                  />
+                </div>
+              )}
+
+              {/* Detailed Use Case Examples - Retail */}
+              {selectedIndustry === 'retail' && (
+                <div className="mb-12 space-y-6">
+                  <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
+                    Real-World Implementation Examples
+                  </h4>
+
+                  {/* Use Case 1: Intelligent Automation */}
+                  <DetailedUseCaseCard
+                    isExpanded={expandedDetailCards.has(12)}
+                    onToggle={() => toggleDetailCard(12)}
+                    industryTag="Retail"
+                    serviceTag="Intelligent Automation"
+                    title="AI-Powered Inventory Management"
+                    problemStatement="Manual inventory tracking across 15 locations. 15% stockout rate. 25% overstock waste. $500K annual lost sales. 40 hours/week manual counts. No real-time visibility."
+                    beforeIcon="📦"
+                    beforeTitle="Before: Manual Tracking"
+                    beforeItems={[
+                      '15% stockout rate costing $500K/year',
+                      '25% overstock waste',
+                      '40 hours/week manual inventory counts',
+                      'No real-time visibility across locations',
+                    ]}
+                    beforeTimeMetric="⏱️ 40 hours/week counting"
+                    afterIcon="🤖"
+                    afterTitle="After: AI Automation"
+                    afterSuccessMessage="✓ Inventory analysis complete: Product #4829 will stock out in 3 days. Auto-reorder placed. 15 slow-moving items identified for promotion."
+                    afterAlerts={[
+                      'Flag: 80% reduction in stockouts',
+                      'Alert: 68% reduction in overstock',
+                    ]}
+                    afterItems={[
+                      '3% stockout rate (80% reduction)',
+                      '8% overstock (68% reduction)',
+                      'Real-time tracking across all locations',
+                      'Automated reordering and alerts',
+                    ]}
+                    afterTimeMetric="⏱️ Real-time automated tracking"
+                    performanceBadge="→ $400K recovered revenue"
+                    metrics={[
+                      {
+                        icon: '📉',
+                        label: 'Stockouts',
+                        value: '3%',
+                        comparison: 'vs 15%',
+                      },
+                      {
+                        icon: '📦',
+                        label: 'Overstock',
+                        value: '8%',
+                        comparison: 'vs 25%',
+                      },
+                      {
+                        icon: '💰',
+                        label: 'Revenue Recovery',
+                        value: '$400K',
+                        comparison: 'Annual increase',
+                      },
+                      {
+                        icon: '⏱️',
+                        label: 'Time Saved',
+                        value: '40 hrs/week',
+                        comparison: 'Labor reduction',
+                      },
+                    ]}
+                    technology="Real-time tracking + ML demand forecasting + Automated reordering + Multi-location sync + Low-stock alerts"
+                  />
+
+                  {/* Use Case 2: Operational Intelligence */}
+                  <DetailedUseCaseCard
+                    isExpanded={expandedDetailCards.has(13)}
+                    onToggle={() => toggleDetailCard(13)}
+                    industryTag="Retail"
+                    serviceTag="Operational Intelligence"
+                    title="Supply Chain Optimization"
+                    problemStatement="21-day average lead time. 30% late deliveries. $800K annual carrying costs. Limited supplier visibility. Reactive problem solving. Manual route planning."
+                    beforeIcon="🚚"
+                    beforeTitle="Before: Reactive Logistics"
+                    beforeItems={[
+                      '21-day average lead time',
+                      '30% late delivery rate',
+                      '$800K annual carrying costs',
+                      'Limited visibility into supply chain',
+                    ]}
+                    beforeTimeMetric="⏱️ 21-day lead time"
+                    afterIcon="🤖"
+                    afterTitle="After: AI Intelligence"
+                    afterSuccessMessage="✓ Supply chain optimized: Shipment #3049 rerouted to avoid delay. Alternative supplier activated for Item #892. Expected delivery: 2 days early."
+                    afterAlerts={[
+                      'Flag: 43% faster delivery',
+                      'Alert: $320K annual cost savings',
+                    ]}
+                    afterItems={[
+                      '12-day average lead time (43% faster)',
+                      '5% late delivery rate (83% improvement)',
+                      '$480K carrying costs (40% reduction)',
+                      'Predictive routing and supplier selection',
+                    ]}
+                    afterTimeMetric="⏱️ 12-day lead time"
+                    performanceBadge="→ $320K annual savings"
+                    metrics={[
+                      {
+                        icon: '⏱️',
+                        label: 'Lead Time',
+                        value: '12 days',
+                        comparison: 'vs 21 days',
+                      },
+                      {
+                        icon: '🚚',
+                        label: 'On-Time Delivery',
+                        value: '95%',
+                        comparison: 'vs 70%',
+                      },
+                      {
+                        icon: '💰',
+                        label: 'Cost Savings',
+                        value: '$320K',
+                        comparison: 'Annual reduction',
+                      },
+                      {
+                        icon: '📊',
+                        label: 'Efficiency Gain',
+                        value: '43%',
+                        comparison: 'Overall improvement',
+                      },
+                    ]}
+                    technology="Route optimization + Supplier analytics + Demand forecasting + Real-time tracking + Predictive delays"
+                  />
+
+                  {/* Use Case 3: Growth & Revenue Intelligence */}
+                  <DetailedUseCaseCard
+                    isExpanded={expandedDetailCards.has(14)}
+                    onToggle={() => toggleDetailCard(14)}
+                    industryTag="Retail"
+                    serviceTag="Growth & Revenue Intelligence"
+                    title="Personalized Marketing Campaigns"
+                    problemStatement="Generic email blasts. 2% email open rate. 0.5% conversion rate. $200K wasted ad spend annually. 85% cart abandonment. No customer segmentation."
+                    beforeIcon="📧"
+                    beforeTitle="Before: Generic Campaigns"
+                    beforeItems={[
+                      '2% email open rate',
+                      '0.5% conversion rate',
+                      '$200K wasted ad spend',
+                      '85% cart abandonment rate',
+                    ]}
+                    beforeTimeMetric="⏱️ Weekly generic blasts"
+                    afterIcon="🤖"
+                    afterTitle="After: AI Personalization"
+                    afterSuccessMessage="✓ Campaign optimized: Customer segment #5 (high-value browsers) identified. Personalized offer sent. Predicted conversion: 3.5x baseline."
+                    afterAlerts={[
+                      'Flag: 4x increase in open rates',
+                      'Alert: 6.4x increase in conversions',
+                    ]}
+                    afterItems={[
+                      '8% email open rate (4x increase)',
+                      '3.2% conversion rate (6.4x increase)',
+                      '$80K wasted spend (60% reduction)',
+                      '62% cart abandonment (27% improvement)',
+                    ]}
+                    afterTimeMetric="⏱️ Real-time personalized triggers"
+                    performanceBadge="→ $450K additional revenue"
+                    metrics={[
+                      {
+                        icon: '📧',
+                        label: 'Open Rate',
+                        value: '8%',
+                        comparison: 'vs 2%',
+                      },
+                      {
+                        icon: '🎯',
+                        label: 'Conversion Rate',
+                        value: '3.2%',
+                        comparison: 'vs 0.5%',
+                      },
+                      {
+                        icon: '💰',
+                        label: 'Additional Revenue',
+                        value: '$450K',
+                        comparison: 'Annual increase',
+                      },
+                      {
+                        icon: '📈',
+                        label: 'ROI',
+                        value: '5.6x',
+                        comparison: 'vs 1.2x',
+                      },
+                    ]}
+                    technology="Customer segmentation + Behavioral analysis + Predictive recommendations + A/B testing + Dynamic content"
                   />
                 </div>
               )}
