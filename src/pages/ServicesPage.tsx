@@ -51,12 +51,12 @@ const industries = {
     icon: '🏥',
     description: 'AI solutions for patient care and hospital operations',
     useCases: [
-      { name: 'Patient Scheduling', icon: '📅' },
-      { name: 'Medical Records', icon: '📋' },
-      { name: 'Billing Automation', icon: '💳' },
-      { name: 'Patient Support', icon: '💬' },
-      { name: 'Appointment Reminders', icon: '🔔' },
-      { name: 'Intake Processing', icon: '📝' },
+      { name: 'Medical Diagnosis Support', icon: '📋' },
+      { name: 'Patient Readmission Prevention', icon: '🏥' },
+      { name: 'Medical Imaging Analysis', icon: '📊' },
+      { name: 'Drug Discovery Acceleration', icon: '💊' },
+      { name: 'Wearable Health Monitoring', icon: '⌚' },
+      { name: 'Virtual Health Assistants', icon: '🤖' },
     ],
   },
   legal: {
@@ -374,10 +374,24 @@ export function ServicesPage() {
                   {industries[selectedIndustry as keyof typeof industries].useCases.map((useCase, index) => (
                     <div
                       key={index}
-                      className="inline-flex items-center gap-2 bg-card-dark border border-accent/20 rounded-lg px-4 py-3 hover:bg-accent/10 hover:border-accent transition-all duration-300 cursor-pointer"
+                      className="inline-flex items-center transition-all duration-300"
+                      style={{
+                        gap: '8px',
+                        background: 'rgba(0, 217, 255, 0.1)',
+                        border: '1px solid rgba(0, 217, 255, 0.3)',
+                        padding: '10px 20px',
+                        borderRadius: '20px',
+                        cursor: 'default',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = 'rgba(0, 217, 255, 0.2)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = 'rgba(0, 217, 255, 0.1)';
+                      }}
                     >
-                      <span className="text-2xl">{useCase.icon}</span>
-                      <span className="text-text-light font-medium">{useCase.name}</span>
+                      <span className="text-xl">{useCase.icon}</span>
+                      <span className="text-white font-medium">{useCase.name}</span>
                     </div>
                   ))}
                 </div>
