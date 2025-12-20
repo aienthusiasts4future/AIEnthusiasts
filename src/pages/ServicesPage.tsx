@@ -122,12 +122,12 @@ const industries = {
     icon: '💰',
     description: 'Accelerate claims, detect fraud, assess risk',
     useCases: [
-      { name: 'Claims Processing', icon: '📋' },
-      { name: 'Fraud Detection', icon: '🔒' },
-      { name: 'Risk Assessment', icon: '⚠️' },
-      { name: 'Customer Verification', icon: '✓' },
-      { name: 'Policy Management', icon: '📄' },
-      { name: 'Compliance Monitoring', icon: '📊' },
+      { name: 'Claims Processing', icon: '💳' },
+      { name: 'Fraud Detection', icon: '🔍' },
+      { name: 'Risk Assessment', icon: '📊' },
+      { name: 'Compliance Automation', icon: '📋' },
+      { name: 'Underwriting Intelligence', icon: '🎯' },
+      { name: 'Revenue Optimization', icon: '💰' },
     ],
   },
 };
@@ -1478,6 +1478,198 @@ export function ServicesPage() {
                       },
                     ]}
                     technology="Customer segmentation + Behavioral analysis + Predictive recommendations + A/B testing + Dynamic content"
+                  />
+                </div>
+              )}
+
+              {/* Detailed Use Case Examples - Finance & Insurance */}
+              {selectedIndustry === 'finance' && (
+                <div className="mb-12 space-y-6">
+                  <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
+                    Real-World Implementation Examples
+                  </h4>
+
+                  {/* Use Case 1: Intelligent Automation */}
+                  <DetailedUseCaseCard
+                    isExpanded={expandedDetailCards.has(15)}
+                    onToggle={() => toggleDetailCard(15)}
+                    industryTag="Finance & Insurance"
+                    serviceTag="Intelligent Automation"
+                    title="Automated Claims Processing"
+                    problemStatement="Manual claims review. 14-day average processing time. 35% error rate. $1.2M annual processing costs. 60% customer complaints. Paper-based documentation."
+                    beforeIcon="💳"
+                    beforeTitle="Before: Manual Processing"
+                    beforeItems={[
+                      '14-day average processing time',
+                      '35% error rate requiring rework',
+                      '$1.2M annual processing costs',
+                      '60% customer complaints about delays',
+                    ]}
+                    beforeTimeMetric="⏱️ 14 days average"
+                    afterIcon="🤖"
+                    afterTitle="After: AI Automation"
+                    afterSuccessMessage="✓ Claim #8294 processed: Documents verified. Policy coverage confirmed. Damage assessment complete. Payment approved: $4,850. Customer notified."
+                    afterAlerts={[
+                      'Flag: 86% faster processing',
+                      'Alert: $840K annual savings',
+                    ]}
+                    afterItems={[
+                      '2-day average processing time (86% faster)',
+                      '5% error rate (86% reduction)',
+                      '$360K annual costs (70% reduction)',
+                      '90% customer satisfaction (50% improvement)',
+                    ]}
+                    afterTimeMetric="⏱️ 2 days average"
+                    performanceBadge="→ $840K annual savings"
+                    metrics={[
+                      {
+                        icon: '⏱️',
+                        label: 'Processing Time',
+                        value: '2 days',
+                        comparison: 'vs 14 days',
+                      },
+                      {
+                        icon: '✓',
+                        label: 'Accuracy Rate',
+                        value: '95%',
+                        comparison: 'vs 65%',
+                      },
+                      {
+                        icon: '💰',
+                        label: 'Cost Savings',
+                        value: '$840K',
+                        comparison: 'Annual reduction',
+                      },
+                      {
+                        icon: '😊',
+                        label: 'Customer Satisfaction',
+                        value: '90%',
+                        comparison: 'vs 40%',
+                      },
+                    ]}
+                    technology="Document OCR + Policy verification + Damage assessment AI + Automated approval workflows + Real-time notifications"
+                  />
+
+                  {/* Use Case 2: Operational Intelligence */}
+                  <DetailedUseCaseCard
+                    isExpanded={expandedDetailCards.has(16)}
+                    onToggle={() => toggleDetailCard(16)}
+                    industryTag="Finance & Insurance"
+                    serviceTag="Operational Intelligence"
+                    title="Real-Time Fraud Detection"
+                    problemStatement="$3.5M annual fraud losses. 45-day detection lag. 8% false positive rate. Manual investigation of all flags. Limited pattern recognition. Reactive fraud prevention."
+                    beforeIcon="🔍"
+                    beforeTitle="Before: Manual Detection"
+                    beforeItems={[
+                      '$3.5M annual fraud losses',
+                      '45-day average detection time',
+                      '8% false positive rate',
+                      'Manual investigation of all alerts',
+                    ]}
+                    beforeTimeMetric="⏱️ 45-day detection lag"
+                    afterIcon="🤖"
+                    afterTitle="After: AI Intelligence"
+                    afterSuccessMessage="✓ Fraud detected: Transaction #7203 flagged. Pattern matches known fraud network. Account frozen. 3 related accounts identified. Estimated loss prevented: $127K."
+                    afterAlerts={[
+                      'Flag: 94% faster detection',
+                      'Alert: $2.8M losses prevented',
+                    ]}
+                    afterItems={[
+                      '$700K annual fraud losses (80% reduction)',
+                      'Real-time detection (94% faster)',
+                      '1% false positive rate (88% reduction)',
+                      'Automated pattern recognition and alerts',
+                    ]}
+                    afterTimeMetric="⏱️ Real-time detection"
+                    performanceBadge="→ $2.8M losses prevented"
+                    metrics={[
+                      {
+                        icon: '⏱️',
+                        label: 'Detection Speed',
+                        value: 'Real-time',
+                        comparison: 'vs 45 days',
+                      },
+                      {
+                        icon: '🛡️',
+                        label: 'Fraud Prevented',
+                        value: '80%',
+                        comparison: 'Loss reduction',
+                      },
+                      {
+                        icon: '💰',
+                        label: 'Savings',
+                        value: '$2.8M',
+                        comparison: 'Annual prevention',
+                      },
+                      {
+                        icon: '🎯',
+                        label: 'Accuracy',
+                        value: '99%',
+                        comparison: 'vs 92%',
+                      },
+                    ]}
+                    technology="Behavioral analytics + Pattern recognition + Real-time monitoring + Network analysis + Automated case creation"
+                  />
+
+                  {/* Use Case 3: Growth & Revenue Intelligence */}
+                  <DetailedUseCaseCard
+                    isExpanded={expandedDetailCards.has(17)}
+                    onToggle={() => toggleDetailCard(17)}
+                    industryTag="Finance & Insurance"
+                    serviceTag="Growth & Revenue Intelligence"
+                    title="AI-Powered Risk Assessment & Underwriting"
+                    problemStatement="10-day underwriting process. 22% policy decline rate. $600K annual underwriting costs. Limited risk data sources. Manual risk scoring. 40% pricing inaccuracy."
+                    beforeIcon="📊"
+                    beforeTitle="Before: Manual Underwriting"
+                    beforeItems={[
+                      '10-day underwriting process',
+                      '22% policy decline rate',
+                      '$600K annual underwriting costs',
+                      '40% pricing inaccuracy leading to losses',
+                    ]}
+                    beforeTimeMetric="⏱️ 10 days average"
+                    afterIcon="🤖"
+                    afterTitle="After: AI Intelligence"
+                    afterSuccessMessage="✓ Risk assessment complete: Applicant #9402 analyzed. 47 data sources integrated. Risk score: 7.2/10. Premium calculated: $1,840/year. Policy approved."
+                    afterAlerts={[
+                      'Flag: 85% faster underwriting',
+                      'Alert: 32% more policies approved',
+                    ]}
+                    afterItems={[
+                      '1.5-day underwriting process (85% faster)',
+                      '15% decline rate (32% improvement)',
+                      '$240K costs (60% reduction)',
+                      '12% pricing accuracy (28% improvement)',
+                    ]}
+                    afterTimeMetric="⏱️ 1.5 days average"
+                    performanceBadge="→ $950K additional revenue"
+                    metrics={[
+                      {
+                        icon: '⏱️',
+                        label: 'Processing Time',
+                        value: '1.5 days',
+                        comparison: 'vs 10 days',
+                      },
+                      {
+                        icon: '✅',
+                        label: 'Approval Rate',
+                        value: '85%',
+                        comparison: 'vs 78%',
+                      },
+                      {
+                        icon: '💰',
+                        label: 'Additional Revenue',
+                        value: '$950K',
+                        comparison: 'Annual increase',
+                      },
+                      {
+                        icon: '🎯',
+                        label: 'Pricing Accuracy',
+                        value: '88%',
+                        comparison: 'vs 60%',
+                      },
+                    ]}
+                    technology="Multi-source data integration + ML risk modeling + Automated scoring + Dynamic pricing + Predictive analytics"
                   />
                 </div>
               )}
