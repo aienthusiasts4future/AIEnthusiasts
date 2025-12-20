@@ -1,6 +1,7 @@
 import { Zap, Activity, TrendingUp, ChevronRight, ArrowDown, ChevronDown, ChevronUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { DetailedUseCaseCard } from '../components/DetailedUseCaseCard';
 
 const services = [
   {
@@ -493,6 +494,71 @@ export function ServicesPage() {
                   ))}
                 </div>
               </div>
+
+              {/* Detailed Use Case Example - Healthcare Only */}
+              {selectedIndustry === 'healthcare' && (
+                <div className="mb-12">
+                  <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
+                    Real-World Implementation Example
+                  </h4>
+                  <DetailedUseCaseCard
+                    industryTag="Healthcare"
+                    serviceTag="Intelligent Automation"
+                    title="Medical Diagnosis & Treatment Planning"
+                    problemStatement="Clinicians spent 30-60 minutes per complex diagnosis with limited access to comparative cases. Diagnostic accuracy ranged from 78-92%, contributing to 10% of preventable patient deaths. Limited time for pattern recognition across thousands of similar cases."
+                    beforeIcon="📄"
+                    beforeTitle="Before: Manual Entry"
+                    beforeItems={[
+                      '78-92% diagnostic accuracy',
+                      '30-60 minutes per complex diagnosis',
+                      '10% of deaths from diagnostic errors',
+                      'Limited comparison to similar cases',
+                    ]}
+                    beforeTimeMetric="⏱️ 30-60 minutes per diagnosis"
+                    afterIcon="🤖"
+                    afterTitle="After: AI Automation"
+                    afterSuccessMessage="⚠️ Analysis complete: 92-98% diagnostic accuracy achieved"
+                    afterAlerts={[
+                      'Flag: 30% reduction in diagnostic errors',
+                      'Alert: 2-5 minutes analysis time',
+                    ]}
+                    afterItems={[
+                      '92% of issues caught automatically',
+                      'Pattern matching across thousands of cases',
+                      'Real-time clinical decision support',
+                    ]}
+                    afterTimeMetric="⏱️ 2-5 minutes analysis time"
+                    performanceBadge="→ 90% time reduction"
+                    metrics={[
+                      {
+                        icon: '⏱️',
+                        label: 'Analysis Time',
+                        value: '2-5 min',
+                        comparison: 'vs 30-60 min',
+                      },
+                      {
+                        icon: '📋',
+                        label: 'Accuracy',
+                        value: '92-98%',
+                        comparison: 'vs 78-92%',
+                      },
+                      {
+                        icon: '🔄',
+                        label: 'Error Reduction',
+                        value: '30%',
+                        comparison: 'Fewer errors',
+                      },
+                      {
+                        icon: '🎯',
+                        label: 'Patient Safety',
+                        value: 'Enhanced',
+                        comparison: 'Better outcomes',
+                      },
+                    ]}
+                    technology="Deep learning + Medical knowledge base + Pattern recognition + Clinical guidelines"
+                  />
+                </div>
+              )}
             </div>
           </div>
         )}
