@@ -230,7 +230,7 @@ export function ServicesPage() {
               </p>
 
               <p className="text-base sm:text-lg md:text-xl text-text-light mb-10 sm:mb-12 max-w-4xl mx-auto leading-relaxed">
-                We help SMBs implement AI solutions that deliver measurable ROI within 90 days. From workflow automation to growth analytics, we build intelligent systems that solve real business problems.
+                From workflow automation to growth analytics, we build intelligent systems that solve real business problems.
               </p>
             </div>
           </div>
