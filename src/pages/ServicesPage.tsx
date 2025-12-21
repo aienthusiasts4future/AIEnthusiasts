@@ -1,4 +1,4 @@
-import { Zap, Activity, TrendingUp, ChevronRight, ArrowDown, ChevronDown, ChevronUp, Loader2 } from 'lucide-react';
+import { ChevronRight, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { DetailedUseCaseCard } from '../components/DetailedUseCaseCard';
@@ -23,48 +23,6 @@ import { BackToTop } from '../components/BackToTop';
  * - Back-to-top button for easy navigation
  * - WCAG AA compliant contrast ratios
  */
-
-const services = [
-  {
-    id: 'intelligent-automation',
-    icon: Zap,
-    title: 'Intelligent Automation',
-    tagline: 'Automate repetitive work, free your team',
-    description: 'Build intelligent systems that handle routine tasks—document processing, customer inquiries, scheduling, and workflows. Using chatbots, voice agents, or automation tools—whatever fits your needs.',
-    capabilities: [
-      'Workflow automation',
-      'AI chatbots (support, internal, sales)',
-      'Voice agents (inbound, outbound)',
-      'System integrations & dashboards',
-    ],
-  },
-  {
-    id: 'operational-intelligence',
-    icon: Activity,
-    title: 'Operational Intelligence',
-    tagline: 'Uncover bottlenecks, optimize operations',
-    description: 'Visualize how work actually flows. Identify delays, measure performance, and build real-time monitoring systems that keep your operations running smoothly.',
-    capabilities: [
-      'Process mining and visibility',
-      'Custom dashboards and portals',
-      'Real-time monitoring systems',
-      'Performance analytics',
-    ],
-  },
-  {
-    id: 'growth-revenue-intelligence',
-    icon: TrendingUp,
-    title: 'Growth & Revenue Intelligence',
-    tagline: 'Connect marketing to revenue, scale intelligently',
-    description: 'Understand what drives growth. Build attribution systems, automate lead qualification, and create intelligent customer experiences that convert.',
-    capabilities: [
-      'Marketing attribution and analytics',
-      'Lead qualification automation',
-      'Customer journey analytics',
-      'Sales-focused websites and portals',
-    ],
-  },
-];
 
 const industries = {
   healthcare: {
@@ -156,7 +114,6 @@ const industries = {
 export function ServicesPage() {
   // State management
   const [selectedIndustry, setSelectedIndustry] = useState<string | null>('healthcare');
-  const [expandedService, setExpandedService] = useState<string | null>(null);
   const [expandedDetailCards, setExpandedDetailCards] = useState<Set<number>>(new Set());
   const [isLoadingIndustry, setIsLoadingIndustry] = useState(false);
   const [expandedUseCaseTitle, setExpandedUseCaseTitle] = useState<string | null>(null);
@@ -215,7 +172,6 @@ export function ServicesPage() {
   const handleIndustryClick = (key: string) => {
     setIsLoadingIndustry(true);
     setSelectedIndustry(key);
-    setExpandedService(null);
     setExpandedDetailCards(new Set());
     setExpandedUseCaseTitle(null);
 
@@ -236,25 +192,6 @@ export function ServicesPage() {
         });
       }
     }, 300);
-  };
-
-  /**
-   * Scroll to a specific section with smooth behavior
-   * Respects prefers-reduced-motion for accessibility
-   */
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const headerOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: prefersReducedMotion ? 'auto' : 'smooth',
-      });
-    }
   };
 
   return (
@@ -289,11 +226,11 @@ export function ServicesPage() {
               </h1>
 
               <p className="text-xl sm:text-2xl md:text-3xl text-accent mb-6 sm:mb-8 font-semibold">
-                Three strategic services that transform how you work, optimize operations, and drive growth
+                Transform how you work, optimize operation, and drive growth.
               </p>
 
               <p className="text-base sm:text-lg md:text-xl text-text-light mb-10 sm:mb-12 max-w-4xl mx-auto leading-relaxed">
-                We help SMBs implement AI solutions that deliver measurable ROI within 90 days. From workflow automation to growth analytics, we build intelligent systems that solve real business problems.
+                From workflow automation to growth analytics, we build intelligent systems that solve real business problems.
               </p>
             </div>
           </div>
@@ -304,83 +241,6 @@ export function ServicesPage() {
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
             <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#0a1f1f"/>
           </svg>
-        </div>
-      </section>
-
-      {/* Services Overview Section - Consistent padding: 80px desktop, 40px mobile */}
-      <section className="py-10 sm:py-16 lg:py-20 bg-primary-light">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <div className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-              What We Offer
-            </h2>
-            <p className="text-lg sm:text-xl text-text-light leading-relaxed">
-              Choose the service that matches your business challenge. Not sure where to start? Book a discovery call and we'll help you identify the best opportunity.
-            </p>
-          </div>
-
-          {/* Services Grid - Card gaps: 24px */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="group bg-card-dark rounded-2xl p-6 sm:p-8 border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-cyan-glow-xl hover:-translate-y-2 fade-in-card card-shine cursor-pointer focus-within:border-accent focus-within:shadow-cyan-glow-xl"
-                style={{ animationDelay: `${index * 150}ms` }}
-                tabIndex={0}
-                onClick={() => scrollToSection(service.id)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    scrollToSection(service.id);
-                  }
-                }}
-                role="button"
-                aria-label={`View details for ${service.title}`}
-              >
-                {/* Icon */}
-                <div className="mb-6">
-                  <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-accent/20 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-cyan-glow">
-                    <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-accent" />
-                  </div>
-                </div>
-
-                {/* Content */}
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-accent font-semibold mb-4 text-sm sm:text-base">
-                  {service.tagline}
-                </p>
-                <p className="text-text-light mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-
-                {/* Capabilities */}
-                <div className="space-y-2 mb-6 pb-6 border-b border-accent/20">
-                  {service.capabilities.map((capability, capIndex) => (
-                    <div key={capIndex} className="flex items-start gap-2">
-                      <span className="text-accent mt-1.5">•</span>
-                      <span className="text-text-light/90 text-sm">{capability}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* CTA */}
-                <button
-                  className="group/btn flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-card-dark rounded px-2 py-1 -mx-2"
-                  aria-label={`View details for ${service.title}`}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    scrollToSection(service.id);
-                  }}
-                >
-                  View Details
-                  <ArrowDown className="w-5 h-5 group-hover/btn:translate-y-1 transition-transform" />
-                </button>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -484,134 +344,59 @@ export function ServicesPage() {
                 </div>
               )}
 
-              {/* Common Use Cases - Only show when not loading */}
-              {!isLoadingIndustry && (<div className="mb-8 sm:mb-12">
-                <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4 sm:mb-6">
-                  Common Use Cases
-                </h4>
-                <div className="flex sm:flex-wrap gap-3 overflow-x-auto snap-x snap-mandatory pb-2 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide">
-                  {industries[selectedIndustry as keyof typeof industries].useCases.map((useCase, index) => (
-                    <div
-                      key={index}
-                      className="inline-flex items-center transition-all duration-300 flex-shrink-0 snap-start"
-                      style={{
-                        gap: '8px',
-                        background: 'rgba(0, 217, 255, 0.1)',
-                        border: '1px solid rgba(0, 217, 255, 0.3)',
-                        padding: '10px 20px',
-                        borderRadius: '20px',
-                        cursor: 'default',
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.background = 'rgba(0, 217, 255, 0.2)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = 'rgba(0, 217, 255, 0.1)';
-                      }}
-                    >
-                      <span className="text-lg sm:text-xl">{useCase.icon}</span>
-                      <span className="text-white font-medium text-sm sm:text-base whitespace-nowrap">{useCase.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              )}
-
-              {/* Detailed Solutions by Service Category */}
+              {/* Before & After Overview */}
               {!isLoadingIndustry && (
               <div className="mb-8 sm:mb-12">
-                <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4 sm:mb-6">
-                  Detailed Solutions by Service Category
-                </h4>
-                <div className="space-y-4">
-                  {services.map((service) => (
-                    <div
-                      key={service.id}
-                      className="bg-card-dark border-2 border-accent/20 rounded-lg overflow-hidden"
-                    >
-                      {/* Service Header - Always Visible */}
-                      <button
-                        onClick={() => setExpandedService(expandedService === service.id ? null : service.id)}
-                        className="w-full flex items-center justify-between p-6 hover:bg-accent/5 transition-colors text-left"
-                      >
-                        <div className="flex items-center gap-4">
-                          <div className="flex-shrink-0 w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center">
-                            <service.icon className="w-6 h-6 text-accent" />
-                          </div>
-                          <div>
-                            <h5 className="text-lg sm:text-xl font-bold text-white">
-                              {service.title}
-                            </h5>
-                            <p className="text-sm text-accent">{service.tagline}</p>
-                          </div>
-                        </div>
-                        <div className="flex-shrink-0">
-                          {expandedService === service.id ? (
-                            <ChevronUp className="w-6 h-6 text-accent" />
-                          ) : (
-                            <ChevronDown className="w-6 h-6 text-accent" />
-                          )}
-                        </div>
-                      </button>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* Before */}
+                  <div className="bg-card-dark border-2 border-accent/20 rounded-lg p-6 sm:p-8">
+                    <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                      <span className="text-2xl">❌</span> Before
+                    </h4>
+                    <ul className="space-y-3 text-text-light">
+                      <li className="flex gap-2">
+                        <span className="text-accent mt-1.5">•</span>
+                        <span>Manual, time-consuming processes</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-accent mt-1.5">•</span>
+                        <span>High error rates and inconsistency</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-accent mt-1.5">•</span>
+                        <span>Limited visibility into operations</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-accent mt-1.5">•</span>
+                        <span>Reactive rather than proactive</span>
+                      </li>
+                    </ul>
+                  </div>
 
-                      {/* Expanded Content */}
-                      {expandedService === service.id && (
-                        <div className="px-6 pb-6 border-t border-accent/20 pt-6 animate-fadeIn">
-                          <div className="grid md:grid-cols-2 gap-6">
-                            {/* Before */}
-                            <div className="bg-primary-light rounded-lg p-5">
-                              <h6 className="text-sm font-bold text-accent mb-3 flex items-center gap-2">
-                                <span className="text-lg">❌</span> Before
-                              </h6>
-                              <ul className="space-y-2 text-text-light text-sm">
-                                <li className="flex gap-2">
-                                  <span>•</span>
-                                  <span>Manual, time-consuming processes</span>
-                                </li>
-                                <li className="flex gap-2">
-                                  <span>•</span>
-                                  <span>High error rates and inconsistency</span>
-                                </li>
-                                <li className="flex gap-2">
-                                  <span>•</span>
-                                  <span>Limited visibility into operations</span>
-                                </li>
-                                <li className="flex gap-2">
-                                  <span>•</span>
-                                  <span>Reactive rather than proactive</span>
-                                </li>
-                              </ul>
-                            </div>
-
-                            {/* After */}
-                            <div className="bg-primary-light rounded-lg p-5">
-                              <h6 className="text-sm font-bold text-accent mb-3 flex items-center gap-2">
-                                <span className="text-lg">✅</span> After
-                              </h6>
-                              <ul className="space-y-2 text-text-light text-sm">
-                                <li className="flex gap-2">
-                                  <span>•</span>
-                                  <span>Automated workflows save hours daily</span>
-                                </li>
-                                <li className="flex gap-2">
-                                  <span>•</span>
-                                  <span>Consistent, accurate results</span>
-                                </li>
-                                <li className="flex gap-2">
-                                  <span>•</span>
-                                  <span>Real-time insights and monitoring</span>
-                                </li>
-                                <li className="flex gap-2">
-                                  <span>•</span>
-                                  <span>Proactive problem detection</span>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  ))}
+                  {/* After */}
+                  <div className="bg-card-dark border-2 border-accent rounded-lg p-6 sm:p-8 shadow-cyan-glow">
+                    <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                      <span className="text-2xl">✅</span> After
+                    </h4>
+                    <ul className="space-y-3 text-text-light">
+                      <li className="flex gap-2">
+                        <span className="text-accent mt-1.5">•</span>
+                        <span>Automated workflows save hours daily</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-accent mt-1.5">•</span>
+                        <span>Consistent, accurate results</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-accent mt-1.5">•</span>
+                        <span>Real-time insights and monitoring</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-accent mt-1.5">•</span>
+                        <span>Proactive problem detection</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
               )}
