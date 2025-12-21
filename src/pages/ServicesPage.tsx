@@ -226,7 +226,7 @@ export function ServicesPage() {
               </h1>
 
               <p className="text-xl sm:text-2xl md:text-3xl text-accent mb-6 sm:mb-8 font-semibold">
-                Three strategic services that transform how you work, optimize operations, and drive growth
+                Transform how you work, optimize operation, and drive growth.
               </p>
 
               <p className="text-base sm:text-lg md:text-xl text-text-light mb-10 sm:mb-12 max-w-4xl mx-auto leading-relaxed">
