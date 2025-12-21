@@ -407,39 +407,6 @@ export function ServicesPage() {
                 </div>
               )}
 
-              {/* Common Use Cases - Only show when not loading */}
-              {!isLoadingIndustry && (<div className="mb-8 sm:mb-12">
-                <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4 sm:mb-6">
-                  Common Use Cases
-                </h4>
-                <div className="flex sm:flex-wrap gap-3 overflow-x-auto snap-x snap-mandatory pb-2 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide">
-                  {industries[selectedIndustry as keyof typeof industries].useCases.map((useCase, index) => (
-                    <div
-                      key={index}
-                      className="inline-flex items-center transition-all duration-300 flex-shrink-0 snap-start"
-                      style={{
-                        gap: '8px',
-                        background: 'rgba(0, 217, 255, 0.1)',
-                        border: '1px solid rgba(0, 217, 255, 0.3)',
-                        padding: '10px 20px',
-                        borderRadius: '20px',
-                        cursor: 'default',
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.background = 'rgba(0, 217, 255, 0.2)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = 'rgba(0, 217, 255, 0.1)';
-                      }}
-                    >
-                      <span className="text-lg sm:text-xl">{useCase.icon}</span>
-                      <span className="text-white font-medium text-sm sm:text-base whitespace-nowrap">{useCase.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              )}
-
               {/* Detailed Solutions by Service Category */}
               {!isLoadingIndustry && (
               <div className="mb-8 sm:mb-12">
