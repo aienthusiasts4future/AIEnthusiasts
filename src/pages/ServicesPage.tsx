@@ -1,4 +1,4 @@
-import { Zap, Activity, TrendingUp, ChevronRight, ArrowDown, ChevronDown, ChevronUp, Loader2 } from 'lucide-react';
+import { Zap, Activity, TrendingUp, ChevronRight, ArrowDown, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { DetailedUseCaseCard } from '../components/DetailedUseCaseCard';
@@ -156,7 +156,6 @@ const industries = {
 export function ServicesPage() {
   // State management
   const [selectedIndustry, setSelectedIndustry] = useState<string | null>('healthcare');
-  const [expandedService, setExpandedService] = useState<string | null>(null);
   const [expandedDetailCards, setExpandedDetailCards] = useState<Set<number>>(new Set());
   const [isLoadingIndustry, setIsLoadingIndustry] = useState(false);
   const [expandedUseCaseTitle, setExpandedUseCaseTitle] = useState<string | null>(null);
@@ -215,7 +214,6 @@ export function ServicesPage() {
   const handleIndustryClick = (key: string) => {
     setIsLoadingIndustry(true);
     setSelectedIndustry(key);
-    setExpandedService(null);
     setExpandedDetailCards(new Set());
     setExpandedUseCaseTitle(null);
 
@@ -523,93 +521,77 @@ export function ServicesPage() {
                 <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4 sm:mb-6">
                   Detailed Solutions by Service Category
                 </h4>
-                <div className="space-y-4">
+                <div className="space-y-6">
                   {services.map((service) => (
                     <div
                       key={service.id}
-                      className="bg-card-dark border-2 border-accent/20 rounded-lg overflow-hidden"
+                      className="bg-card-dark border-2 border-accent/20 rounded-lg p-6"
                     >
-                      {/* Service Header - Always Visible */}
-                      <button
-                        onClick={() => setExpandedService(expandedService === service.id ? null : service.id)}
-                        className="w-full flex items-center justify-between p-6 hover:bg-accent/5 transition-colors text-left"
-                      >
-                        <div className="flex items-center gap-4">
-                          <div className="flex-shrink-0 w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center">
-                            <service.icon className="w-6 h-6 text-accent" />
-                          </div>
-                          <div>
-                            <h5 className="text-lg sm:text-xl font-bold text-white">
-                              {service.title}
-                            </h5>
-                            <p className="text-sm text-accent">{service.tagline}</p>
-                          </div>
+                      {/* Service Header */}
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="flex-shrink-0 w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center">
+                          <service.icon className="w-6 h-6 text-accent" />
                         </div>
-                        <div className="flex-shrink-0">
-                          {expandedService === service.id ? (
-                            <ChevronUp className="w-6 h-6 text-accent" />
-                          ) : (
-                            <ChevronDown className="w-6 h-6 text-accent" />
-                          )}
+                        <div>
+                          <h5 className="text-lg sm:text-xl font-bold text-white">
+                            {service.title}
+                          </h5>
+                          <p className="text-sm text-accent">{service.tagline}</p>
                         </div>
-                      </button>
+                      </div>
 
-                      {/* Expanded Content */}
-                      {expandedService === service.id && (
-                        <div className="px-6 pb-6 border-t border-accent/20 pt-6 animate-fadeIn">
-                          <div className="grid md:grid-cols-2 gap-6">
-                            {/* Before */}
-                            <div className="bg-primary-light rounded-lg p-5">
-                              <h6 className="text-sm font-bold text-accent mb-3 flex items-center gap-2">
-                                <span className="text-lg">❌</span> Before
-                              </h6>
-                              <ul className="space-y-2 text-text-light text-sm">
-                                <li className="flex gap-2">
-                                  <span>•</span>
-                                  <span>Manual, time-consuming processes</span>
-                                </li>
-                                <li className="flex gap-2">
-                                  <span>•</span>
-                                  <span>High error rates and inconsistency</span>
-                                </li>
-                                <li className="flex gap-2">
-                                  <span>•</span>
-                                  <span>Limited visibility into operations</span>
-                                </li>
-                                <li className="flex gap-2">
-                                  <span>•</span>
-                                  <span>Reactive rather than proactive</span>
-                                </li>
-                              </ul>
-                            </div>
-
-                            {/* After */}
-                            <div className="bg-primary-light rounded-lg p-5">
-                              <h6 className="text-sm font-bold text-accent mb-3 flex items-center gap-2">
-                                <span className="text-lg">✅</span> After
-                              </h6>
-                              <ul className="space-y-2 text-text-light text-sm">
-                                <li className="flex gap-2">
-                                  <span>•</span>
-                                  <span>Automated workflows save hours daily</span>
-                                </li>
-                                <li className="flex gap-2">
-                                  <span>•</span>
-                                  <span>Consistent, accurate results</span>
-                                </li>
-                                <li className="flex gap-2">
-                                  <span>•</span>
-                                  <span>Real-time insights and monitoring</span>
-                                </li>
-                                <li className="flex gap-2">
-                                  <span>•</span>
-                                  <span>Proactive problem detection</span>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
+                      {/* Before/After Content */}
+                      <div className="grid md:grid-cols-2 gap-6">
+                        {/* Before */}
+                        <div className="bg-primary-light rounded-lg p-5">
+                          <h6 className="text-sm font-bold text-accent mb-3 flex items-center gap-2">
+                            <span className="text-lg">❌</span> Before
+                          </h6>
+                          <ul className="space-y-2 text-text-light text-sm">
+                            <li className="flex gap-2">
+                              <span>•</span>
+                              <span>Manual, time-consuming processes</span>
+                            </li>
+                            <li className="flex gap-2">
+                              <span>•</span>
+                              <span>High error rates and inconsistency</span>
+                            </li>
+                            <li className="flex gap-2">
+                              <span>•</span>
+                              <span>Limited visibility into operations</span>
+                            </li>
+                            <li className="flex gap-2">
+                              <span>•</span>
+                              <span>Reactive rather than proactive</span>
+                            </li>
+                          </ul>
                         </div>
-                      )}
+
+                        {/* After */}
+                        <div className="bg-primary-light rounded-lg p-5">
+                          <h6 className="text-sm font-bold text-accent mb-3 flex items-center gap-2">
+                            <span className="text-lg">✅</span> After
+                          </h6>
+                          <ul className="space-y-2 text-text-light text-sm">
+                            <li className="flex gap-2">
+                              <span>•</span>
+                              <span>Automated workflows save hours daily</span>
+                            </li>
+                            <li className="flex gap-2">
+                              <span>•</span>
+                              <span>Consistent, accurate results</span>
+                            </li>
+                            <li className="flex gap-2">
+                              <span>•</span>
+                              <span>Real-time insights and monitoring</span>
+                            </li>
+                            <li className="flex gap-2">
+                              <span>•</span>
+                              <span>Proactive problem detection</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>
