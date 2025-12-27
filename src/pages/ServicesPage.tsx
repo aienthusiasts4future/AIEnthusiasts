@@ -401,7 +401,7 @@ export function ServicesPage() {
               <button
                 key={key}
                 onClick={() => handleIndustryClick(key)}
-                className={`group bg-card-dark rounded-xl p-5 sm:p-6 md:p-8 border-2 transition-all duration-500 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary ${
+                className={`group bg-card-dark rounded-xl p-5 sm:p-6 border-2 transition-all duration-500 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary ${
                   selectedIndustry === key
                     ? 'border-accent shadow-cyan-glow-xl scale-105 selected'
                     : 'border-accent/20 hover:border-accent hover:shadow-cyan-glow-xl hover:scale-105'
@@ -410,15 +410,31 @@ export function ServicesPage() {
                   transition: 'all 0.3s ease-in-out',
                 }}
               >
-                <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{industry.icon}</div>
-                <h3 className={`text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 transition-colors duration-300 ${
+                <div className="text-3xl sm:text-4xl mb-3">{industry.icon}</div>
+                <h3 className={`text-lg sm:text-xl font-bold mb-2 transition-colors duration-300 ${
                   selectedIndustry === key ? 'text-accent' : 'text-white group-hover:text-accent'
                 }`}>
                   {industry.name}
                 </h3>
-                <p className="text-sm sm:text-base text-text-light leading-relaxed">
+                <p className="text-sm text-text-light leading-relaxed mb-3">
                   {industry.description}
                 </p>
+
+                {/* Common Use Cases */}
+                <div className="mt-3 pt-3 border-t border-accent/20">
+                  <p className="text-xs font-semibold text-accent mb-2">Common Use Cases:</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {industry.useCases.slice(0, 6).map((useCase, index) => (
+                      <span
+                        key={index}
+                        className="inline-flex items-center gap-1 text-xs bg-accent/10 border border-accent/30 rounded-md px-2 py-1"
+                      >
+                        <span>{useCase.icon}</span>
+                        <span className="text-text-light/90">{useCase.name}</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </button>
             ))}
           </div>
@@ -480,39 +496,6 @@ export function ServicesPage() {
                     </h3>
                   </div>
                 </div>
-              )}
-
-              {/* Common Use Cases - Only show when not loading */}
-              {!isLoadingIndustry && (<div className="mb-8 sm:mb-12">
-                <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4 sm:mb-6">
-                  Common Use Cases
-                </h4>
-                <div className="flex sm:flex-wrap gap-3 overflow-x-auto snap-x snap-mandatory pb-2 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide">
-                  {industries[selectedIndustry as keyof typeof industries].useCases.map((useCase, index) => (
-                    <div
-                      key={index}
-                      className="inline-flex items-center transition-all duration-300 flex-shrink-0 snap-start"
-                      style={{
-                        gap: '8px',
-                        background: 'rgba(0, 217, 255, 0.1)',
-                        border: '1px solid rgba(0, 217, 255, 0.3)',
-                        padding: '10px 20px',
-                        borderRadius: '20px',
-                        cursor: 'default',
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.background = 'rgba(0, 217, 255, 0.2)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = 'rgba(0, 217, 255, 0.1)';
-                      }}
-                    >
-                      <span className="text-lg sm:text-xl">{useCase.icon}</span>
-                      <span className="text-white font-medium text-sm sm:text-base whitespace-nowrap">{useCase.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
               )}
 
               {/* Detailed Solutions by Service Category */}
